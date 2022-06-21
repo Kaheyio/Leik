@@ -8,4 +8,4 @@ const authRoute = require('./routes/auth');
 app.use('/api/user', authRoute);
 
 
-app.listen(3000, () => console.log('Server works LUCAAAAAAAAAS'));
+app.listen(3000, () => console.log('Server works LUCAAAAAAAAAS http://localhost:3000/api/user'));
