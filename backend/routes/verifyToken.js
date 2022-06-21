@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 // Middleware function to add to the routes that we want to protect
-function authRoute (req, res, next){
+module.exports = function (req, res, next){
 
     // when we send a request, check if we have the auth-token (if user is logged in)
     const token = req.header('auth-token');
@@ -16,6 +16,8 @@ function authRoute (req, res, next){
        const verified = jwt.verify(token, process.env.TOKEN_SECRET);
        // if user is verified successfully
        req.user = verified;
+       /* if successful, continue processing any remaining middleware after this one is done (otherwise no other routes will be processed at all) */
+       next();
     }catch(err){
         res.status(400).send('Invalid Token');
     }

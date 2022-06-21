@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 // Import Routes
 const authRoute = require('./routes/auth');
+const postRoute = require('./routes/posts');
 
 // to hide database credentials
 const dotenv = require('dotenv');
@@ -22,6 +23,7 @@ app.use(express.urlencoded({
 
 // Routes Middlewares
 app.use('/api/user', authRoute);
+app.use('/api/posts', postRoute);
 
 
 app.listen(3000, () => console.log('Server works LUCAAAAAAAAAS http://localhost:3000/api/user'));
