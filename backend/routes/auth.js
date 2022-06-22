@@ -1,9 +1,11 @@
 const router = require('express').Router();
-const Users = require('../db_model/Users');
+const Users = require('../models/Users');
 // to hash the password
 const bcrypt = require('bcryptjs');
 // to generate token
 const jwt = require('jsonwebtoken');
+// to generate leikode
+const generateLK = require('../models/Users').generateLeikode();
 
 // NB: full route is localhost:PORT/api/user/
 // get all users
@@ -45,22 +47,32 @@ router.post('/register', async (req, res) => {
     }
 
     // HASH THE PASSWORD (create a salt and hash the pw, pw = salt + hash with the salt, that only bcrypt can decrypt)
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    const saltPW = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, saltPW);
+
+    // GENERATE LEIKODE
+    let generatedCodes = await generateLK;
+    let generatedCodesArr = Object.values(generatedCodes);
+    const leikode = generatedCodesArr[0];
+    const hashedLeikode = generatedCodesArr[1];
 
     // create new user
     const user = new Users({
         username,
         email,
-        password: hashedPassword
+        password: hashedPassword,
+        leikode: hashedLeikode
     });
 
     try {
         // save user
         const savedUser = await user.save();
+
+        // TODO: DO NOT DISPLAY ANYTHING
         // if saved, only display new user's id instead of whole object
         res.send({
-            created_user: user.id
+            created_user: user.id,
+            original_leikode: leikode
         });
     } catch (err) {
         // catch error
@@ -95,7 +107,9 @@ router.post('/login', async (req, res) => {
     }, process.env.TOKEN_SECRET);
 
     // token identifier
-    res.header('auth-token', token).send({ user_logged_in: token});
+    res.header('auth-token', token).send({
+        user_logged_in: token
+    });
 
 });
 

@@ -1,6 +1,7 @@
+// Middleware function to add to the routes that we want to protect
+
 const jwt = require('jsonwebtoken');
 
-// Middleware function to add to the routes that we want to protect
 module.exports = function (req, res, next){
 
     // when we send a request, check if we have the auth-token (if user is logged in)
