@@ -9,9 +9,8 @@ const jwt = require('jsonwebtoken');
 
 // REGISTER
 module.exports.register_post = async (req, res) => {
-    const username = req.body.username;
-    const email = req.body.email;
-    const password = req.body.password;
+    const {username, email, password } = req.body;
+    
 
     // check if user already exists in the db
     const emailExists = await Users.findOne({
@@ -20,8 +19,12 @@ module.exports.register_post = async (req, res) => {
 
     if (emailExists) {
         return res.status(400).send('This email already exists');
-    }
-
+    };
+    
+    if(password.length < 8) {
+        return res.status(400).send('Password should be at least 8 characters');
+    };
+    
     // HASH THE PASSWORD (create a salt and hash the pw, pw = salt + hash with the salt, that only bcrypt can decrypt)
     const saltPW = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, saltPW);
@@ -63,8 +66,7 @@ module.exports.register_post = async (req, res) => {
 
 // LOGIN
 module.exports.login_post = async (req, res) => {
-    const email = req.body.email;
-    const password = req.body.password;
+    const { email, password } = req.body;
 
     // check if user exists in the db
     const user = await Users.findOne({
