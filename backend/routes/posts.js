@@ -1,11 +1,14 @@
+// TODO: create controller linked to this route
+
 // TEST PROTECTED ROUTE
 const router = require('express').Router();
 
 const Users = require('../models/Users');
 // to protect this route, use middleware
 const verify = require('../middlewares/verifyToken');
-// to decrypt leikode
-const bcrypt = require('bcryptjs');
+
+const leikodeController = require('../controllers/leikodeController');
+
 
 // TEST PROTECTED ROUTE WITH TOKEN IN HEADER
 router.get('/', verify, async (req, res) => {
@@ -16,17 +19,8 @@ router.get('/', verify, async (req, res) => {
     res.send({protected_route_data: foundUser});
 });
 
-// VALIDATE TRANSACTIONS WITH LEIKODE IN PROTECTED RPOUTE
-router.post('/', verify, async (req, res) => {
-    const user = await Users.findById({ _id: req.user._id});
-
-    const leikode = req.body.leikode;
-    const validLeikode = await bcrypt.compare(leikode, user.leikode)
-    if (!validLeikode) {
-        return res.status(400).send('Invalid Leikode');
-    }
-    res.send('Your transaction has been validated');
-});
+// VALIDATE TRANSACTIONS WITH LEIKODE IN PROTECTED ROUTE
+router.post('/', verify, leikodeController.leikode_post);
 
 
 module.exports = router;
