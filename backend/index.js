@@ -11,9 +11,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Connect to DB
-mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true },() => 
-console.log('Connected to database')
-);
+mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true }, () => 
+console.log('Connected to database'));
 
 // Post request Middleware (we use express's body parser so we can send post requests)
 app.use(express.json());

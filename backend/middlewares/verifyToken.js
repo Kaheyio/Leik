@@ -4,8 +4,11 @@ const jwt = require('jsonwebtoken');
 
 module.exports = function (req, res, next){
 
+    // TOKEN IN HEADER
     // when we send a request, check if we have the auth-token (if user is logged in)
-    const token = req.header('auth-token');
+    const token = req.header('auth_token');
+
+    // TODO: TOKEN IN COOKIE ?
 
     // if no token, access denied to the route
     if(!token){

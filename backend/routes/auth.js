@@ -4,8 +4,6 @@ const Users = require('../models/Users');
 const bcrypt = require('bcryptjs');
 // to generate token
 const jwt = require('jsonwebtoken');
-// to generate leikode
-const generateLK = require('../models/Users').generateLeikode();
 
 // NB: full route is localhost:PORT/api/user/
 // get all users
@@ -50,6 +48,9 @@ router.post('/register', async (req, res) => {
     const saltPW = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, saltPW);
 
+    // to generate leikode
+    const generateLK = require('../models/Users').generateLeikode();
+
     // GENERATE LEIKODE
     let generatedCodes = await generateLK;
     let generatedCodesArr = Object.values(generatedCodes);
@@ -74,6 +75,7 @@ router.post('/register', async (req, res) => {
             created_user: user.id,
             original_leikode: leikode
         });
+        // generatedCodeArr
     } catch (err) {
         // catch error
         res.status(400).send(err);
@@ -107,9 +109,15 @@ router.post('/login', async (req, res) => {
     }, process.env.TOKEN_SECRET);
 
     // token identifier
-    res.header('auth-token', token).send({
+    // TOKEN IN HEADER (put it manually in headers to validate posts route)
+    res.header('auth_token', token).send({
         user_logged_in: token
     });
+
+    // TODO: TOKEN IN COOKIE ? 
+    // res.json({
+    //     auth_token: token
+    // });
 
 });
 
