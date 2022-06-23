@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs');
 // to generate token
 const jwt = require('jsonwebtoken');
 
-// REGISTER
+// TODO: NO REGISTER METHOD, USER ALREADY HAS USERNAME EMAIL PASSWORD AND LEIKODE OR CREATE LEIKODE WITH FIRST CONNECTION
 module.exports.register_post = async (req, res) => {
     const {username, email, password } = req.body;
     

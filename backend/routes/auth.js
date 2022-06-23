@@ -17,7 +17,7 @@ router.post('/register', authController.register_post);
 // LOGIN
 router.post('/login', authController.login_post);
 
-// LOGOUT
+// TODO: LOGOUT
 // router.post('/', );
 
 module.exports = router;

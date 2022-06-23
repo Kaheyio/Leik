@@ -21,3 +21,5 @@ module.exports.deleteUser_delete = async (req, res) => {
         res.status(400).send(err);
     }
 };
+
+// TODO: EDIT METHODS FOR APP SETTINGS, PASSWORD (+ LEIKODE IN LKCONTOLLER) + DELETE USER ACCOUNT IN APP

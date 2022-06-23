@@ -13,3 +13,6 @@ module.exports.leikode_post = async (req, res) => {
     }
     res.send('Your transaction has been validated');
 };
+
+
+// TODO: GENERATE LEIKODE ON FIRST CONNECTION (EDIT LEIKODE OR ASK FOR LEIKODE GENERATION IN CONTACT FORM)
