@@ -3,7 +3,7 @@
 // TEST PROTECTED ROUTE
 const router = require('express').Router();
 
-const Users = require('../models/Users');
+const User = require('../models/User');
 // to protect this route, use middleware
 const verify = require('../middlewares/verifyToken');
 
@@ -15,7 +15,7 @@ router.get('/', verify, async (req, res) => {
     // await res.send(req.user);
 
     // find user by its id stored in token
-    const foundUser = await Users.findById({ _id: req.user._id});
+    const foundUser = await User.findById({ _id: req.user._id});
     res.send({protected_route_data: foundUser});
 });
 

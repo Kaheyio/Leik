@@ -1,6 +1,6 @@
 // REGISTRATION AND LOGIN
 
-const Users = require('../models/Users');
+const User = require('../models/User');
 // to hash the password
 const bcrypt = require('bcryptjs');
 
@@ -13,7 +13,7 @@ module.exports.register_post = async (req, res) => {
     
 
     // check if user already exists in the db
-    const emailExists = await Users.findOne({
+    const emailExists = await User.findOne({
         email
     });
 
@@ -30,7 +30,7 @@ module.exports.register_post = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, saltPW);
 
     // to generate leikode
-    const generateLK = require('../models/Users').generateLeikode();
+    const generateLK = require('../models/User').generateLeikode();
 
     // GENERATE LEIKODE
     let generatedCodes = await generateLK;
@@ -39,7 +39,7 @@ module.exports.register_post = async (req, res) => {
     const hashedLeikode = generatedCodesArr[1];
 
     // create new user
-    const user = new Users({
+    const user = new User({
         username,
         email,
         password: hashedPassword,
@@ -69,7 +69,7 @@ module.exports.login_post = async (req, res) => {
     const { email, password } = req.body;
 
     // check if user exists in the db
-    const user = await Users.findOne({
+    const user = await User.findOne({
         email
     });
 

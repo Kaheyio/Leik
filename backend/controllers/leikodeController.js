@@ -1,10 +1,10 @@
-const Users = require('../models/Users');
+const User = require('../models/User');
 // to decrypt leikode
 const bcrypt = require('bcryptjs');
 
 // CHECK USER'S LEIKODE TO VALIDATE TRANSACTIONS
 module.exports.leikode_post = async (req, res) => {
-    const user = await Users.findById({ _id: req.user._id});
+    const user = await User.findById({ _id: req.user._id});
 
     const leikode = req.body.leikode;
     const validLeikode = await bcrypt.compare(leikode, user.leikode)

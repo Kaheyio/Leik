@@ -1,10 +1,10 @@
 // USER CRUD
 
-const Users = require('../models/Users');
+const User = require('../models/User');
 
 // GET ALL USERS
 module.exports.getUsers_get = async (req, res) => {
-    const users = await Users.find();
+    const users = await User.find();
     res.send(users);
 };
 
@@ -13,7 +13,7 @@ module.exports.deleteUser_delete = async (req, res) => {
     const id = req.params.id;
 
     try {
-        const deleteUser = await Users.deleteOne({
+        const deleteUser = await User.deleteOne({
             _id: id
         });
         res.json(deleteUser);

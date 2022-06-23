@@ -42,4 +42,4 @@ userSchema.statics.generateLeikode = async function generateLeikode() {
     return ({createCode, hashedLeikode});
 };
 
-module.exports = mongoose.model('Users', userSchema)
+module.exports = mongoose.model('user', userSchema)
