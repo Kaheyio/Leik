@@ -15,49 +15,60 @@ module.exports.register_post = async (req, res) => {
         password
     } = req.body;
 
+    // CUSTOM VALIDATION BEFORE CREATION
+    // all fields given ?
+    if (!username || !email || !password) {
+        res.send('User was not created, one or several fields missing');
+        return;
+    }
 
-    // check if user already exists in the db
+    // email is valid ?
+    // Email validation pattern
+    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const validEmail = emailRegex.test(email);
+
+    if (!validEmail) {
+        return res.status(400).send('Please enter a valid email');
+        
+    }
+
+    // user already exists in the db ?
     const emailExists = await User.findOne({
         email
     });
 
     if (emailExists) {
-        return res.status(400).send('This email already exists');
+        return res.status(400).send('This user is already registered');
     };
 
-    // console.log();
+
+    // password is at least 8 ?
     if (password.length < 8) {
         return res.status(400).send('Password should be at least 8 characters');
     };
 
+    // END VALIDATION
 
-    try {
-        // HASH THE PASSWORD (create a salt and hash the pw, pw = salt + hash with the salt, that only bcrypt can decrypt)
-        const saltPW = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, saltPW);
 
-        // create new user
-        const user = new User({
-            username,
-            email,
-            password: hashedPassword,
-        });
+    // HASH THE PASSWORD (create a salt and hash the pw, pw = salt + hash with the salt, that only bcrypt can decrypt)
+    const saltPW = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, saltPW);
 
-        // save user
-        const savedUser = await user.save();
+    // create new user
+    const user = new User({
+        username,
+        email,
+        password: hashedPassword,
+    });
 
-        // TODO: DO NOT DISPLAY ANYTHING
-        // if saved, only display new user's id instead of whole object
-        res.status(201).send({
-            created_user: user.id
-        });
+    // save user
+    await user.save();
 
-    } catch (err) {
-        // catch error
-        res.status(400).send({
-            user_not_created: err
-        });
-    }
+    // TODO: DO NOT DISPLAY ANYTHING
+    res.status(201).send({
+        created_user: user.id
+    });
+
 };
 
 
@@ -67,6 +78,10 @@ module.exports.login_post = async (req, res) => {
         email,
         password
     } = req.body;
+
+    if (!email || !password) {
+        return res.status(400).send('Please enter email and password');
+    }
 
     // check if user exists in the db
     const user = await User.findOne({

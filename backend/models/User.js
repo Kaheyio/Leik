@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 // to hash the code
 const bcrypt = require('bcryptjs');
 
+
 // User schema
 const userSchema = new mongoose.Schema({
     username: {

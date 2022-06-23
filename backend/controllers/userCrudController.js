@@ -16,9 +16,9 @@ module.exports.deleteUser_delete = async (req, res) => {
         const deleteUser = await User.deleteOne({
             _id: id
         });
-        res.json(deleteUser);
+        res.status(201).json(deleteUser);
     } catch (err) {
-        res.status(400).send(err);
+        res.status(400).send('An error occurred, user was not deleted');
     }
 };
 

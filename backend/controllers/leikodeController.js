@@ -7,7 +7,12 @@ module.exports.leikode_post = async (req, res) => {
     const user = await User.findById({ _id: req.user._id});
 
     const leikode = req.body.leikode;
-    const validLeikode = await bcrypt.compare(leikode, user.leikode)
+
+    if (!leikode) {
+        return res.status(400).send('Please enter your Leikode');
+    }
+
+    const validLeikode = await bcrypt.compare(leikode, user.leikode);
     if (!validLeikode) {
         return res.status(400).send('Invalid Leikode');
     }
