@@ -16,10 +16,13 @@ module.exports = function (req, res, next){
     }
 
     try{
+        // TODO: decode token to check if it's linked to the current user ?
         // verify token (can't mess around with token)
        const verified = jwt.verify(token, process.env.TOKEN_SECRET);
+
        // if user is verified successfully
        req.user = verified;
+
        /* if successful, continue processing any remaining middleware after this one is done (otherwise no other routes will be processed at all) */
        next();
     }catch(err){

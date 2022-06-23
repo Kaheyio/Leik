@@ -16,13 +16,16 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-        minLength: 8
+        minlength: 8
     },
-    leikode: String 
-},
-{timestamps: true }
-);
+    // Generated on each login
+    leikode: String
+}, {
+    timestamps: true
+});
 
+
+// Generated on each login
 userSchema.statics.generateLeikode = async function generateLeikode() {
     // generate leikode
     const chars = "0123456789ABCDEFGHIJKLMNOPQSTUVWXYZabcdefghijklmnpqrstuvwxyz";
@@ -39,7 +42,10 @@ userSchema.statics.generateLeikode = async function generateLeikode() {
     const hashedLeikode = await bcrypt.hash(createCode, saltLK);
 
     // console.log('code = ' + createCode + '  hashedLK = ' + hashedLeikode);
-    return ({createCode, hashedLeikode});
+    return ({
+        createCode,
+        hashedLeikode
+    });
 };
 
 module.exports = mongoose.model('user', userSchema)
