@@ -17,28 +17,21 @@ dotenv.config();
 mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true }, () => 
 console.log('Connected to database'));
 
+// Middlewares
 // Post request Middleware (we use express's body parser so we can send post requests)
 app.use(express.json());
 app.use(express.urlencoded({
     extended: false
 }));
+// to use cookie parser
+app.use(cookieParser());
 
 // Routes
 app.use('/api/user', authRoute);
 app.use('/api/posts', postRoute);
 
 // Cookies Routes
-app.get('/api/set-cookies', async (req, res) => {
 
-    // to register the cookie in the browser
-    res.setHeader('Set-Cookie', 'newUser=true');
-
-    res.send('you set the cookie');
-});
-
-app.get('/api/read-cookies', async (req, res) => {
-
-});
 
 
 

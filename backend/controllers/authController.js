@@ -72,6 +72,8 @@ module.exports.register_post = async (req, res) => {
 };
 
 
+
+
 // TODO: LOGIN + CHECK IF USER DOESN'T HAVE A LEIKODE (1st login), GENERATE ONE AND NOTIFY
 module.exports.login_post = async (req, res) => {
     const {
@@ -117,21 +119,29 @@ module.exports.login_post = async (req, res) => {
     await userLK.save();
 
 
-    // CREATE AND ASSIGN TOKEN (token contains id)
+    // CREATE AND ASSIGN TOKEN (token contains user id)
+    // TODO: should also have an expiration date, because stored in cookie that expires if session ends
+    // expiration date = 30 min
+    const maxAge = 30 * 60;
     const token = jwt.sign({
         _id: user._id
-    }, process.env.TOKEN_SECRET);
+    }, process.env.TOKEN_SECRET, { expiresIn: maxAge });
 
     // token identifier
     // TOKEN IN HEADER (put it manually in headers to validate posts route)
-    res.header('auth_token', token).send({
-        welcome: user.username,
-        user_logged_in: token,
-        generated_leikode: leikode
-    });
-
-    // TODO: TOKEN IN COOKIE ? 
-    // res.json({
-    //     auth_token: token
+    // res.header('auth_token', token).send({
+    //     welcome: user.username,
+    //     user_logged_in: token,
+    //     generated_leikode: leikode
     // });
+
+    // TOKEN IN COOKIE ?
+    // TODO: cookie expires if session ends ? or set maxAge to 1 hour ?
+    res.cookie('auth_token', token, { httpOnly: true, maxAge: maxAge * 2 * 1000});
+    // TODO: do not send token
+    res.status(201).send({
+            welcome: user.username,
+            user_logged_in: token,
+            generated_leikode: leikode
+        });
 };

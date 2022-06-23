@@ -10,6 +10,8 @@ module.exports = function (req, res, next) {
 
     // TODO: TOKEN IN COOKIE ?
 
+
+
     // if no token, access denied to the route
     if (!token) {
         return res.status(401).send('Access denied');
@@ -18,6 +20,8 @@ module.exports = function (req, res, next) {
     try {
         // TODO: decode token to check if it's linked to the current user ?
         // verify token (can't mess around with token)
+        // TODO: also checks if token has expired ?
+
         const verified = jwt.verify(token, process.env.TOKEN_SECRET);
 
         // if user is verified successfully
