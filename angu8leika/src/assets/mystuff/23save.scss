@@ -101,10 +101,10 @@
     scrollbar-width: none;
     height: 100%;
 }
-// ******************TRANSACTIONS COMPONENT *******************************************************************
+// ******************TRANSACTIONS SUBCOMPONENT *******************************************************************
 //////////////////// Main 
 .lulutransacard{
-    max-height: 17%;
+    max-height: 20%;
 }
 .lulutransacard-categorylogo{
     width: 15%;
@@ -118,14 +118,13 @@
     font-size: 0.8rem;
 }
 .lulutransacard-title{
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 .lulutransacard-category{
     color: grey;
 }
 .lulutransacard-price{
-    width: 20%;
-    font-size: 0.9rem;
+    width: 20%
 }
 
 
@@ -136,18 +135,9 @@
 #rejectedopscontent .lulutransacard{
     background-color: var(--lulured);
 }
-#pendingops .lulutransacard{
+#pendingopscontent .lulutransacard{
     background-color: var(--luluyellow);
 }
-#incomingops .lulutransacard{
+#incomingopscontent .lulutransacard{
     background-color: var(--lulugreen);
-}
-// ******************TRANSFER COMPONENT *******************************************************************
-.lulutransfercomponent-wrapper{
-    height: 100%;
-}
-#lulutest1{
-    height: 60%;
-    overflow-y: scroll;
-    scrollbar-width: none;
 }
