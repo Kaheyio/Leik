@@ -1,0 +1,18 @@
+//////////////////// Section picker
+#lulusectionpicker {
+    overflow-x: scroll;
+    scrollbar-width: none;  /* Hide scrollbar in Firefox */
+}
+#lulusectionpicker .nav-link{
+    color: var(--lulugrey4);
+}
+#lulusectionpicker .nav-link.active {
+    background-color: var(--lulugrey3);
+    color: black;
+}
+
+//////////////////// Section displayer
+#transactionscomponent-displayer{
+    overflow-y: scroll;
+    scrollbar-width: none;
+}

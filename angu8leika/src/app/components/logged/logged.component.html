@@ -1,0 +1,75 @@
+<div class="luluh100 luluw100" id="luluwrapper-whole">
+
+    <div id="luluwrapper-top">
+        <!-- Top navbar -->
+        <ul class="luluh100 nav bg-dark justify-content-end" id="lulutopnav">
+            <!-- Logo -->
+            <li class="luluh100 p-1 nav-item me-auto">
+                <img class="luluh100" src="../assets/logohoriz.png" alt="">
+            </li>
+            <!-- Chat icon -->
+            <li class="nav-item my-auto">
+                <button class="btn bg-dark" href="#"><i class="fa-brands fa-rocketchat"></i></button>
+            </li>
+            <!-- Logout icon -->
+            <li class="nav-item my-auto">
+                <button class="btn bg-dark" href="#"><i class="fa-solid fa-right-from-bracket"></i></button>
+            </li>
+        </ul>
+    </div>
+
+    <div id="luluwrapper-center">
+        <!-- Tab Displayer -->
+        <div class="luluh100 tab-content">
+            <!-- Accounts tab -->
+            <div class="luluh100 tab-pane fade show active" id="accountcomponent-displayer" role="tabpanel"
+                aria-labelledby="accountcomponent-btn" tabindex="0">
+                <app-accounts></app-accounts>
+            </div>
+            <!-- Transfer tab -->
+            <div class="tab-pane fade" id="transfercomponent-displayer" role="tabpanel"
+                aria-labelledby="transfercomponent-btn" tabindex="0">
+                <!--NOTE used to have lulumaincomponentsubdisplayer class -->
+                <app-transfer></app-transfer>
+            </div>
+            <!-- Manage tab -->
+            <div class="tab-pane fade" id="managecomponent-displayer" role="tabpanel"
+                aria-labelledby="managecomponent-btn" tabindex="0">
+                <app-contact></app-contact>
+                <!--TODO I put content in contact component because i'm sure contact won't move but I don't know where to place manage component since it influences everything -->
+            </div>
+        </div>
+    </div>
+
+    <div id="luluwrapper-bottom">
+        <!-- Bottom navbar -->
+        <ul class="luluh100 nav nav-pills bg-dark d-flex flex-row justify-content-center align-items-center py-1"
+            id="lulubottomnav" role="tablist">
+            <!-- Accounts btn -->
+            <li class="luluh100 nav-item d-flex flex-column justify-content-center" role="presentation">
+                <button class="luluh100 nav-link d-flex flex-column align-items-center justify-content-evenly active"
+                    id="accountcomponent-btn" data-bs-toggle="pill" data-bs-target="#accountcomponent-displayer"
+                    type="button" role="tab" aria-controls="accountcomponent-displayer" aria-selected="true">
+                    <i class="my-1 fa-solid fa-xl fa-receipt"></i>
+                </button>
+            </li>
+            <!-- Transfers btn -->
+            <li class="luluh100 nav-item d-flex flex-column justify-content-center" role="presentation">
+                <button class="luluh100 nav-link d-flex flex-column align-items-center justify-content-evenly"
+                    id="transfercomponent-btn" data-bs-toggle="pill" data-bs-target="#transfercomponent-displayer"
+                    type="button" role="tab" aria-controls="transfercomponent-displayer" aria-selected="false">
+                    <i class="my-1 fa-solid fa-xl fa-money-bill-transfer"></i>
+                </button>
+            </li>
+            <!-- Manage btn -->
+            <li class="luluh100 nav-item d-flex flex-column justify-content-center" role="presentation">
+                <button class="luluh100 nav-link d-flex flex-column align-items-center justify-content-evenly"
+                    id="managecomponent-btn" data-bs-toggle="pill" data-bs-target="#managecomponent-displayer"
+                    type="button" role="tab" aria-controls="managecomponent-displayer" aria-selected="false">
+                    <i class="my-1 fa-solid fa-xl fa-ellipsis"></i>
+                </button>
+            </li>
+        </ul>
+    </div>
+
+</div>

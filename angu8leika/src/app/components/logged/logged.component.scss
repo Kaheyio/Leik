@@ -1,0 +1,29 @@
+///////////////////////////// Basic layout
+#luluwrapper-top{
+    height: 9%; //used to be 8%
+}
+#luluwrapper-center{
+    height: 82%;
+}
+#luluwrapper-bottom{
+    height: 9%; // used to be 10%
+}
+
+///////////////////////////// Top nav
+#lulutopnav button{ //overrides bootstrap active states
+    color: var(--lulugold1);
+}
+///////////////////////////// Bottom nav
+#lulubottomnav li{
+    width: 33%;
+}
+#lulubottomnav button{
+    color: var(--lulugold1);
+}
+#lulubottomnav .nav-link.active { //overrides #lulubottomnavbutton
+    background-color: var(--lulugrey4);
+    color: black;
+}
+.nav-link, .nav-link.active{
+    border-radius: 0px;
+}

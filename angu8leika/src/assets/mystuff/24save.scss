@@ -1,0 +1,153 @@
+// APP COMPONENT
+.luluwrapper-global{
+    width: 100%;
+    height: 100%;
+}
+// ******************LOGGED-IN BASIC STRUCTURE COMPONENT*******************************************************************
+.luluwrapper-top{
+    height: 8%;
+}
+.luluwrapper-center{
+    height: 82%;
+}
+.luluwrapper-bottom{
+    height: 10%;
+}
+
+// ******************LOGGED-IN COMPONENT *******************************************************************
+//Top nav
+.lulutopnav{
+    height: 100%; //of wrapper-top
+}
+.lulutopnav button{
+    border-style: none;
+    color: var(--lulugrey3);
+}
+.lululogocontainer{
+    height: 100%;
+    padding: 5px;
+}
+.lululogocontainer img{
+    height: 100%;
+}
+
+//Bottom nav
+.lulubottomnav{
+    height: 100%;
+}
+.lulubottomnav li{
+    width: 33%;
+    height: 100%;
+}
+.lulubottomnav button{
+    height: 100%;
+    color: var(--lulugrey3);
+}
+.lulubottomnav .nav-link {
+    border-radius: 0px;
+}
+.lulubottomnav .nav-link.active {
+    background-color: var(--lulugrey4);
+    color: black;
+    border-radius: 0px;
+}
+// Center wrapper for stuff coming from bottomnav
+.lulumaincomponentdisplayer, .lulumaincomponentsubdisplayer{
+    height: 100%;
+}
+
+// ******************ACCOUNTS COMPONENT *******************************************************************
+//////////////////// Account picker
+.luluaccountpicker{
+    overflow-x: scroll;
+    scrollbar-width: none;  /* Hide scrollbar in Firefox */
+    
+    height: 9%;
+}
+.luluaccountpill{
+    font-size: 0.9rem;
+    min-width: fit-content; // not sure i need this?
+}
+.luluaccountpilllabel{
+    border-radius: 3px;
+    border-style: none;
+    
+    --bs-btn-focus-shadow-rgb: none;
+    
+    // background-color: var(--lulugrey4) this is basic color, also find selector for checked color
+}
+
+//////////////////// Section picker
+.lulusectionpicker {
+    overflow-x: scroll;
+    scrollbar-width: none;  /* Hide scrollbar in Firefox */
+
+    height: 9%;
+}
+.lulusectionpicker .nav-link{
+    color: black;
+}
+.lulusectionpicker .nav-link.active {
+    background-color: var(--lulugrey4);
+    color: black;
+}
+
+//////////////////// Section (= subcomponent) displayer
+.lulusectiondisplayer{
+    height: 82%;
+}
+.lulusectionsubdisplayer{
+    overflow-y: scroll;
+    scrollbar-width: none;
+    height: 100%;
+}
+// ******************TRANSACTIONS COMPONENT *******************************************************************
+//////////////////// Main 
+.lulutransacard{
+    max-height: 17%;
+}
+.lulutransacard-categorylogo{
+    width: 15%;
+}
+.lulutransacard-categorylogo img{
+    height: 60%;
+    width: auto;
+}
+.lulutransacard-description{
+    width: 60%;
+    font-size: 0.8rem;
+}
+.lulutransacard-title{
+    font-size: 0.9rem;
+}
+.lulutransacard-category{
+    color: grey;
+}
+.lulutransacard-price{
+    width: 20%;
+    font-size: 0.9rem;
+}
+
+
+//////////////////// Collapse stuff
+#rejectedopscontent, #pendingopscontent, #incomingopscontent{
+    width: 100%;
+}
+#rejectedopscontent .lulutransacard{
+    background-color: var(--lulured);
+}
+#pendingops .lulutransacard{
+    background-color: var(--luluyellow);
+}
+#incomingops .lulutransacard{
+    background-color: var(--lulugreen);
+}
+// ******************TRANSFER COMPONENT *******************************************************************
+.lulutransfercomponent-wrapper{
+    height: 100%;
+}
+#lulutest1{
+    height: 60%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
