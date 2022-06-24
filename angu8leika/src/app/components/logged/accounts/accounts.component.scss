@@ -1,0 +1,45 @@
+// ******************ACCOUNTS COMPONENT *******************************************************************
+//////////////////// Account picker
+.luluaccountpicker{
+    overflow-x: scroll;
+    scrollbar-width: none;  /* Hide scrollbar in Firefox */
+    
+    height: 9%;
+}
+.luluaccountpill{
+    font-size: 0.9rem;
+    min-width: fit-content; // not sure i need this?
+}
+.luluaccountpilllabel{
+    border-radius: 3px;
+    border-style: none;
+    
+    --bs-btn-focus-shadow-rgb: none;
+    
+    // background-color: var(--lulugrey4) this is basic color, also find selector for checked color
+}
+
+//////////////////// Section picker
+.lulusectionpicker {
+    overflow-x: scroll;
+    scrollbar-width: none;  /* Hide scrollbar in Firefox */
+
+    height: 9%;
+}
+.lulusectionpicker .nav-link{
+    color: black;
+}
+.lulusectionpicker .nav-link.active {
+    background-color: var(--lulugrey4);
+    color: black;
+}
+
+//////////////////// Section (= subcomponent) displayer
+.lulusectiondisplayer{
+    height: 82%;
+}
+.lulusectionsubdisplayer{
+    overflow-y: scroll;
+    scrollbar-width: none;
+    height: 100%;
+}

@@ -1,0 +1,57 @@
+// APP COMPONENT
+.luluwrapper-global{
+    width: 100%;
+    height: 100%;
+}
+// ******************LOGGED-IN BASIC STRUCTURE COMPONENT*******************************************************************
+.luluwrapper-top{
+    height: 8%;
+}
+.luluwrapper-center{
+    height: 82%;
+}
+.luluwrapper-bottom{
+    height: 10%;
+}
+
+// ******************LOGGED-IN COMPONENT *******************************************************************
+//Top nav
+.lulutopnav{
+    height: 100%; //of wrapper-top
+}
+.lulutopnav button{
+    border-style: none;
+    color: var(--lulugrey3);
+}
+.lululogocontainer{
+    height: 100%;
+    padding: 5px;
+}
+.lululogocontainer img{
+    height: 100%;
+}
+
+//Bottom nav
+.lulubottomnav{
+    height: 100%;
+}
+.lulubottomnav li{
+    width: 33%;
+    height: 100%;
+}
+.lulubottomnav button{
+    height: 100%;
+    color: var(--lulugrey3);
+}
+.lulubottomnav .nav-link {
+    border-radius: 0px;
+}
+.lulubottomnav .nav-link.active {
+    background-color: var(--lulugrey4);
+    color: black;
+    border-radius: 0px;
+}
+// Center wrapper for stuff coming from bottomnav
+.lulumaincomponentdisplayer, .lulumaincomponentsubdisplayer{
+    height: 100%;
+}

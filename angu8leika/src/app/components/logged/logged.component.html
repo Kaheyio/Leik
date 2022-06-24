@@ -1,0 +1,79 @@
+<div class="luluwrapper-global">
+    <!-- Appcomponent whole wrapper -->
+
+    <div class="luluwrapper-top">
+        <!-- LOGGED IN COMPONENT -->
+        <!-- Top navbar -->
+        <ul class="nav bg-dark justify-content-end lulutopnav">
+            <li class="nav-item me-auto lululogocontainer ">
+                <img src="../assets/logohoriz.png" alt="">
+            </li>
+            <li class="nav-item my-auto">
+                <button class="btn bg-dark" href="#"><i class="fa-brands fa-rocketchat"></i></button>
+            </li>
+            <li class="nav-item my-auto">
+                <button class="btn bg-dark" href="#"><i class="fa-solid fa-right-from-bracket"></i></button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="luluwrapper-center">
+        <!-- Tab Displayer -->
+        <div class="lulumaincomponentdisplayer tab-content" id="maincomponentdisplayerid">
+
+            <!-- Accounts tab -->
+            <div class="lulumaincomponentsubdisplayer tab-pane fade show active" id="accountcomponentdisplayerid"
+                role="tabpanel" aria-labelledby="accountcomponentdisplayerid-tab" tabindex="0">
+                <app-accounts></app-accounts>
+            </div>
+            <!-- Transfer tab -->
+            <div class="lulumaincomponentsubdisplayer tab-pane fade" id="transfercomponentdisplayer" role="tabpanel"
+                aria-labelledby="transfercomponentdisplayer-tab" tabindex="0">
+                <app-transfer></app-transfer>
+            </div>
+            <!-- Manage tab -->
+            <div class="lulumaincomponentsubdisplayer tab-pane fade" id="managebottomcomponentdisplayer" role="tabpanel"
+                aria-labelledby="managebottomcomponentdisplayer-tab" tabindex="0">
+                <!--++ put content in contact component because i'm sure contact won't move but I don't know where to place manage component since it influences everything -->
+                <app-contact></app-contact>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="luluwrapper-bottom">
+        <!-- Bottom navbar -->
+        <ul class="nav nav-pills bg-dark lulubottomnav d-flex flex-row justify-content-center align-items-center py-1"
+            id="bottomnav-tab" role="tablist">
+            <!-- pt-3 because damn icons buggy -->
+            <li class="nav-item d-flex flex-column justify-content-center" role="presentation">
+                <button class="pt-3 nav-link d-flex flex-column align-items-center justify-content-evenly active"
+                    id="accountcomponentdisplayerid-tab" data-bs-toggle="pill"
+                    data-bs-target="#accountcomponentdisplayerid" type="button" role="tab"
+                    aria-controls="transactionsubcomponentdisplayer" aria-selected="true">
+                    <i class="fa-solid my-1 fa-xl fa-receipt"></i>
+                    <p class="m-0">Accounts</p>
+                </button>
+            </li>
+            <li class="nav-item d-flex flex-column justify-content-center" role="presentation">
+                <button class="pt-3 nav-link d-flex flex-column align-items-center justify-content-evenly"
+                    id="transfercomponentdisplayer-tab" data-bs-toggle="pill"
+                    data-bs-target="#transfercomponentdisplayer" type="button" role="tab"
+                    aria-controls="transactionsubcomponentdisplayer" aria-selected="false">
+                    <i class="fa-solid my-1 fa-xl fa-money-bill-transfer"></i>
+                    <p class="m-0">Transfer</p>
+                </button>
+            </li>
+            <li class="nav-item d-flex flex-column justify-content-center" role="presentation">
+                <button class="pt-3 nav-link d-flex flex-column align-items-center justify-content-evenly"
+                    id="managebottomcomponentdisplayer-tab" data-bs-toggle="pill"
+                    data-bs-target="#managebottomcomponentdisplayer" type="button" role="tab"
+                    aria-controls="transactionsubcomponentdisplayer" aria-selected="false">
+                    <i class="fa-solid my-1 fa-xl fa-ellipsis"></i>
+                    <p class="m-0">Manage</p>
+                </button>
+            </li>
+        </ul>
+    </div>
+
+</div>
