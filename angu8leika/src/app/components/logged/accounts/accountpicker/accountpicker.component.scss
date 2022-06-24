@@ -1,0 +1,19 @@
+//////////////////// Account picker
+#luluaccountpicker{
+    overflow-x: scroll;
+    scrollbar-width: none;  /* Hide scrollbar in Firefox */
+    
+    height: 9%;
+}
+.luluaccountpill{
+    font-size: 0.9rem;
+    min-width: fit-content; // not sure i need this?
+}
+.luluaccountpilllabel{
+    border-radius: 3px;
+    border-style: none;
+    
+    --bs-btn-focus-shadow-rgb: none;
+    
+    // background-color: var(--lulugrey4) this is basic color, also find selector for checked color
+}

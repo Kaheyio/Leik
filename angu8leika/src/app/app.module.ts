@@ -11,6 +11,9 @@ import { ContactComponent } from './components/logged/contact/contact.component'
 import { TransactionsComponent } from './components/logged/accounts/transactions/transactions.component';
 import { SpecialComponent } from './components/logged/accounts/transactions/special/special.component';
 import { HistoryComponent } from './components/logged/accounts/transactions/history/history.component';
+import { AccountpickerComponent } from './components/logged/accounts/accountpicker/accountpicker.component';
+import { CardsComponent } from './components/logged/accounts/cards/cards.component';
+import { StatsComponent } from './components/logged/accounts/stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { HistoryComponent } from './components/logged/accounts/transactions/hist
     ContactComponent,
     TransactionsComponent,
     SpecialComponent,
-    HistoryComponent
+    HistoryComponent,
+    AccountpickerComponent,
+    CardsComponent,
+    StatsComponent,
   ],
   imports: [
     BrowserModule,

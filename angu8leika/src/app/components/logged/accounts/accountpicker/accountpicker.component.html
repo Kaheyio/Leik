@@ -1,0 +1,25 @@
+<!-- TODO anchors -->
+<div class="py-1 d-flex flex-row justify-content-start align-items-center" id="luluaccountpicker">
+    <div class="luluaccountpill mx-1">
+        <!--++ *ngFor="let displayedAccount of accountsList" -->
+        <input type="radio" class="btn-check" name="picked-account" id="account1" autocomplete="off" checked>
+        <!--++ first one has CHECKED value, others don't -->
+        <label class="luluaccountpilllabel btn btn-secondary d-flex flex-row align-items-center justify-content-center"
+            for="account1">
+            <div class="mx-1">Sample</div>
+            <!--++ {{displayedAccount.Title | slice:0:}}-->
+            <!--++ Make it shrink with "..." -->
+            <div class="mx-1">250 000 000$</div>
+            <!--++ {{displayedAccount.Balance | currency}} ++This should be green if positive red if negative -->
+        </label>
+    </div>
+    <!-- JUST A COPY, different id, no checked attribute -->
+    <div class="luluaccountpill mx-1">
+        <input type="radio" class="btn-check" name="picked-account" id="account2" autocomplete="off">
+        <label class="luluaccountpilllabel btn btn-secondary d-flex flex-row align-items-center justify-content-center"
+            for="account2">
+            <div class="mx-1">Sample</div>
+            <div class="mx-1">250 000 000$</div>
+        </label>
+    </div>
+</div>

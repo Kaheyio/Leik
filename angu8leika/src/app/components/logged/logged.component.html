@@ -20,21 +20,21 @@
 
     <div id="luluwrapper-center">
         <!-- Tab Displayer -->
-        <div class="luluh100 tab-content" id="">
+        <div class="luluh100 tab-content">
             <!-- Accounts tab -->
-            <div class="luluh100 tab-pane fade show active" id="accountcomponentdisplayer" role="tabpanel"
-                aria-labelledby="accountcomponentbtn" tabindex="0">
+            <div class="luluh100 tab-pane fade show active" id="accountcomponent-displayer" role="tabpanel"
+                aria-labelledby="accountcomponent-btn" tabindex="0">
                 <app-accounts></app-accounts>
             </div>
             <!-- Transfer tab -->
-            <div class="tab-pane fade" id="transfercomponentdisplayer" role="tabpanel"
-                aria-labelledby="transfercomponentbtn" tabindex="0">
+            <div class="tab-pane fade" id="transfercomponent-displayer" role="tabpanel"
+                aria-labelledby="transfercomponent-btn" tabindex="0">
                 <!--NOTE used to have lulumaincomponentsubdisplayer class -->
                 <app-transfer></app-transfer>
             </div>
             <!-- Manage tab -->
-            <div class="tab-pane fade" id="managecomponentdisplayer" role="tabpanel"
-                aria-labelledby="managecomponentbtn" tabindex="0">
+            <div class="tab-pane fade" id="managecomponent-displayer" role="tabpanel"
+                aria-labelledby="managecomponent-btn" tabindex="0">
                 <app-contact></app-contact>
                 <!--TODO I put content in contact component because i'm sure contact won't move but I don't know where to place manage component since it influences everything -->
             </div>
@@ -48,24 +48,24 @@
             <!-- Accounts btn -->
             <li class="luluh100 nav-item d-flex flex-column justify-content-center" role="presentation">
                 <button class="luluh100 nav-link d-flex flex-column align-items-center justify-content-evenly active"
-                    id="accountcomponentbtn" data-bs-toggle="pill" data-bs-target="#accountcomponentdisplayer"
-                    type="button" role="tab" aria-controls="transactionsubcomponentdisplayer" aria-selected="true">
+                    id="accountcomponent-btn" data-bs-toggle="pill" data-bs-target="#accountcomponent-displayer"
+                    type="button" role="tab" aria-controls="accountcomponent-displayer" aria-selected="true">
                     <i class="my-1 fa-solid fa-xl fa-receipt"></i>
                 </button>
             </li>
             <!-- Transfers btn -->
             <li class="luluh100 nav-item d-flex flex-column justify-content-center" role="presentation">
                 <button class="luluh100 nav-link d-flex flex-column align-items-center justify-content-evenly"
-                    id="transfercomponentbtn" data-bs-toggle="pill" data-bs-target="#transfercomponentdisplayer"
-                    type="button" role="tab" aria-controls="transactionsubcomponentdisplayer" aria-selected="false">
+                    id="transfercomponent-btn" data-bs-toggle="pill" data-bs-target="#transfercomponent-displayer"
+                    type="button" role="tab" aria-controls="transfercomponent-displayer" aria-selected="false">
                     <i class="my-1 fa-solid fa-xl fa-money-bill-transfer"></i>
                 </button>
             </li>
             <!-- Manage btn -->
             <li class="luluh100 nav-item d-flex flex-column justify-content-center" role="presentation">
                 <button class="luluh100 nav-link d-flex flex-column align-items-center justify-content-evenly"
-                    id="managecomponentbtn" data-bs-toggle="pill" data-bs-target="#managecomponentdisplayer"
-                    type="button" role="tab" aria-controls="transactionsubcomponentdisplayer" aria-selected="false">
+                    id="managecomponent-btn" data-bs-toggle="pill" data-bs-target="#managecomponent-displayer"
+                    type="button" role="tab" aria-controls="managecomponent-displayer" aria-selected="false">
                     <i class="my-1 fa-solid fa-xl fa-ellipsis"></i>
                 </button>
             </li>
