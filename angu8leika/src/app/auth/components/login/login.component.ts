@@ -37,11 +37,12 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
+
+    // login form validation
     if (this.loginForm.invalid) {
       this.errorState = true;
-
-      // TODO: return message generated in backend
-      this.errorMessage = "Please indicate email and password";
+      
+      // this.errorMessage = "Please indicate email and password";
       return;
     }
 
@@ -49,17 +50,27 @@ export class LoginComponent implements OnInit {
     console.log("Your form data: ", this.loginForm.value);  
     
     this.apiService.postTypeRequest('/login', this.loginForm.value).subscribe((res: any) => {
-      if (res.status) {
+     
+     
+      if (res.status == 200) {
         console.log(res);
 
         // this._auth.setDataInLocalStorage('userData', JSON.stringify(res.data));  
         // this._auth.setDataInLocalStorage('token', res.token);  
         
         // TODO: navigate to logged page
-        this.isLogin = true;
-        this.router.navigate(['']);
+        // this.isLogin = true;
+        // this.router.navigate(['']);
         
       }
+
+      // if(res.status == 400) {
+      //   this.errorState = true;
+      // this.errorMessage = res;
+      // console.log('test' + res);
+      
+      // }
+      
 
       // TODO: handle errors so if !res.status handle errors else log in
     });
