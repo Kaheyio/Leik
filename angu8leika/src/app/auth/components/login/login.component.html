@@ -1,0 +1,33 @@
+<div class="logged-out" *ngIf="!this.isLogin">
+  <h1>Leika | Log in</h1>
+
+  <!-- error message -->
+  <div *ngIf="errorMessage">
+    <p>{{ errorMessage }}</p>
+  </div>
+  
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    <!-- email -->
+    <input type="email" placeholder="name@example.com" name="email"
+          formControlName="email">
+        <label>Email address</label>
+<!-- password -->
+<input type="password" placeholder="Password" name="password"
+          formControlName="password" #togglePassword>
+        <label>Password</label>
+
+        <!-- toogle password -->
+        <input type="checkbox" (click)="togglePW()">
+        <label >Show password</label>
+
+        <button type="submit">Sign in</button>
+
+  </form>
+</div>
+
+<!-- TODO: TEST LOGIN AND LOGGED OUT -->
+<div class="logged-in" *ngIf="this.isLogin">
+  <h1>You are logged in</h1>
+  <button (click)="logout()">Log out</button>
+</div>
