@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+
+// SOMEHOW THIS SHIT CAUSES AN ERROR
+// @import "~bootstrap/dist/css/bootstrap.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// ******************STYLES REFS*******************************************************************
+
+// TODO clear up colors
+:root{
+    --lulublack: #141414ff;
+    --lulublack2: #242424ff;
+    
+    --lulugrey1a: #f7f7f7fb; 
+    --lulugrey1b: #f1efef;
+    --lulugrey3: #C3C0C0ff;
+    --lulugrey4: #727272;
+    --lulugrey5: #212529;
+    --lulugold1: #DDC172ff;
+    --lulugold2: #D2B86Dff;
+    
+    --lulubtngrey: #C3C0C0ff;
+    --lulubtnred: rgb(212, 30, 30);
+
+    --lulured: rgb(248, 182, 182);
+    --luluyellow: rgb(249, 255, 170);
+    --lulugreen: rgb(199, 248, 187);
+}
+
+// GLOBAL CLASSES
+.luluh100{
+    height: 100%;
+}
+.luluh91{
+    height: 91%;
+}
+.luluh90{
+    height: 90%;
+}
+.luluh10{
+    height: 10%;
+}
+.luluh9{
+    height: 9%;
+}
+.luluw100{
+    width: 100%;
+}
