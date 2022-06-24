@@ -35,4 +35,4 @@ app.use('/api/posts', postRoute);
 
 
 
-app.listen(3000, () => console.log('Server works LUCAAAAAAAAAS http://localhost:3000/api/user'));
+app.listen(process.env.API_PORT, () => console.log(`Server works: http://localhost:${process.env.API_PORT}/api/user`));
