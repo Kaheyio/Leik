@@ -45,11 +45,39 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    // TODO: use login method from api and auth service
-    console.log("Your form data: ", this.loginForm.value);    
-  }
+    // TODO: use login method from api 
+    console.log("Your form data: ", this.loginForm.value);  
+    
+    this.apiService.postTypeRequest('/login', this.loginForm.value).subscribe((res: any) => {
+      if (res.status) {
+        console.log(res);
 
-  // TODO: getuserdatils method from backend ?
+        // this._auth.setDataInLocalStorage('userData', JSON.stringify(res.data));  
+        // this._auth.setDataInLocalStorage('token', res.token);  
+        
+        // TODO: navigate to logged page
+        this.isLogin = true;
+        this.router.navigate(['']);
+        
+      }
+
+      // TODO: handle errors so if !res.status handle errors else log in
+    });
+
+
+    // this._api.postTypeRequest('user/login', form.value).subscribe((res: any) => {
+     
+    //   if (res.status) { 
+       
+    //     this._auth.setDataInLocalStorage('userData', JSON.stringify(res.data));  
+    //     this._auth.setDataInLocalStorage('token', res.token);  
+    //     this._router.navigate(['']);
+    //   }
+    // })
+
+  };
+
+  // TODO: getuserdetails from cookie in login method and not from token set in localStorage
   // isUserLogin() {
   //   if (this.authService.getUserDetails() != null) {
   //     this.isLogin = true;
@@ -63,11 +91,12 @@ export class LoginComponent implements OnInit {
     } else {
       this.togglePassword.nativeElement.type = "password";
     }
-  }
+  };
 
   logout(){
     // TODO: backend method in authservice to destroy cookie
+    // this._auth.clearStorage()
     this.router.navigate(['']);
-  }
+  };
 
 }
