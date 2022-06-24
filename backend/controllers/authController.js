@@ -76,6 +76,7 @@ module.exports.register_post = async (req, res) => {
 
 // TODO: LOGIN + CHECK IF USER DOESN'T HAVE A LEIKODE (1st login), GENERATE ONE AND NOTIFY
 module.exports.login_post = async (req, res) => {
+   // TODO: transfer form validation to front
     const {
         email,
         password
@@ -85,6 +86,7 @@ module.exports.login_post = async (req, res) => {
         return res.status(400).send('Please enter email and password');
     }
 
+    // TODO: pass get user method in apiservice
     // check if user exists in the db
     const user = await User.findOne({
         email
@@ -93,6 +95,8 @@ module.exports.login_post = async (req, res) => {
     if (!user) {
         return res.status(400).send('Email and/or password incorrect');
     }
+
+
 
     // check if password is correct
     const validPassword = await bcrypt.compare(password, user.password);
@@ -137,6 +141,7 @@ module.exports.login_post = async (req, res) => {
 
     // TOKEN IN COOKIE ?
     // TODO: cookie expires if session ends ? or set maxAge to 1 hour ?
+    // TODO: httponly for dev, and add secure for prod with https
     res.cookie('auth_token', token, { httpOnly: true, maxAge: maxAge * 2 * 1000});
     // TODO: do not send token
     res.status(201).send({
