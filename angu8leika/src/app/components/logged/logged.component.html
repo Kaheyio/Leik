@@ -1,75 +1,77 @@
-<div class="luluwrapper-global">
-    <!-- Appcomponent whole wrapper -->
+<div class="luluh100 luluw100" id="luluwrapper-whole">
 
-    <div class="luluwrapper-top">
-        <!-- LOGGED IN COMPONENT -->
+    <div id="luluwrapper-top">
         <!-- Top navbar -->
-        <ul class="nav bg-dark justify-content-end lulutopnav">
-            <li class="nav-item me-auto lululogocontainer ">
-                <img src="../assets/logohoriz.png" alt="">
+        <ul class="luluh100 nav bg-dark justify-content-end" id="lulutopnav">
+            <!-- Logo -->
+            <li class="luluh100 p-1 nav-item me-auto">
+                <img class="luluh100" src="../assets/logohoriz.png" alt="">
             </li>
+            <!-- Chat icon -->
             <li class="nav-item my-auto">
                 <button class="btn bg-dark" href="#"><i class="fa-brands fa-rocketchat"></i></button>
             </li>
+            <!-- Logout icon -->
             <li class="nav-item my-auto">
                 <button class="btn bg-dark" href="#"><i class="fa-solid fa-right-from-bracket"></i></button>
             </li>
         </ul>
     </div>
 
-    <div class="luluwrapper-center">
+    <div id="luluwrapper-center">
         <!-- Tab Displayer -->
-        <div class="lulumaincomponentdisplayer tab-content" id="maincomponentdisplayerid">
+        <div class="luluh100 tab-content" id="">
 
             <!-- Accounts tab -->
-            <div class="lulumaincomponentsubdisplayer tab-pane fade show active" id="accountcomponentdisplayerid"
-                role="tabpanel" aria-labelledby="accountcomponentdisplayerid-tab" tabindex="0">
+            <div class="luluh100 tab-pane fade show active" id="accountcomponentdisplayer" role="tabpanel"
+                aria-labelledby="accountcomponentbtn" tabindex="0">
                 <app-accounts></app-accounts>
             </div>
             <!-- Transfer tab -->
-            <div class="lulumaincomponentsubdisplayer tab-pane fade" id="transfercomponentdisplayer" role="tabpanel"
-                aria-labelledby="transfercomponentdisplayer-tab" tabindex="0">
+            <div class="tab-pane fade" id="transfercomponentdisplayer" role="tabpanel"
+                aria-labelledby="transfercomponentbtn" tabindex="0">
+                <!--NOTE used to have lulumaincomponentsubdisplayer class -->
                 <app-transfer></app-transfer>
             </div>
             <!-- Manage tab -->
-            <div class="lulumaincomponentsubdisplayer tab-pane fade" id="managebottomcomponentdisplayer" role="tabpanel"
-                aria-labelledby="managebottomcomponentdisplayer-tab" tabindex="0">
-                <!--++ put content in contact component because i'm sure contact won't move but I don't know where to place manage component since it influences everything -->
+            <div class="tab-pane fade" id="managecomponentdisplayer" role="tabpanel"
+                aria-labelledby="managecomponentbtn" tabindex="0">
                 <app-contact></app-contact>
+                <!--TODO put content in contact component because i'm sure contact won't move but I don't know where to place manage component since it influences everything -->
             </div>
 
         </div>
     </div>
 
-    <div class="luluwrapper-bottom">
+    <div id="luluwrapper-bottom">
         <!-- Bottom navbar -->
-        <ul class="nav nav-pills bg-dark lulubottomnav d-flex flex-row justify-content-center align-items-center py-1"
-            id="bottomnav-tab" role="tablist">
-            <!-- pt-3 because damn icons buggy -->
+        <ul class="nav nav-pills bg-dark d-flex flex-row justify-content-center align-items-center py-1"
+            id="lulubottomnav" role="tablist">
+            <!-- Accounts btn -->
             <li class="nav-item d-flex flex-column justify-content-center" role="presentation">
                 <button class="pt-3 nav-link d-flex flex-column align-items-center justify-content-evenly active"
-                    id="accountcomponentdisplayerid-tab" data-bs-toggle="pill"
-                    data-bs-target="#accountcomponentdisplayerid" type="button" role="tab"
-                    aria-controls="transactionsubcomponentdisplayer" aria-selected="true">
-                    <i class="fa-solid my-1 fa-xl fa-receipt"></i>
+                    id="accountcomponentbtn" data-bs-toggle="pill" data-bs-target="#accountcomponentdisplayer"
+                    type="button" role="tab" aria-controls="transactionsubcomponentdisplayer" aria-selected="true">
+                    <!-- TODO pt-3 because damn fontawesome icons buggy -->
+                    <i class="my-1 fa-solid fa-xl fa-receipt"></i>
                     <p class="m-0">Accounts</p>
                 </button>
             </li>
+            <!-- Transfers btn -->
             <li class="nav-item d-flex flex-column justify-content-center" role="presentation">
                 <button class="pt-3 nav-link d-flex flex-column align-items-center justify-content-evenly"
-                    id="transfercomponentdisplayer-tab" data-bs-toggle="pill"
-                    data-bs-target="#transfercomponentdisplayer" type="button" role="tab"
-                    aria-controls="transactionsubcomponentdisplayer" aria-selected="false">
-                    <i class="fa-solid my-1 fa-xl fa-money-bill-transfer"></i>
+                    id="transfercomponentbtn" data-bs-toggle="pill" data-bs-target="#transfercomponentdisplayer"
+                    type="button" role="tab" aria-controls="transactionsubcomponentdisplayer" aria-selected="false">
+                    <i class="my-1 fa-solid fa-xl fa-money-bill-transfer"></i>
                     <p class="m-0">Transfer</p>
                 </button>
             </li>
+            <!-- Manage btn -->
             <li class="nav-item d-flex flex-column justify-content-center" role="presentation">
                 <button class="pt-3 nav-link d-flex flex-column align-items-center justify-content-evenly"
-                    id="managebottomcomponentdisplayer-tab" data-bs-toggle="pill"
-                    data-bs-target="#managebottomcomponentdisplayer" type="button" role="tab"
-                    aria-controls="transactionsubcomponentdisplayer" aria-selected="false">
-                    <i class="fa-solid my-1 fa-xl fa-ellipsis"></i>
+                    id="managecomponentbtn" data-bs-toggle="pill" data-bs-target="#managecomponentdisplayer"
+                    type="button" role="tab" aria-controls="transactionsubcomponentdisplayer" aria-selected="false">
+                    <i class="my-1 fa-solid fa-xl fa-ellipsis"></i>
                     <p class="m-0">Manage</p>
                 </button>
             </li>

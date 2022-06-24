@@ -1,0 +1,13 @@
+//////////////////// Collapse stuff
+#rejectedopscontent, #pendingopscontent, #incomingopscontent{
+    width: 100%;
+}
+#rejectedopscontent .lulutransacard{
+    background-color: var(--lulured);
+}
+#pendingops .lulutransacard{
+    background-color: var(--luluyellow);
+}
+#incomingops .lulutransacard{
+    background-color: var(--lulugreen);
+}

@@ -9,6 +9,8 @@ import { TransferComponent } from './components/logged/transfer/transfer.compone
 import { AccountsComponent } from './components/logged/accounts/accounts.component';
 import { ContactComponent } from './components/logged/contact/contact.component';
 import { TransactionsComponent } from './components/logged/accounts/transactions/transactions.component';
+import { SpecialComponent } from './components/logged/accounts/transactions/special/special.component';
+import { HistoryComponent } from './components/logged/accounts/transactions/history/history.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { TransactionsComponent } from './components/logged/accounts/transactions
     TransferComponent,
     AccountsComponent,
     ContactComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    SpecialComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
