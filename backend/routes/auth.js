@@ -15,6 +15,10 @@ router.delete('/:id', userCrudController.deleteUser_delete);
 router.post('/register', authController.register_post);
 
 // LOGIN
+// check email + password on login
+router.post('/login', authController.checkUserCredentials_post);
+
+// generate leikode and token on login
 router.post('/login', authController.login_post);
 
 // TODO: LOGOUT

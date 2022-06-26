@@ -13,6 +13,9 @@ export class LoginComponent implements OnInit {
 
   isLogin: boolean = false;
 
+  // user data
+  user: any;
+
   // error message
   errorState: boolean = false;
   errorMessage: any;
@@ -27,7 +30,6 @@ export class LoginComponent implements OnInit {
   @ViewChild("togglePassword") togglePassword!: ElementRef;
 
   constructor(
-    private apiService: ApiService,
     private authService: AuthService,
     private router: Router
   ) { }
@@ -36,50 +38,77 @@ export class LoginComponent implements OnInit {
     // this.isUserLogin();
   }
 
-  onSubmit(){
+  onSubmit() {
 
-    // login form validation
+    // FORM VALDATION
+
+    // empty form
     if (this.loginForm.invalid) {
       this.errorState = true;
-      
-      // this.errorMessage = "Please indicate email and password";
+      this.errorMessage = "Please indicate email and password";
       return;
     }
 
-    // TODO: use login method from api 
-    console.log("Your form data: ", this.loginForm.value);  
-    
-    this.apiService.postTypeRequest('/login', this.loginForm.value).subscribe((res: any) => {
-     
-     
-      if (res.status == 200) {
-        console.log(res);
+    // TODO: use login method from api when done
+    console.log("Login form data: ", this.loginForm.value);
 
-        // this._auth.setDataInLocalStorage('userData', JSON.stringify(res.data));  
-        // this._auth.setDataInLocalStorage('token', res.token);  
-        
-        // TODO: navigate to logged page
-        // this.isLogin = true;
-        // this.router.navigate(['']);
-        
+    // send email and password to backend for check  
+    this.authService.postTypeRequest('/login', this.loginForm.value).subscribe({
+      next: (res) => {
+        this.user = res;
+        console.log('You are logged in ! : ' + this.user.username);
+      },
+      error: (err) => {
+        this.errorState = true;
+        this.errorMessage = err.error;
       }
-
-      // if(res.status == 400) {
-      //   this.errorState = true;
-      // this.errorMessage = res;
-      // console.log('test' + res);
-      
-      // }
-      
-
-      // TODO: handle errors so if !res.status handle errors else log in
     });
+
+    // this.authService.getByParamTypeRequest('/', this.loginForm.value.password).subscribe({
+    //   next: (res) => {
+    //     this.user = res;
+    //     console.log(this.user);
+    //   },
+    //   error: (err) => {
+    //     this.errorState = true;
+    //     this.errorMessage = err.error;
+    //   }
+    // });
+
+
+    // log in and generate leikode + token
+
+    // this.authService.postTypeRequest('/login', this.loginForm.value).subscribe((res: any) => {
+
+
+    //   if (res.status == 200) {
+    //     console.log(res);
+
+    //     // this._auth.setDataInLocalStorage('userData', JSON.stringify(res.data));  
+    //     // this._auth.setDataInLocalStorage('token', res.token);  
+
+    //     // TODO: navigate to logged page
+    //     // this.isLogin = true;
+    //     // this.router.navigate(['']);
+
+    //   }
+
+    //   // if(res.status == 400) {
+    //   //   this.errorState = true;
+    //   // this.errorMessage = res;
+    //   // console.log('test' + res);
+
+    //   // }
+
+
+    //   // TODO: handle errors so if !res.status handle errors else log in
+    // });
 
 
     // this._api.postTypeRequest('user/login', form.value).subscribe((res: any) => {
-     
+
     //   if (res.status) { 
-       
+
     //     this._auth.setDataInLocalStorage('userData', JSON.stringify(res.data));  
     //     this._auth.setDataInLocalStorage('token', res.token);  
     //     this._router.navigate(['']);
@@ -104,7 +133,7 @@ export class LoginComponent implements OnInit {
     }
   };
 
-  logout(){
+  logout() {
     // TODO: backend method in authservice to destroy cookie
     // this._auth.clearStorage()
     this.router.navigate(['']);
