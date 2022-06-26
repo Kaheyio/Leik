@@ -1,9 +1,18 @@
 // ******************TRANSFER COMPONENT *******************************************************************
-.lulutransfercomponent-wrapper{
-    height: 100%;
-}
-#lulutest1{
-    height: 60%;
+#moveshistorycards{
     overflow-y: scroll;
-    scrollbar-width: none;
+}
+.lulumovecard{
+    text-decoration: none;
+    color: black;
+    max-height: 90px;
+
+    font-size: 0.7rem;
+    border-left: 1px solid var(--lulugrey4);
+}
+.lulumovecard-amount{
+    font-size: 0.8rem;
+}
+.lulumovecard-title{
+    font-size: 0.9rem;
 }

@@ -1,7 +1,7 @@
 <!-- 
     TODO SEPA VS CARD data-structure
 
-        EITHER we have two different tables [sepa-transaction] [card-transaction]
+        EITHER we have two different tables [sepa-transaction] [card-transaction] THREE ACTUALLy [manual transactions]
             ►we have two types of cards
                 ►you have to merge and sort both tables (in the .ts?)
 
@@ -69,7 +69,7 @@
         <div class="luluw100 d-flex flex-row">
             <div class="lulutransacard-category">
                 <!-- 30characters max -->
-                Category, subcategory Category, su
+                Category, subcategory
             </div>
             <div
                 class="lulutransacard-price lulugreenoperation luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
@@ -103,7 +103,7 @@
             </div>
             <div class="luluw100 d-flex flex-row">
                 <div class="lulutransacard-category">
-                    Category, subcategory Category, su
+                    Category, subcategory
                 </div>
                 <div
                     class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
@@ -121,425 +121,466 @@
             </div>
         </div>
     </a>
-    <!-- COPY -->
-    <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
-        routerLink="transaction-info">
-        <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
-        <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
-            <div class="lulutransacard-title">Amazon Payements Europe S</div>
-            <div class="lulutransacard-date-cardnb d-flex flex-row">
-                <div class="me-3">20/06/1999 20h30</div>
-                <div>Card **** 9915</div>
-            </div>
-            <div class="luluw100 d-flex flex-row">
-                <div class="lulutransacard-category">
-                    Category, subcategory Category, su
+    <!-- 24 june -->
+    <div>
+        24 June
+        <!-- COPY TEMPLATE-->
+        <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
+            routerLink="transaction-info">
+            <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
+            <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
+                <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                <div class="lulutransacard-date-cardnb d-flex flex-row">
+                    <div class="me-3">20/06/1999 20h30</div>
+                    <div>Card **** 9915</div>
                 </div>
-                <div
-                    class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
-                    <!-- ngclass if (amount positive) class = lulugreenoperation -->
-                    <div class="lulutransacard-currency mx-1">
-                        &euro;
+                <div class="luluw100 d-flex flex-row">
+                    <div class="lulutransacard-category">
+                        Category, subcategory
                     </div>
-                    <div class="d-flex flex-row mx-1">
-                        <div class="mx-1">-</div>
-                        <div class="mx-1">12.99</div>
-                    </div>
-                </div>
-            </div>
-            <div class="lulutransacard-usernote border-top text-center">
-            </div>
-        </div>
-    </a>
-
-    <!-- COPY -->
-    <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
-        routerLink="transaction-info">
-        <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
-        <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
-            <div class="lulutransacard-title">Amazon Payements Europe S</div>
-            <div class="lulutransacard-date-cardnb d-flex flex-row">
-                <div class="me-3">20/06/1999 20h30</div>
-                <div>Card **** 9915</div>
-            </div>
-            <div class="luluw100 d-flex flex-row">
-                <div class="lulutransacard-category">
-                    Category, subcategory Category, su
-                </div>
-                <div
-                    class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
-                    <!-- ngclass if (amount positive) class = lulugreenoperation -->
-                    <div class="lulutransacard-currency mx-1">
-                        &euro;
-                    </div>
-                    <div class="d-flex flex-row mx-1">
-                        <div class="mx-1">-</div>
-                        <div class="mx-1">12.99</div>
+                    <div
+                        class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                        <!-- ngclass if (amount positive) class = lulugreenoperation -->
+                        <div class="lulutransacard-currency mx-1">
+                            &euro;
+                        </div>
+                        <div class="d-flex flex-row mx-1">
+                            <div class="mx-1">-</div>
+                            <div class="mx-1">12.99</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="lulutransacard-usernote border-top text-center">
-            </div>
-        </div>
-    </a>
-    <!-- COPY -->
-    <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
-        routerLink="transaction-info">
-        <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
-        <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
-            <div class="lulutransacard-title">Amazon Payements Europe S</div>
-            <div class="lulutransacard-date-cardnb d-flex flex-row">
-                <div class="me-3">20/06/1999 20h30</div>
-                <div>Card **** 9915</div>
-            </div>
-            <div class="luluw100 d-flex flex-row">
-                <div class="lulutransacard-category">
-                    Category, subcategory Category, su
-                </div>
-                <div
-                    class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
-                    <!-- ngclass if (amount positive) class = lulugreenoperation -->
-                    <div class="lulutransacard-currency mx-1">
-                        &euro;
-                    </div>
-                    <div class="d-flex flex-row mx-1">
-                        <div class="mx-1">-</div>
-                        <div class="mx-1">12.99</div>
-                    </div>
+                <div class="lulutransacard-usernote border-top text-center">
                 </div>
             </div>
-            <div class="lulutransacard-usernote border-top text-center">
-            </div>
-        </div>
-    </a>
-    <!-- COPY -->
-    <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
-        routerLink="transaction-info">
-        <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
-        <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
-            <div class="lulutransacard-title">Amazon Payements Europe S</div>
-            <div class="lulutransacard-date-cardnb d-flex flex-row">
-                <div class="me-3">20/06/1999 20h30</div>
-                <div>Card **** 9915</div>
-            </div>
-            <div class="luluw100 d-flex flex-row">
-                <div class="lulutransacard-category">
-                    Category, subcategory Category, su
+        </a>
+        <!-- COPY TEMPLATE-->
+        <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
+            routerLink="transaction-info">
+            <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
+            <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
+                <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                <div class="lulutransacard-date-cardnb d-flex flex-row">
+                    <div class="me-3">20/06/1999 20h30</div>
+                    <div>Card **** 9915</div>
                 </div>
-                <div
-                    class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
-                    <!-- ngclass if (amount positive) class = lulugreenoperation -->
-                    <div class="lulutransacard-currency mx-1">
-                        &euro;
+                <div class="luluw100 d-flex flex-row">
+                    <div class="lulutransacard-category">
+                        Category, subcategory
                     </div>
-                    <div class="d-flex flex-row mx-1">
-                        <div class="mx-1">-</div>
-                        <div class="mx-1">12.99</div>
+                    <div
+                        class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                        <!-- ngclass if (amount positive) class = lulugreenoperation -->
+                        <div class="lulutransacard-currency mx-1">
+                            &euro;
+                        </div>
+                        <div class="d-flex flex-row mx-1">
+                            <div class="mx-1">-</div>
+                            <div class="mx-1">12.99</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="lulutransacard-usernote border-top text-center">
-            </div>
-        </div>
-    </a>
-    <!-- COPY -->
-    <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
-        routerLink="transaction-info">
-        <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
-        <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
-            <div class="lulutransacard-title">Amazon Payements Europe S</div>
-            <div class="lulutransacard-date-cardnb d-flex flex-row">
-                <div class="me-3">20/06/1999 20h30</div>
-                <div>Card **** 9915</div>
-            </div>
-            <div class="luluw100 d-flex flex-row">
-                <div class="lulutransacard-category">
-                    Category, subcategory Category, su
-                </div>
-                <div
-                    class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
-                    <!-- ngclass if (amount positive) class = lulugreenoperation -->
-                    <div class="lulutransacard-currency mx-1">
-                        &euro;
-                    </div>
-                    <div class="d-flex flex-row mx-1">
-                        <div class="mx-1">-</div>
-                        <div class="mx-1">12.99</div>
-                    </div>
+                <div class="lulutransacard-usernote border-top text-center">
                 </div>
             </div>
-            <div class="lulutransacard-usernote border-top text-center">
-            </div>
-        </div>
-    </a>
-    <!-- COPY -->
-    <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
-        routerLink="transaction-info">
-        <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
-        <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
-            <div class="lulutransacard-title">Amazon Payements Europe S</div>
-            <div class="lulutransacard-date-cardnb d-flex flex-row">
-                <div class="me-3">20/06/1999 20h30</div>
-                <div>Card **** 9915</div>
-            </div>
-            <div class="luluw100 d-flex flex-row">
-                <div class="lulutransacard-category">
-                    Category, subcategory Category, su
+        </a>
+        <!-- COPY TEMPLATE-->
+        <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
+            routerLink="transaction-info">
+            <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
+            <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
+                <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                <div class="lulutransacard-date-cardnb d-flex flex-row">
+                    <div class="me-3">20/06/1999 20h30</div>
+                    <div>Card **** 9915</div>
                 </div>
-                <div
-                    class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
-                    <!-- ngclass if (amount positive) class = lulugreenoperation -->
-                    <div class="lulutransacard-currency mx-1">
-                        &euro;
+                <div class="luluw100 d-flex flex-row">
+                    <div class="lulutransacard-category">
+                        Category, subcategory
                     </div>
-                    <div class="d-flex flex-row mx-1">
-                        <div class="mx-1">-</div>
-                        <div class="mx-1">12.99</div>
+                    <div
+                        class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                        <!-- ngclass if (amount positive) class = lulugreenoperation -->
+                        <div class="lulutransacard-currency mx-1">
+                            &euro;
+                        </div>
+                        <div class="d-flex flex-row mx-1">
+                            <div class="mx-1">-</div>
+                            <div class="mx-1">12.99</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="lulutransacard-usernote border-top text-center">
-            </div>
-        </div>
-    </a>
-    <!-- COPY -->
-    <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
-        routerLink="transaction-info">
-        <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
-        <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
-            <div class="lulutransacard-title">Amazon Payements Europe S</div>
-            <div class="lulutransacard-date-cardnb d-flex flex-row">
-                <div class="me-3">20/06/1999 20h30</div>
-                <div>Card **** 9915</div>
-            </div>
-            <div class="luluw100 d-flex flex-row">
-                <div class="lulutransacard-category">
-                    Category, subcategory Category, su
-                </div>
-                <div
-                    class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
-                    <!-- ngclass if (amount positive) class = lulugreenoperation -->
-                    <div class="lulutransacard-currency mx-1">
-                        &euro;
-                    </div>
-                    <div class="d-flex flex-row mx-1">
-                        <div class="mx-1">-</div>
-                        <div class="mx-1">12.99</div>
-                    </div>
+                <div class="lulutransacard-usernote border-top text-center">
                 </div>
             </div>
-            <div class="lulutransacard-usernote border-top text-center">
-            </div>
-        </div>
-    </a>
-    <!-- COPY -->
-    <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
-        routerLink="transaction-info">
-        <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
-        <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
-            <div class="lulutransacard-title">Amazon Payements Europe S</div>
-            <div class="lulutransacard-date-cardnb d-flex flex-row">
-                <div class="me-3">20/06/1999 20h30</div>
-                <div>Card **** 9915</div>
-            </div>
-            <div class="luluw100 d-flex flex-row">
-                <div class="lulutransacard-category">
-                    Category, subcategory Category, su
+        </a>
+        <!-- COPY TEMPLATE-->
+        <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
+            routerLink="transaction-info">
+            <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
+            <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
+                <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                <div class="lulutransacard-date-cardnb d-flex flex-row">
+                    <div class="me-3">20/06/1999 20h30</div>
+                    <div>Card **** 9915</div>
                 </div>
-                <div
-                    class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
-                    <!-- ngclass if (amount positive) class = lulugreenoperation -->
-                    <div class="lulutransacard-currency mx-1">
-                        &euro;
+                <div class="luluw100 d-flex flex-row">
+                    <div class="lulutransacard-category">
+                        Category, subcategory
                     </div>
-                    <div class="d-flex flex-row mx-1">
-                        <div class="mx-1">-</div>
-                        <div class="mx-1">12.99</div>
+                    <div
+                        class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                        <!-- ngclass if (amount positive) class = lulugreenoperation -->
+                        <div class="lulutransacard-currency mx-1">
+                            &euro;
+                        </div>
+                        <div class="d-flex flex-row mx-1">
+                            <div class="mx-1">-</div>
+                            <div class="mx-1">12.99</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="lulutransacard-usernote border-top text-center">
-            </div>
-        </div>
-    </a>
-    <!-- COPY -->
-    <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
-        routerLink="transaction-info">
-        <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
-        <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
-            <div class="lulutransacard-title">Amazon Payements Europe S</div>
-            <div class="lulutransacard-date-cardnb d-flex flex-row">
-                <div class="me-3">20/06/1999 20h30</div>
-                <div>Card **** 9915</div>
-            </div>
-            <div class="luluw100 d-flex flex-row">
-                <div class="lulutransacard-category">
-                    Category, subcategory Category, su
-                </div>
-                <div
-                    class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
-                    <!-- ngclass if (amount positive) class = lulugreenoperation -->
-                    <div class="lulutransacard-currency mx-1">
-                        &euro;
-                    </div>
-                    <div class="d-flex flex-row mx-1">
-                        <div class="mx-1">-</div>
-                        <div class="mx-1">12.99</div>
-                    </div>
+                <div class="lulutransacard-usernote border-top text-center">
                 </div>
             </div>
-            <div class="lulutransacard-usernote border-top text-center">
-            </div>
-        </div>
-    </a>
-    <!-- COPY -->
-    <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
-        routerLink="transaction-info">
-        <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
-        <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
-            <div class="lulutransacard-title">Amazon Payements Europe S</div>
-            <div class="lulutransacard-date-cardnb d-flex flex-row">
-                <div class="me-3">20/06/1999 20h30</div>
-                <div>Card **** 9915</div>
-            </div>
-            <div class="luluw100 d-flex flex-row">
-                <div class="lulutransacard-category">
-                    Category, subcategory Category, su
+        </a>
+        <!-- COPY TEMPLATE-->
+        <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
+            routerLink="transaction-info">
+            <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
+            <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
+                <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                <div class="lulutransacard-date-cardnb d-flex flex-row">
+                    <div class="me-3">20/06/1999 20h30</div>
+                    <div>Card **** 9915</div>
                 </div>
-                <div
-                    class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
-                    <!-- ngclass if (amount positive) class = lulugreenoperation -->
-                    <div class="lulutransacard-currency mx-1">
-                        &euro;
+                <div class="luluw100 d-flex flex-row">
+                    <div class="lulutransacard-category">
+                        Category, subcategory
                     </div>
-                    <div class="d-flex flex-row mx-1">
-                        <div class="mx-1">-</div>
-                        <div class="mx-1">12.99</div>
+                    <div
+                        class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                        <!-- ngclass if (amount positive) class = lulugreenoperation -->
+                        <div class="lulutransacard-currency mx-1">
+                            &euro;
+                        </div>
+                        <div class="d-flex flex-row mx-1">
+                            <div class="mx-1">-</div>
+                            <div class="mx-1">12.99</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="lulutransacard-usernote border-top text-center">
-            </div>
-        </div>
-    </a>
-    <!-- COPY -->
-    <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
-        routerLink="transaction-info">
-        <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
-        <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
-            <div class="lulutransacard-title">Amazon Payements Europe S</div>
-            <div class="lulutransacard-date-cardnb d-flex flex-row">
-                <div class="me-3">20/06/1999 20h30</div>
-                <div>Card **** 9915</div>
-            </div>
-            <div class="luluw100 d-flex flex-row">
-                <div class="lulutransacard-category">
-                    Category, subcategory Category, su
-                </div>
-                <div
-                    class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
-                    <!-- ngclass if (amount positive) class = lulugreenoperation -->
-                    <div class="lulutransacard-currency mx-1">
-                        &euro;
-                    </div>
-                    <div class="d-flex flex-row mx-1">
-                        <div class="mx-1">-</div>
-                        <div class="mx-1">12.99</div>
-                    </div>
+                <div class="lulutransacard-usernote border-top text-center">
                 </div>
             </div>
-            <div class="lulutransacard-usernote border-top text-center">
-            </div>
-        </div>
-    </a>
-    <!-- COPY -->
-    <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
-        routerLink="transaction-info">
-        <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
-        <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
-            <div class="lulutransacard-title">Amazon Payements Europe S</div>
-            <div class="lulutransacard-date-cardnb d-flex flex-row">
-                <div class="me-3">20/06/1999 20h30</div>
-                <div>Card **** 9915</div>
-            </div>
-            <div class="luluw100 d-flex flex-row">
-                <div class="lulutransacard-category">
-                    Category, subcategory Category, su
+        </a>
+    </div>
+    <!-- 25 june -->
+    <div>
+        24 June
+        <!-- COPY TEMPLATE-->
+        <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
+            routerLink="transaction-info">
+            <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
+            <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
+                <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                <div class="lulutransacard-date-cardnb d-flex flex-row">
+                    <div class="me-3">20/06/1999 20h30</div>
+                    <div>Card **** 9915</div>
                 </div>
-                <div
-                    class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
-                    <!-- ngclass if (amount positive) class = lulugreenoperation -->
-                    <div class="lulutransacard-currency mx-1">
-                        &euro;
+                <div class="luluw100 d-flex flex-row">
+                    <div class="lulutransacard-category">
+                        Category, subcategory
                     </div>
-                    <div class="d-flex flex-row mx-1">
-                        <div class="mx-1">-</div>
-                        <div class="mx-1">12.99</div>
-                    </div>
-                </div>
-            </div>
-            <div class="lulutransacard-usernote border-top text-center">
-            </div>
-        </div>
-    </a>
-    <!-- COPY -->
-    <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
-        routerLink="transaction-info">
-        <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
-        <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
-            <div class="lulutransacard-title">Amazon Payements Europe S</div>
-            <div class="lulutransacard-date-cardnb d-flex flex-row">
-                <div class="me-3">20/06/1999 20h30</div>
-                <div>Card **** 9915</div>
-            </div>
-            <div class="luluw100 d-flex flex-row">
-                <div class="lulutransacard-category">
-                    Category, subcategory Category, su
-                </div>
-                <div
-                    class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
-                    <!-- ngclass if (amount positive) class = lulugreenoperation -->
-                    <div class="lulutransacard-currency mx-1">
-                        &euro;
-                    </div>
-                    <div class="d-flex flex-row mx-1">
-                        <div class="mx-1">-</div>
-                        <div class="mx-1">12.99</div>
+                    <div
+                        class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                        <!-- ngclass if (amount positive) class = lulugreenoperation -->
+                        <div class="lulutransacard-currency mx-1">
+                            &euro;
+                        </div>
+                        <div class="d-flex flex-row mx-1">
+                            <div class="mx-1">-</div>
+                            <div class="mx-1">12.99</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="lulutransacard-usernote border-top text-center">
-            </div>
-        </div>
-    </a>
-    <!-- COPY -->
-    <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
-        routerLink="transaction-info">
-        <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
-        <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
-            <div class="lulutransacard-title">Amazon Payements Europe S</div>
-            <div class="lulutransacard-date-cardnb d-flex flex-row">
-                <div class="me-3">20/06/1999 20h30</div>
-                <div>Card **** 9915</div>
-            </div>
-            <div class="luluw100 d-flex flex-row">
-                <div class="lulutransacard-category">
-                    Category, subcategory Category, su
-                </div>
-                <div
-                    class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
-                    <!-- ngclass if (amount positive) class = lulugreenoperation -->
-                    <div class="lulutransacard-currency mx-1">
-                        &euro;
-                    </div>
-                    <div class="d-flex flex-row mx-1">
-                        <div class="mx-1">-</div>
-                        <div class="mx-1">12.99</div>
-                    </div>
+                <div class="lulutransacard-usernote border-top text-center">
                 </div>
             </div>
-            <div class="lulutransacard-usernote border-top text-center">
+        </a>
+        <!-- COPY TEMPLATE-->
+        <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
+            routerLink="transaction-info">
+            <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
+            <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
+                <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                <div class="lulutransacard-date-cardnb d-flex flex-row">
+                    <div class="me-3">20/06/1999 20h30</div>
+                    <div>Card **** 9915</div>
+                </div>
+                <div class="luluw100 d-flex flex-row">
+                    <div class="lulutransacard-category">
+                        Category, subcategory
+                    </div>
+                    <div
+                        class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                        <!-- ngclass if (amount positive) class = lulugreenoperation -->
+                        <div class="lulutransacard-currency mx-1">
+                            &euro;
+                        </div>
+                        <div class="d-flex flex-row mx-1">
+                            <div class="mx-1">-</div>
+                            <div class="mx-1">12.99</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lulutransacard-usernote border-top text-center">
+                </div>
             </div>
-        </div>
-    </a>
+        </a>
+        <!-- COPY TEMPLATE-->
+        <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
+            routerLink="transaction-info">
+            <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
+            <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
+                <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                <div class="lulutransacard-date-cardnb d-flex flex-row">
+                    <div class="me-3">20/06/1999 20h30</div>
+                    <div>Card **** 9915</div>
+                </div>
+                <div class="luluw100 d-flex flex-row">
+                    <div class="lulutransacard-category">
+                        Category, subcategory
+                    </div>
+                    <div
+                        class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                        <!-- ngclass if (amount positive) class = lulugreenoperation -->
+                        <div class="lulutransacard-currency mx-1">
+                            &euro;
+                        </div>
+                        <div class="d-flex flex-row mx-1">
+                            <div class="mx-1">-</div>
+                            <div class="mx-1">12.99</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lulutransacard-usernote border-top text-center">
+                </div>
+            </div>
+        </a>
+        <!-- COPY TEMPLATE-->
+        <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
+            routerLink="transaction-info">
+            <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
+            <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
+                <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                <div class="lulutransacard-date-cardnb d-flex flex-row">
+                    <div class="me-3">20/06/1999 20h30</div>
+                    <div>Card **** 9915</div>
+                </div>
+                <div class="luluw100 d-flex flex-row">
+                    <div class="lulutransacard-category">
+                        Category, subcategory
+                    </div>
+                    <div
+                        class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                        <!-- ngclass if (amount positive) class = lulugreenoperation -->
+                        <div class="lulutransacard-currency mx-1">
+                            &euro;
+                        </div>
+                        <div class="d-flex flex-row mx-1">
+                            <div class="mx-1">-</div>
+                            <div class="mx-1">12.99</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lulutransacard-usernote border-top text-center">
+                </div>
+            </div>
+        </a>
+        <!-- COPY TEMPLATE-->
+        <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
+            routerLink="transaction-info">
+            <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
+            <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
+                <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                <div class="lulutransacard-date-cardnb d-flex flex-row">
+                    <div class="me-3">20/06/1999 20h30</div>
+                    <div>Card **** 9915</div>
+                </div>
+                <div class="luluw100 d-flex flex-row">
+                    <div class="lulutransacard-category">
+                        Category, subcategory
+                    </div>
+                    <div
+                        class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                        <!-- ngclass if (amount positive) class = lulugreenoperation -->
+                        <div class="lulutransacard-currency mx-1">
+                            &euro;
+                        </div>
+                        <div class="d-flex flex-row mx-1">
+                            <div class="mx-1">-</div>
+                            <div class="mx-1">12.99</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lulutransacard-usernote border-top text-center">
+                </div>
+            </div>
+        </a>
+    </div>
+    <!-- 26 june -->
+    <div>
+        24 June
+        <!-- COPY TEMPLATE-->
+        <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
+            routerLink="transaction-info">
+            <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
+            <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
+                <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                <div class="lulutransacard-date-cardnb d-flex flex-row">
+                    <div class="me-3">20/06/1999 20h30</div>
+                    <div>Card **** 9915</div>
+                </div>
+                <div class="luluw100 d-flex flex-row">
+                    <div class="lulutransacard-category">
+                        Category, subcategory
+                    </div>
+                    <div
+                        class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                        <!-- ngclass if (amount positive) class = lulugreenoperation -->
+                        <div class="lulutransacard-currency mx-1">
+                            &euro;
+                        </div>
+                        <div class="d-flex flex-row mx-1">
+                            <div class="mx-1">-</div>
+                            <div class="mx-1">12.99</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lulutransacard-usernote border-top text-center">
+                </div>
+            </div>
+        </a>
+        <!-- COPY TEMPLATE-->
+        <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
+            routerLink="transaction-info">
+            <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
+            <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
+                <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                <div class="lulutransacard-date-cardnb d-flex flex-row">
+                    <div class="me-3">20/06/1999 20h30</div>
+                    <div>Card **** 9915</div>
+                </div>
+                <div class="luluw100 d-flex flex-row">
+                    <div class="lulutransacard-category">
+                        Category, subcategory
+                    </div>
+                    <div
+                        class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                        <!-- ngclass if (amount positive) class = lulugreenoperation -->
+                        <div class="lulutransacard-currency mx-1">
+                            &euro;
+                        </div>
+                        <div class="d-flex flex-row mx-1">
+                            <div class="mx-1">-</div>
+                            <div class="mx-1">12.99</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lulutransacard-usernote border-top text-center">
+                </div>
+            </div>
+        </a>
+        <!-- COPY TEMPLATE-->
+        <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
+            routerLink="transaction-info">
+            <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
+            <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
+                <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                <div class="lulutransacard-date-cardnb d-flex flex-row">
+                    <div class="me-3">20/06/1999 20h30</div>
+                    <div>Card **** 9915</div>
+                </div>
+                <div class="luluw100 d-flex flex-row">
+                    <div class="lulutransacard-category">
+                        Category, subcategory
+                    </div>
+                    <div
+                        class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                        <!-- ngclass if (amount positive) class = lulugreenoperation -->
+                        <div class="lulutransacard-currency mx-1">
+                            &euro;
+                        </div>
+                        <div class="d-flex flex-row mx-1">
+                            <div class="mx-1">-</div>
+                            <div class="mx-1">12.99</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lulutransacard-usernote border-top text-center">
+                </div>
+            </div>
+        </a>
+        <!-- COPY TEMPLATE-->
+        <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
+            routerLink="transaction-info">
+            <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
+            <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
+                <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                <div class="lulutransacard-date-cardnb d-flex flex-row">
+                    <div class="me-3">20/06/1999 20h30</div>
+                    <div>Card **** 9915</div>
+                </div>
+                <div class="luluw100 d-flex flex-row">
+                    <div class="lulutransacard-category">
+                        Category, subcategory
+                    </div>
+                    <div
+                        class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                        <!-- ngclass if (amount positive) class = lulugreenoperation -->
+                        <div class="lulutransacard-currency mx-1">
+                            &euro;
+                        </div>
+                        <div class="d-flex flex-row mx-1">
+                            <div class="mx-1">-</div>
+                            <div class="mx-1">12.99</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lulutransacard-usernote border-top text-center">
+                </div>
+            </div>
+        </a>
+        <!-- COPY TEMPLATE-->
+        <a class="lulutransacard p-1 border-bottom mb-1 d-flex flex-row justify-content-evenly align-items-center"
+            routerLink="transaction-info">
+            <img class="lulutransacard-logo p-1" src="../../../../../../assets/transactionlogo.png" alt="categorylogo">
+            <div class="lulutransacard-text px-2 py-1 d-flex flex-column justify-content-center align-items-start">
+                <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                <div class="lulutransacard-date-cardnb d-flex flex-row">
+                    <div class="me-3">20/06/1999 20h30</div>
+                    <div>Card **** 9915</div>
+                </div>
+                <div class="luluw100 d-flex flex-row">
+                    <div class="lulutransacard-category">
+                        Category, subcategory
+                    </div>
+                    <div
+                        class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                        <!-- ngclass if (amount positive) class = lulugreenoperation -->
+                        <div class="lulutransacard-currency mx-1">
+                            &euro;
+                        </div>
+                        <div class="d-flex flex-row mx-1">
+                            <div class="mx-1">-</div>
+                            <div class="mx-1">12.99</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lulutransacard-usernote border-top text-center">
+                </div>
+            </div>
+        </a>
+    </div>
 </div>
