@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { AuthModule } from './modules/auth/auth.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { LoginComponent } from './components/login/login.component';
+// import { LoginComponent } from './components/login/login.component';
 import { LoggedComponent } from './components/logged/logged.component';
 import { TransferComponent } from './components/logged/transfer/transfer.component';
 import { AccountsComponent } from './components/logged/accounts/accounts.component';
@@ -24,7 +25,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    // already declared and exported in auth module
+    // LoginComponent,
     LoggedComponent,
     TransferComponent,
     AccountsComponent,
@@ -43,8 +45,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     HttpClientModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
