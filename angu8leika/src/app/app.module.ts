@@ -18,6 +18,7 @@ import { HistoryComponent } from './components/logged/accounts/transactions/hist
 import { AccountpickerComponent } from './components/logged/accounts/accountpicker/accountpicker.component';
 import { CardsComponent } from './components/logged/accounts/cards/cards.component';
 import { StatsComponent } from './components/logged/accounts/stats/stats.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { StatsComponent } from './components/logged/accounts/stats/stats.compone
     AccountpickerComponent,
     CardsComponent,
     StatsComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

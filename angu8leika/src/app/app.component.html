@@ -1,7 +1,11 @@
 
     <!-- ng if either display login or logged -->
+    <div *ngIf="login">
+        <app-login></app-login>
+    </div>
     
-    <app-logged></app-logged>
-    
+    <div *ngIf="logged">
+        <app-logged></app-logged>
+    </div>
     <router-outlet></router-outlet>
 

@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angu8leika';
+
+  login = false;
+  logged = false;
 }
