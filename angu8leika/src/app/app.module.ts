@@ -20,6 +20,9 @@ import { CardsComponent } from './components/logged/accounts/cards/cards.compone
 import { StatsComponent } from './components/logged/accounts/stats/stats.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { TransactionInfoComponent } from './components/logged/accounts/transactions/transaction-info/transaction-info.component';
+import { NewMoveComponent } from './components/logged/transfer/new-move/new-move.component';
+import { ManageReceiversComponent } from './components/logged/transfer/manage-receivers/manage-receivers.component';
+import { TransfermainComponent } from './components/logged/transfer/transfermain/transfermain.component';
 
 
 @NgModule({
@@ -38,6 +41,9 @@ import { TransactionInfoComponent } from './components/logged/accounts/transacti
     StatsComponent,
     NotFoundComponent,
     TransactionInfoComponent,
+    NewMoveComponent,
+    ManageReceiversComponent,
+    TransfermainComponent,
   ],
   imports: [
     BrowserModule,

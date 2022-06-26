@@ -22,12 +22,12 @@
         <!-- Tab Displayer -->
         <div class="luluh100 tab-content">
             <!-- Accounts tab -->
-            <div class="luluh100 tab-pane fade show active" id="accountcomponent-displayer" role="tabpanel" 
+            <div class="luluh100 tab-pane fade " id="accountcomponent-displayer" role="tabpanel" 
                 aria-labelledby="accountcomponent-btn" tabindex="0">
                 <app-accounts></app-accounts>
             </div>
             <!-- Transfer tab -->
-            <div class="luluh100 tab-pane fade" id="transfercomponent-displayer" role="tabpanel"
+            <div class="luluh100 tab-pane fade show active" id="transfercomponent-displayer" role="tabpanel"
                 aria-labelledby="transfercomponent-btn" tabindex="0">
                 <!--NOTE used to have lulumaincomponentsubdisplayer class -->
                 <app-transfer></app-transfer>
@@ -47,17 +47,17 @@
             id="lulubottomnav" role="tablist">
             <!-- Accounts btn -->
             <li class="luluh100 nav-item d-flex flex-column justify-content-center" role="presentation">
-                <button class="luluh100 nav-link d-flex flex-column align-items-center justify-content-evenly active"
+                <button class="luluh100 nav-link d-flex flex-column align-items-center justify-content-evenly"
                     id="accountcomponent-btn" data-bs-toggle="pill" data-bs-target="#accountcomponent-displayer"
-                    type="button" role="tab" aria-controls="accountcomponent-displayer" aria-selected="true">
+                    type="button" role="tab" aria-controls="accountcomponent-displayer" aria-selected="false">
                     <i class="my-1 fa-solid fa-xl fa-receipt"></i>
                 </button>
             </li>
             <!-- Transfers btn -->
             <li class="luluh100 nav-item d-flex flex-column justify-content-center" role="presentation">
-                <button class="luluh100 nav-link d-flex flex-column align-items-center justify-content-evenly"
+                <button class="luluh100 nav-link d-flex flex-column align-items-center justify-content-evenly active"
                     id="transfercomponent-btn" data-bs-toggle="pill" data-bs-target="#transfercomponent-displayer"
-                    type="button" role="tab" aria-controls="transfercomponent-displayer" aria-selected="false">
+                    type="button" role="tab" aria-controls="transfercomponent-displayer" aria-selected="true">
                     <i class="my-1 fa-solid fa-xl fa-money-bill-transfer"></i>
                 </button>
             </li>

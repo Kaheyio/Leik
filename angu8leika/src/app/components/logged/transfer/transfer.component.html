@@ -1,3 +1,5 @@
+<!-- TODO make the card []→[] section adaptative to diff beneficiaires name lengths so that the arrow always stays in center -->
+
 <div class="luluh100 p-4 d-flex flex-column align-items-stretch justify-content-around">
     <div class="luluh65">
 
@@ -8,246 +10,391 @@
                 routerLink="transaction-info">
                 <div class="luluw100 d-flex flex-column align-items-start justify-content-center">
                     <div class="luluw100">
-                        <div class="luluw100 d-flex flex-row">
+                        <div class="luluw100 d-flex flex-row align-items-center ">
                             <div class="lulumovecard-title ms-1">Piano guy finally reinbursed us</div>
-                            <div class="ms-auto">20/06/1999 23h30</div>
+                            <div class="ms-auto">20/06/2022 23h30</div>
                         </div>
-                        <div>From : Main Account (# 9915 8021)</div>
-                        <div>To : Piano Guy (# 0888 9505)</div>
-                    </div>
-                    <div class="luluw100 mt-1 d-flex flex-row">
-                        <div>Status: Pending.</div>
-                        <div class="lulumovecard-amount lulugreenoperation ms-auto d-flex flex-row">
-                            <div class="mx-1">$</div>
-                            <div class="mx-1">+</div>
-                            <div class="mx-1">9,001</div>
+                        <div class="luluw100 d-flex flex-row align-items-center justify-content-around">
+                            <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                <div>Piano Guy </div>
+                                <div>(# 0888 9505)</div>
+                            </div>
+                            <div class="d-flex flex-column align-items-center justify-content-center">
+                                <div>→</div>
+                                <div>
+                                    <div class="lulumovecard-amount lulugreenoperation d-flex flex-row">
+                                        <div class="mx-1">+</div>
+                                        <div class="mx-1">9,001 $</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                <div>Main Account</div>
+                                <div>(# 9915 8021)</div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </a>
-            <!-- COPIES -->
+            <!-- COPIES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
             <div class="luluw100">
-                <!-- COPY -->
+                <!-- Movecard -->
                 <a class="lulumovecard luluw100 mb-2 p-1 d-flex flex-row align-items-center justify-content-start"
                     routerLink="transaction-info">
                     <div class="luluw100 d-flex flex-column align-items-start justify-content-center">
                         <div class="luluw100">
-                            <div class="luluw100 d-flex flex-row">
-                                <div class="lulumovecard-title ms-1">Some More Piano Lessons</div>
-                                <div class="ms-auto">20/06/1999 15h30</div>
+                            <div class="luluw100 d-flex flex-row align-items-center ">
+                                <div class="lulumovecard-title ms-1">Some more piano lessons</div>
+                                <div class="ms-auto">20/06/1999 23h30</div>
                             </div>
-                            <div>From : Main Account (# 9915 8021)</div>
-                            <div>To : Piano Guy (# 0888 9505)</div>
-                        </div>
-                        <div class="luluw100 mt-1 d-flex flex-row">
-                            <div>Status: Pending.</div>
-                            <div class="lulumovecard-amount ms-auto d-flex flex-row">
-                                <div class="mx-1">$</div>
-                                <div class="mx-1">-</div>
-                                <div class="mx-1">69.99</div>
+                            <div class="luluw100 d-flex flex-row align-items-center justify-content-around">
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Main Account</div>
+                                    <div>(# 9915 8021)</div>
+                                </div>
+                                <div class="d-flex flex-column align-items-center justify-content-center">
+                                    <div>→</div>
+                                    <div>
+                                        <div class="lulumovecard-amount d-flex flex-row">
+                                            <div class="mx-1">-</div>
+                                            <div class="mx-1">69.99 $</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Piano Guy </div>
+                                    <div>(# 0888 9505)</div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </a>
-                <!-- COPY -->
+                <!-- Movecard -->
                 <a class="lulumovecard luluw100 mb-2 p-1 d-flex flex-row align-items-center justify-content-start"
                     routerLink="transaction-info">
                     <div class="luluw100 d-flex flex-column align-items-start justify-content-center">
                         <div class="luluw100">
-                            <div class="luluw100 d-flex flex-row">
-                                <div class="lulumovecard-title ms-1">Some More Piano Lessons</div>
-                                <div class="ms-auto">20/06/1999 15h30</div>
+                            <div class="luluw100 d-flex flex-row align-items-center ">
+                                <div class="lulumovecard-title ms-1">Some more piano lessons</div>
+                                <div class="ms-auto">20/06/1999 23h30</div>
                             </div>
-                            <div>From : Main Account (# 9915 8021)</div>
-                            <div>To : Piano Guy (# 0888 9505)</div>
-                        </div>
-                        <div class="luluw100 mt-1 d-flex flex-row">
-                            <div>Status: Pending.</div>
-                            <div class="lulumovecard-amount ms-auto d-flex flex-row">
-                                <div class="mx-1">$</div>
-                                <div class="mx-1">-</div>
-                                <div class="mx-1">69.99</div>
+                            <div class="luluw100 d-flex flex-row align-items-center justify-content-around">
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Main Account</div>
+                                    <div>(# 9915 8021)</div>
+                                </div>
+                                <div class="d-flex flex-column align-items-center justify-content-center">
+                                    <div>→</div>
+                                    <div>
+                                        <div class="lulumovecard-amount d-flex flex-row">
+                                            <div class="mx-1">-</div>
+                                            <div class="mx-1">69.99 $</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Piano Guy </div>
+                                    <div>(# 0888 9505)</div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </a>
-                <!-- COPY -->
+                <!-- Movecard -->
                 <a class="lulumovecard luluw100 mb-2 p-1 d-flex flex-row align-items-center justify-content-start"
                     routerLink="transaction-info">
                     <div class="luluw100 d-flex flex-column align-items-start justify-content-center">
                         <div class="luluw100">
-                            <div class="luluw100 d-flex flex-row">
-                                <div class="lulumovecard-title ms-1">Some More Piano Lessons</div>
-                                <div class="ms-auto">20/06/1999 15h30</div>
+                            <div class="luluw100 d-flex flex-row align-items-center ">
+                                <div class="lulumovecard-title ms-1">Some more piano lessons</div>
+                                <div class="ms-auto">20/06/1999 23h30</div>
                             </div>
-                            <div>From : Main Account (# 9915 8021)</div>
-                            <div>To : Piano Guy (# 0888 9505)</div>
-                        </div>
-                        <div class="luluw100 mt-1 d-flex flex-row">
-                            <div>Status: Pending.</div>
-                            <div class="lulumovecard-amount ms-auto d-flex flex-row">
-                                <div class="mx-1">$</div>
-                                <div class="mx-1">-</div>
-                                <div class="mx-1">69.99</div>
+                            <div class="luluw100 d-flex flex-row align-items-center justify-content-around">
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Main Account</div>
+                                    <div>(# 9915 8021)</div>
+                                </div>
+                                <div class="d-flex flex-column align-items-center justify-content-center">
+                                    <div>→</div>
+                                    <div>
+                                        <div class="lulumovecard-amount d-flex flex-row">
+                                            <div class="mx-1">-</div>
+                                            <div class="mx-1">69.99 $</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Piano Guy </div>
+                                    <div>(# 0888 9505)</div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </a>
-                <!-- COPY -->
+                <!-- Movecard -->
                 <a class="lulumovecard luluw100 mb-2 p-1 d-flex flex-row align-items-center justify-content-start"
                     routerLink="transaction-info">
                     <div class="luluw100 d-flex flex-column align-items-start justify-content-center">
                         <div class="luluw100">
-                            <div class="luluw100 d-flex flex-row">
-                                <div class="lulumovecard-title ms-1">Some More Piano Lessons</div>
-                                <div class="ms-auto">20/06/1999 15h30</div>
+                            <div class="luluw100 d-flex flex-row align-items-center ">
+                                <div class="lulumovecard-title ms-1">Some more piano lessons</div>
+                                <div class="ms-auto">20/06/1999 23h30</div>
                             </div>
-                            <div>From : Main Account (# 9915 8021)</div>
-                            <div>To : Piano Guy (# 0888 9505)</div>
-                        </div>
-                        <div class="luluw100 mt-1 d-flex flex-row">
-                            <div>Status: Pending.</div>
-                            <div class="lulumovecard-amount ms-auto d-flex flex-row">
-                                <div class="mx-1">$</div>
-                                <div class="mx-1">-</div>
-                                <div class="mx-1">69.99</div>
+                            <div class="luluw100 d-flex flex-row align-items-center justify-content-around">
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Main Account</div>
+                                    <div>(# 9915 8021)</div>
+                                </div>
+                                <div class="d-flex flex-column align-items-center justify-content-center">
+                                    <div>→</div>
+                                    <div>
+                                        <div class="lulumovecard-amount d-flex flex-row">
+                                            <div class="mx-1">-</div>
+                                            <div class="mx-1">69.99 $</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Piano Guy </div>
+                                    <div>(# 0888 9505)</div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </a>
-                <!-- COPY -->
+                <!-- Movecard -->
                 <a class="lulumovecard luluw100 mb-2 p-1 d-flex flex-row align-items-center justify-content-start"
                     routerLink="transaction-info">
                     <div class="luluw100 d-flex flex-column align-items-start justify-content-center">
                         <div class="luluw100">
-                            <div class="luluw100 d-flex flex-row">
-                                <div class="lulumovecard-title ms-1">Some More Piano Lessons</div>
-                                <div class="ms-auto">20/06/1999 15h30</div>
+                            <div class="luluw100 d-flex flex-row align-items-center ">
+                                <div class="lulumovecard-title ms-1">Some more piano lessons</div>
+                                <div class="ms-auto">20/06/1999 23h30</div>
                             </div>
-                            <div>From : Main Account (# 9915 8021)</div>
-                            <div>To : Piano Guy (# 0888 9505)</div>
-                        </div>
-                        <div class="luluw100 mt-1 d-flex flex-row">
-                            <div>Status: Pending.</div>
-                            <div class="lulumovecard-amount ms-auto d-flex flex-row">
-                                <div class="mx-1">$</div>
-                                <div class="mx-1">-</div>
-                                <div class="mx-1">69.99</div>
+                            <div class="luluw100 d-flex flex-row align-items-center justify-content-around">
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Main Account</div>
+                                    <div>(# 9915 8021)</div>
+                                </div>
+                                <div class="d-flex flex-column align-items-center justify-content-center">
+                                    <div>→</div>
+                                    <div>
+                                        <div class="lulumovecard-amount d-flex flex-row">
+                                            <div class="mx-1">-</div>
+                                            <div class="mx-1">69.99 $</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Piano Guy </div>
+                                    <div>(# 0888 9505)</div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </a>
-                <!-- COPY -->
+                <!-- Movecard -->
                 <a class="lulumovecard luluw100 mb-2 p-1 d-flex flex-row align-items-center justify-content-start"
                     routerLink="transaction-info">
                     <div class="luluw100 d-flex flex-column align-items-start justify-content-center">
                         <div class="luluw100">
-                            <div class="luluw100 d-flex flex-row">
-                                <div class="lulumovecard-title ms-1">Some More Piano Lessons</div>
-                                <div class="ms-auto">20/06/1999 15h30</div>
+                            <div class="luluw100 d-flex flex-row align-items-center ">
+                                <div class="lulumovecard-title ms-1">Some more piano lessons</div>
+                                <div class="ms-auto">20/06/1999 23h30</div>
                             </div>
-                            <div>From : Main Account (# 9915 8021)</div>
-                            <div>To : Piano Guy (# 0888 9505)</div>
-                        </div>
-                        <div class="luluw100 mt-1 d-flex flex-row">
-                            <div>Status: Pending.</div>
-                            <div class="lulumovecard-amount ms-auto d-flex flex-row">
-                                <div class="mx-1">$</div>
-                                <div class="mx-1">-</div>
-                                <div class="mx-1">69.99</div>
+                            <div class="luluw100 d-flex flex-row align-items-center justify-content-around">
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Main Account</div>
+                                    <div>(# 9915 8021)</div>
+                                </div>
+                                <div class="d-flex flex-column align-items-center justify-content-center">
+                                    <div>→</div>
+                                    <div>
+                                        <div class="lulumovecard-amount d-flex flex-row">
+                                            <div class="mx-1">-</div>
+                                            <div class="mx-1">69.99 $</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Piano Guy </div>
+                                    <div>(# 0888 9505)</div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </a>
-                <!-- COPY -->
+                <!-- Movecard -->
                 <a class="lulumovecard luluw100 mb-2 p-1 d-flex flex-row align-items-center justify-content-start"
                     routerLink="transaction-info">
                     <div class="luluw100 d-flex flex-column align-items-start justify-content-center">
                         <div class="luluw100">
-                            <div class="luluw100 d-flex flex-row">
-                                <div class="lulumovecard-title ms-1">Some More Piano Lessons</div>
-                                <div class="ms-auto">20/06/1999 15h30</div>
+                            <div class="luluw100 d-flex flex-row align-items-center ">
+                                <div class="lulumovecard-title ms-1">Some more piano lessons</div>
+                                <div class="ms-auto">20/06/1999 23h30</div>
                             </div>
-                            <div>From : Main Account (# 9915 8021)</div>
-                            <div>To : Piano Guy (# 0888 9505)</div>
-                        </div>
-                        <div class="luluw100 mt-1 d-flex flex-row">
-                            <div>Status: Pending.</div>
-                            <div class="lulumovecard-amount ms-auto d-flex flex-row">
-                                <div class="mx-1">$</div>
-                                <div class="mx-1">-</div>
-                                <div class="mx-1">69.99</div>
+                            <div class="luluw100 d-flex flex-row align-items-center justify-content-around">
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Main Account</div>
+                                    <div>(# 9915 8021)</div>
+                                </div>
+                                <div class="d-flex flex-column align-items-center justify-content-center">
+                                    <div>→</div>
+                                    <div>
+                                        <div class="lulumovecard-amount d-flex flex-row">
+                                            <div class="mx-1">-</div>
+                                            <div class="mx-1">69.99 $</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Piano Guy </div>
+                                    <div>(# 0888 9505)</div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </a>
-                <!-- COPY -->
+                <!-- Movecard -->
                 <a class="lulumovecard luluw100 mb-2 p-1 d-flex flex-row align-items-center justify-content-start"
                     routerLink="transaction-info">
                     <div class="luluw100 d-flex flex-column align-items-start justify-content-center">
                         <div class="luluw100">
-                            <div class="luluw100 d-flex flex-row">
-                                <div class="lulumovecard-title ms-1">Some More Piano Lessons</div>
-                                <div class="ms-auto">20/06/1999 15h30</div>
+                            <div class="luluw100 d-flex flex-row align-items-center ">
+                                <div class="lulumovecard-title ms-1">Some more piano lessons</div>
+                                <div class="ms-auto">20/06/1999 23h30</div>
                             </div>
-                            <div>From : Main Account (# 9915 8021)</div>
-                            <div>To : Piano Guy (# 0888 9505)</div>
-                        </div>
-                        <div class="luluw100 mt-1 d-flex flex-row">
-                            <div>Status: Pending.</div>
-                            <div class="lulumovecard-amount ms-auto d-flex flex-row">
-                                <div class="mx-1">$</div>
-                                <div class="mx-1">-</div>
-                                <div class="mx-1">69.99</div>
+                            <div class="luluw100 d-flex flex-row align-items-center justify-content-around">
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Main Account</div>
+                                    <div>(# 9915 8021)</div>
+                                </div>
+                                <div class="d-flex flex-column align-items-center justify-content-center">
+                                    <div>→</div>
+                                    <div>
+                                        <div class="lulumovecard-amount d-flex flex-row">
+                                            <div class="mx-1">-</div>
+                                            <div class="mx-1">69.99 $</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Piano Guy </div>
+                                    <div>(# 0888 9505)</div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </a>
-                <!-- COPY -->
+                <!-- Movecard -->
                 <a class="lulumovecard luluw100 mb-2 p-1 d-flex flex-row align-items-center justify-content-start"
                     routerLink="transaction-info">
                     <div class="luluw100 d-flex flex-column align-items-start justify-content-center">
                         <div class="luluw100">
-                            <div class="luluw100 d-flex flex-row">
-                                <div class="lulumovecard-title ms-1">Some More Piano Lessons</div>
-                                <div class="ms-auto">20/06/1999 15h30</div>
+                            <div class="luluw100 d-flex flex-row align-items-center ">
+                                <div class="lulumovecard-title ms-1">Some more piano lessons</div>
+                                <div class="ms-auto">20/06/1999 23h30</div>
                             </div>
-                            <div>From : Main Account (# 9915 8021)</div>
-                            <div>To : Piano Guy (# 0888 9505)</div>
-                        </div>
-                        <div class="luluw100 mt-1 d-flex flex-row">
-                            <div>Status: Pending.</div>
-                            <div class="lulumovecard-amount ms-auto d-flex flex-row">
-                                <div class="mx-1">$</div>
-                                <div class="mx-1">-</div>
-                                <div class="mx-1">69.99</div>
+                            <div class="luluw100 d-flex flex-row align-items-center justify-content-around">
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Main Account</div>
+                                    <div>(# 9915 8021)</div>
+                                </div>
+                                <div class="d-flex flex-column align-items-center justify-content-center">
+                                    <div>→</div>
+                                    <div>
+                                        <div class="lulumovecard-amount d-flex flex-row">
+                                            <div class="mx-1">-</div>
+                                            <div class="mx-1">69.99 $</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Piano Guy </div>
+                                    <div>(# 0888 9505)</div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </a>
-                <!-- COPY -->
+                <!-- Movecard -->
                 <a class="lulumovecard luluw100 mb-2 p-1 d-flex flex-row align-items-center justify-content-start"
                     routerLink="transaction-info">
                     <div class="luluw100 d-flex flex-column align-items-start justify-content-center">
                         <div class="luluw100">
-                            <div class="luluw100 d-flex flex-row">
-                                <div class="lulumovecard-title ms-1">Piano Lessons</div>
-                                <div class="ms-auto">20/06/1999 15h30</div>
+                            <div class="luluw100 d-flex flex-row align-items-center ">
+                                <div class="lulumovecard-title ms-1">Some more piano lessons</div>
+                                <div class="ms-auto">20/06/1999 23h30</div>
                             </div>
-                            <div>From : Main Account (# 9915 8021)</div>
-                            <div>To : Piano Guy (# 0888 9505)</div>
-                        </div>
-                        <div class="luluw100 mt-1 d-flex flex-row">
-                            <div>Status: Pending.</div>
-                            <div class="lulumovecard-amount ms-auto d-flex flex-row">
-                                <div class="mx-1">$</div>
-                                <div class="mx-1">-</div>
-                                <div class="mx-1">69.99</div>
+                            <div class="luluw100 d-flex flex-row align-items-center justify-content-around">
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Main Account</div>
+                                    <div>(# 9915 8021)</div>
+                                </div>
+                                <div class="d-flex flex-column align-items-center justify-content-center">
+                                    <div>→</div>
+                                    <div>
+                                        <div class="lulumovecard-amount d-flex flex-row">
+                                            <div class="mx-1">-</div>
+                                            <div class="mx-1">69.99 $</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Piano Guy </div>
+                                    <div>(# 0888 9505)</div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </a>
+                <!-- Movecard -->
+                <a class="lulumovecard luluw100 mb-2 p-1 d-flex flex-row align-items-center justify-content-start"
+                    routerLink="transaction-info">
+                    <div class="luluw100 d-flex flex-column align-items-start justify-content-center">
+                        <div class="luluw100">
+                            <div class="luluw100 d-flex flex-row align-items-center ">
+                                <div class="lulumovecard-title ms-1">Some more piano lessons</div>
+                                <div class="ms-auto">20/06/1999 23h30</div>
+                            </div>
+                            <div class="luluw100 d-flex flex-row align-items-center justify-content-around">
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Main Account</div>
+                                    <div>(# 9915 8021)</div>
+                                </div>
+                                <div class="d-flex flex-column align-items-center justify-content-center">
+                                    <div>→</div>
+                                    <div>
+                                        <div class="lulumovecard-amount d-flex flex-row">
+                                            <div class="mx-1">-</div>
+                                            <div class="mx-1">69.99 $</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border p-1 d-flex flex-column align-items-center justify-content-center">
+                                    <div>Piano Guy </div>
+                                    <div>(# 0888 9505)</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+
             </div>
+
         </div>
 
 
