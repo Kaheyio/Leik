@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -34,7 +35,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private apiService: ApiService
   ) { }
 
   ngOnInit(): void {
@@ -73,7 +75,7 @@ export class LoginComponent implements OnInit {
 
 
         // TODO: store userData and leikode to retrieve them in the rest of the app
-        this.authService.getLoggedUserData(this.user, this.leikode);
+        this.apiService.setLoggedUserData(this.user, this.leikode);
 
 
         // TODO: if cookie is stored successfully in browser ???

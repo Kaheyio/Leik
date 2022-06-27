@@ -20,25 +20,25 @@ export class AuthGuardService {
     private authService: AuthService
   ) { }
 
- 
+
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     // TODO: if cookie is in browser return true else redirect
     // use authorization header/ bearer token ??
-this.authService.getTypeRequest('/logged').subscribe(res => {
+    this.authService.getTypeRequest('/logged').subscribe(res => {
 
-  // if status = false, not allowed
-  const accessAuthorized = Object.values(res)[0];
-  console.log('status of authorization: ' + accessAuthorized);
-  if (accessAuthorized !== true) {
-    console.log('You are not allowed to view this page');
-    this.router.navigate(['/login']);
-  }
+      // if status = false, not allowed
+      const accessAuthorized = Object.values(res)[0];
+      console.log('status of authorization: ' + accessAuthorized);
+      if (accessAuthorized !== true) {
+        console.log('You are not allowed to view this page');
+        this.router.navigate(['/login']);
+      }
+
+      return true;
+    })
 
     return true;
-})
 
-    return true;
-   
   }
 
 }

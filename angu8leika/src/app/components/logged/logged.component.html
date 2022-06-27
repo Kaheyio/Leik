@@ -10,7 +10,7 @@
             </li>
 
             <!-- TODO: TEST SHARE USER DATA WITHIN APP AFTER LOGIN = OK-->
-            <li class="nav-item my-auto">
+            <li class="nav-item my-auto" *ngIf="apiService.isLoggedIn">
                 <span class="text-white fw-bold">Welcome {{ userData.username }} !</span>
                 <span class="text-white fw-bold"> Your new leikode : {{ userLeikode }} </span>
             </li>

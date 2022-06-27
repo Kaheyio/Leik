@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -14,26 +15,26 @@ export class LoggedComponent implements OnInit {
   userLeikode: any;
 
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, public apiService: ApiService) { }
 
   ngOnInit(): void {
 
     // user data
-    this.authService.userData.subscribe(data => {
+    this.apiService.userData.subscribe(data => {
       this.userData = data;
+      // console.log(this.userData);
     });
 
     // leikode
-    this.authService.userLeikode.subscribe(data => {
+    this.apiService.userLeikode.subscribe(data => {
       this.userLeikode = data;
+      // console.log(this.userLeikode);
     });
 
   }
 
 
   logout() {
-    // TODO: backend method in authservice to destroy cookie
-    // this._auth.clearStorage()
 
     this.authService.getTypeRequest('/logout').subscribe({
       next: (res) => {
@@ -45,6 +46,5 @@ export class LoggedComponent implements OnInit {
       }
     });
   }
-
 
 }
