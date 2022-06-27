@@ -1,1 +1,16 @@
-manage
+<div class="luluh100 py-2 px-4 d-flex flex-column align-items-stretch justify-content-evenly">
+    <!-- OPTION 1 -->
+    <button class="btn bg-dark text-white" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#manage-receivers-bis-canvas" aria-controls="manage-receivers-bis-canvas">Manage receivers</button>
+    <!-- body -->
+    <div class="luluh100 offcanvas offcanvas-end" tabindex="-1" id="manage-receivers-bis-canvas"
+        aria-labelledby="manage-receivers-bis-canvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="manage-receivers-bis-canvasLabel">Receivers bis</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <app-manage-receivers></app-manage-receivers>
+        </div>
+    </div>
+</div>

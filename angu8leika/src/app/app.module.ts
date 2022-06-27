@@ -19,10 +19,10 @@ import { AccountpickerComponent } from './components/logged/accounts/accountpick
 import { CardsComponent } from './components/logged/accounts/cards/cards.component';
 import { StatsComponent } from './components/logged/accounts/stats/stats.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { TransactionInfoComponent } from './components/logged/accounts/transactions/transaction-info/transaction-info.component';
 import { NewMoveComponent } from './components/logged/transfer/new-move/new-move.component';
 import { ManageReceiversComponent } from './components/logged/transfer/manage-receivers/manage-receivers.component';
 import { ManageComponent } from './components/logged/manage/manage.component';
+import { TransactionDetailsComponent } from './components/logged/accounts/transactions/transaction-details/transaction-details.component';
 
 
 @NgModule({
@@ -40,7 +40,7 @@ import { ManageComponent } from './components/logged/manage/manage.component';
     CardsComponent,
     StatsComponent,
     NotFoundComponent,
-    TransactionInfoComponent,
+    TransactionDetailsComponent,
     NewMoveComponent,
     ManageReceiversComponent,
     ManageComponent,
