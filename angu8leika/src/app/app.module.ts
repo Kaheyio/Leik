@@ -22,7 +22,6 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { TransactionInfoComponent } from './components/logged/accounts/transactions/transaction-info/transaction-info.component';
 import { NewMoveComponent } from './components/logged/transfer/new-move/new-move.component';
 import { ManageReceiversComponent } from './components/logged/transfer/manage-receivers/manage-receivers.component';
-import { TransfermainComponent } from './components/logged/transfer/transfermain/transfermain.component';
 
 
 @NgModule({
@@ -43,7 +42,6 @@ import { TransfermainComponent } from './components/logged/transfer/transfermain
     TransactionInfoComponent,
     NewMoveComponent,
     ManageReceiversComponent,
-    TransfermainComponent,
   ],
   imports: [
     BrowserModule,
