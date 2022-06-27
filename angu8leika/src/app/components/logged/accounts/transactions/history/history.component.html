@@ -74,13 +74,12 @@
     data-bs-toggle="offcanvas" data-bs-target="#transaction-details-canvas" aria-controls="transaction-details-canvas">
     <!-- TODO on click, pass transaction id as a parameter to managereceivers component --> 
     <!-- TODO ngclass border-bottom if there's more than one card per day-->
-    <img class="lulutransacard-logo p-1" src="../../../../../../assets/logotest.png" alt="categorylogo">
+    <img class="lulutransacard-logo p-1" src="../../../../../../assets/logotest.png" alt="categorylogo"> <!-- add a ONLINE vignette par dessus -->
     <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
         <div class="lulutransacard-title">Mom</div> <!-- set a max nb of characters -->
         <div class="lulutransacard-date-cardnb d-flex flex-row">
             <!-- set a max width for each (never know) -->
-            <div class="me-3">20/06/1999 20h30</div>
-            <div>Card **** 9915</div>
+            <div>Card **** 9915</div> <!-- or subtitle (motif) if SEPA --> 
         </div>
         <div class="luluw100 d-flex flex-row">
             <div class="lulutransacard-category">
@@ -118,7 +117,6 @@
                 <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
                     <div class="lulutransacard-title">Amazon Payements Europe S</div>
                     <div class="lulutransacard-date-cardnb d-flex flex-row">
-                        <div class="me-3">20/06/1999 20h30</div>
                         <div>Card **** 9915</div>
                     </div>
                     <div class="luluw100 d-flex flex-row">
@@ -154,7 +152,34 @@
                 <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
                     <div class="lulutransacard-title">Amazon Payements Europe S</div>
                     <div class="lulutransacard-date-cardnb d-flex flex-row">
-                        <div class="me-3">20/06/1999 20h30</div>
+                        <div>SEPA Lavie Hammock Ref...</div>
+                    </div>
+                    <div class="luluw100 d-flex flex-row">
+                        <div class="lulutransacard-category">
+                            Category, subcategory
+                        </div>
+                        <div
+                            class="lulutransacard-price lulugreenoperation luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                            <div class="lulutransacard-currency mx-1">
+                                &euro;
+                            </div>
+                            <div class="d-flex flex-row mx-1">
+                                <div class="mx-1">+</div>
+                                <div class="mx-1">12.99</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lulutransacard-usernote border-top text-center">
+                    </div>
+                </div>
+            </a>
+            <a class="lulutransacard p-1 border-bottom mt-1 d-flex flex-row justify-content-evenly align-items-center"
+                data-bs-toggle="offcanvas" data-bs-target="#transaction-details-canvas"
+                aria-controls="transaction-details-canvas">
+                <img class="lulutransacard-logo p-1" src="../../../../../../assets/logotest.png" alt="categorylogo">
+                <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
+                    <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                    <div class="lulutransacard-date-cardnb d-flex flex-row">
                         <div>Card **** 9915</div>
                     </div>
                     <div class="luluw100 d-flex flex-row">
@@ -183,7 +208,6 @@
                 <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
                     <div class="lulutransacard-title">Amazon Payements Europe S</div>
                     <div class="lulutransacard-date-cardnb d-flex flex-row">
-                        <div class="me-3">20/06/1999 20h30</div>
                         <div>Card **** 9915</div>
                     </div>
                     <div class="luluw100 d-flex flex-row">
@@ -212,7 +236,6 @@
                 <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
                     <div class="lulutransacard-title">Amazon Payements Europe S</div>
                     <div class="lulutransacard-date-cardnb d-flex flex-row">
-                        <div class="me-3">20/06/1999 20h30</div>
                         <div>Card **** 9915</div>
                     </div>
                     <div class="luluw100 d-flex flex-row">
@@ -241,36 +264,6 @@
                 <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
                     <div class="lulutransacard-title">Amazon Payements Europe S</div>
                     <div class="lulutransacard-date-cardnb d-flex flex-row">
-                        <div class="me-3">20/06/1999 20h30</div>
-                        <div>Card **** 9915</div>
-                    </div>
-                    <div class="luluw100 d-flex flex-row">
-                        <div class="lulutransacard-category">
-                            Category, subcategory
-                        </div>
-                        <div
-                            class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
-                            <div class="lulutransacard-currency mx-1">
-                                &euro;
-                            </div>
-                            <div class="d-flex flex-row mx-1">
-                                <div class="mx-1">-</div>
-                                <div class="mx-1">12.99</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lulutransacard-usernote border-top text-center">
-                    </div>
-                </div>
-            </a>
-            <a class="lulutransacard p-1 border-bottom mt-1 d-flex flex-row justify-content-evenly align-items-center"
-                data-bs-toggle="offcanvas" data-bs-target="#transaction-details-canvas"
-                aria-controls="transaction-details-canvas">
-                <img class="lulutransacard-logo p-1" src="../../../../../../assets/logotest.png" alt="categorylogo">
-                <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
-                    <div class="lulutransacard-title">Amazon Payements Europe S</div>
-                    <div class="lulutransacard-date-cardnb d-flex flex-row">
-                        <div class="me-3">20/06/1999 20h30</div>
                         <div>Card **** 9915</div>
                     </div>
                     <div class="luluw100 d-flex flex-row">
@@ -306,7 +299,6 @@
                 <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
                     <div class="lulutransacard-title">Amazon Payements Europe S</div>
                     <div class="lulutransacard-date-cardnb d-flex flex-row">
-                        <div class="me-3">20/06/1999 20h30</div>
                         <div>Card **** 9915</div>
                     </div>
                     <div class="luluw100 d-flex flex-row">
@@ -335,7 +327,6 @@
                 <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
                     <div class="lulutransacard-title">Amazon Payements Europe S</div>
                     <div class="lulutransacard-date-cardnb d-flex flex-row">
-                        <div class="me-3">20/06/1999 20h30</div>
                         <div>Card **** 9915</div>
                     </div>
                     <div class="luluw100 d-flex flex-row">
@@ -371,7 +362,6 @@
                 <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
                     <div class="lulutransacard-title">Amazon Payements Europe S</div>
                     <div class="lulutransacard-date-cardnb d-flex flex-row">
-                        <div class="me-3">20/06/1999 20h30</div>
                         <div>Card **** 9915</div>
                     </div>
                     <div class="luluw100 d-flex flex-row">
@@ -400,7 +390,6 @@
                 <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
                     <div class="lulutransacard-title">Amazon Payements Europe S</div>
                     <div class="lulutransacard-date-cardnb d-flex flex-row">
-                        <div class="me-3">20/06/1999 20h30</div>
                         <div>Card **** 9915</div>
                     </div>
                     <div class="luluw100 d-flex flex-row">
@@ -429,7 +418,6 @@
                 <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
                     <div class="lulutransacard-title">Amazon Payements Europe S</div>
                     <div class="lulutransacard-date-cardnb d-flex flex-row">
-                        <div class="me-3">20/06/1999 20h30</div>
                         <div>Card **** 9915</div>
                     </div>
                     <div class="luluw100 d-flex flex-row">
@@ -458,7 +446,6 @@
                 <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
                     <div class="lulutransacard-title">Amazon Payements Europe S</div>
                     <div class="lulutransacard-date-cardnb d-flex flex-row">
-                        <div class="me-3">20/06/1999 20h30</div>
                         <div>Card **** 9915</div>
                     </div>
                     <div class="luluw100 d-flex flex-row">
