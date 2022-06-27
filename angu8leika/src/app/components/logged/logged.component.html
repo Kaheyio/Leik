@@ -9,7 +9,21 @@
             </li>
             <!-- Chat icon -->
             <li class="nav-item my-auto">
-                <button class="btn bg-dark" href="#"><i class="fa-brands fa-rocketchat"></i></button>
+                <!-- CHAT Offcanvas button -->
+                <button class="btn bg-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#chat-canvas"
+                    aria-controls="chat-canvas"><i class="fa-brands fa-rocketchat"></i></button>
+                <!-- CHAT Offcanvas title/label + content -->
+                <!-- TODO manage all tabindexes -->
+                <div class="offcanvas offcanvas-bottom" tabindex="-1" id="chat-canvas"
+                    aria-labelledby="chat-canvasLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="chat-canvasLabel">What's up?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body mb-4">
+                        <app-contact></app-contact>
+                    </div>
+                </div>
             </li>
             <!-- Logout icon -->
             <li class="nav-item my-auto">
@@ -27,16 +41,14 @@
                 <app-accounts></app-accounts>
             </div>
             <!-- Transfer tab -->
-            <div class="tab-pane fade" id="transfercomponent-displayer" role="tabpanel"
+            <div class="luluh100 tab-pane fade " id="transfercomponent-displayer" role="tabpanel"
                 aria-labelledby="transfercomponent-btn" tabindex="0">
-                <!--NOTE used to have lulumaincomponentsubdisplayer class -->
                 <app-transfer></app-transfer>
             </div>
             <!-- Manage tab -->
-            <div class="tab-pane fade" id="managecomponent-displayer" role="tabpanel"
+            <div class="luluh100 tab-pane fade " id="managecomponent-displayer" role="tabpanel"
                 aria-labelledby="managecomponent-btn" tabindex="0">
-                <app-contact></app-contact>
-                <!--TODO I put content in contact component because i'm sure contact won't move but I don't know where to place manage component since it influences everything -->
+                <app-manage></app-manage>
             </div>
         </div>
     </div>
@@ -47,17 +59,17 @@
             id="lulubottomnav" role="tablist">
             <!-- Accounts btn -->
             <li class="luluh100 nav-item d-flex flex-column justify-content-center" role="presentation">
-                <button class="luluh100 nav-link d-flex flex-column align-items-center justify-content-evenly active"
+                <button class="luluh100 nav-link d-flex flex-column align-items-center justify-content-evenly"
                     id="accountcomponent-btn" data-bs-toggle="pill" data-bs-target="#accountcomponent-displayer"
-                    type="button" role="tab" aria-controls="accountcomponent-displayer" aria-selected="true">
+                    type="button" role="tab" aria-controls="accountcomponent-displayer" aria-selected="false">
                     <i class="my-1 fa-solid fa-xl fa-receipt"></i>
                 </button>
             </li>
             <!-- Transfers btn -->
             <li class="luluh100 nav-item d-flex flex-column justify-content-center" role="presentation">
-                <button class="luluh100 nav-link d-flex flex-column align-items-center justify-content-evenly"
+                <button class="luluh100 nav-link d-flex flex-column align-items-center justify-content-evenly active"
                     id="transfercomponent-btn" data-bs-toggle="pill" data-bs-target="#transfercomponent-displayer"
-                    type="button" role="tab" aria-controls="transfercomponent-displayer" aria-selected="false">
+                    type="button" role="tab" aria-controls="transfercomponent-displayer" aria-selected="true">
                     <i class="my-1 fa-solid fa-xl fa-money-bill-transfer"></i>
                 </button>
             </li>
