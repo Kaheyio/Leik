@@ -37,13 +37,6 @@ this.authService.getTypeRequest('/logged').subscribe(res => {
     return true;
 })
 
-    // if (!this.authService.userData) {
-    //   console.log('You are not allowed to view this page');
-    //   this.router.navigate(['/login']);
-    //   return false;
-    
-    // }
-
     return true;
    
   }
