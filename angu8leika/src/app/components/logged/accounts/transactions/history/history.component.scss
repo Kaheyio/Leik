@@ -1,0 +1,40 @@
+.luludayholder{
+    border: 1px solid var(--lulucardusernoteborder);
+    border-radius: 10px;
+}
+.lulutransacard {
+    text-decoration: none;
+    color: black;
+    max-height: 200px;
+
+    cursor: pointer;
+}
+
+.lulutransacard-logo {
+    width: 14%;
+    max-width: 55px;
+}
+
+.lulutransacard-text {
+    width: 85%;
+    font-size: 0.7rem;
+}
+
+.lulutransacard-title {
+    font-size: 0.9rem;
+}
+
+.lulutransacard-category {
+    color: var(--lulucardtextgrey);
+}
+
+.lulutransacard-price {
+    font-size: 0.9rem;
+    min-width: fit-content;
+}
+
+.lulutransacard-usernote {
+    color: var(--lulucardusernote);
+    border-color: aqua;
+    border-top: 2px solid var(--lulucardusernoteborder);
+}
