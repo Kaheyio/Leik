@@ -1,7 +1,476 @@
-<p>history works!</p>
+<!-- 
+    TODO SEPA VS CARD data-structure
+
+        EITHER we have two different tables [sepa-transaction] [card-transaction] THREE ACTUALLy [manual transactions]
+            ►we have two types of cards
+                ►you have to merge and sort both tables (in the .ts?)
+
+        OR we don't
+            ►we have one card that accomodates both
+                ►cards already sorted in db
+-->
+<!-- 
+    TODO HISTORY table:
+
+        EITHER one big table with all transactions
+            ►history[transactions] 
+                EITHER one card
+                    ►ngFor transactions of history
+                    [sortedcards]
+
+                    ►gotta tidy them into years tables, months tables, days tables
+                     BUT HOW DO WE DIVIDE INTO YEARS MONTHS DAYS IN HTML? 
+
+        OR lots of tables within tables 
+            EITHER one card
+                ►history[years[months[days[transactions]]]]
+
+                    ►ngFor years of history
+                        {{year}}
+                        ngFor months of year
+                            {{month}}
+                            ngfor days of month
+                                {{day}}
+                                    [sortedcards]
+            OR two cards
+                ►history[years[months[days[transactions[sepa][cards]]]]]
+
+                    ►ngFor years of history
+                    {{year}}
+                    ngFor months of year
+                    {{month}}
+                    ngfor days of month
+                    {{day}}
+                -->
 
 <!-- 
-    TODO clean up card, make it clickable and link to transaction detail 
-    (which should have a btn "i didn't authorize this" 
-    which links to tchat passing transaction id, tchat matter type and other paremeters")
--->
+                    ts, you want
+                    
+                    -allhistorysorted[]
+                    -sepahistorysorted[]
+                    -allcardshistorysorted[]
+                    -card1historysorted[]
+                    -card2historysorted[]
+                    something to allow you to have year1>month1>day3>cardtransactions
+                -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- OFFCANVAS -->
+<div class="luluh100 offcanvas offcanvas-bottom" tabindex="-1" id="transaction-details-canvas"
+    aria-labelledby="transaction-details-canvasLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="transaction-details-canvasLabel">Transaction Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <app-transaction-details></app-transaction-details>
+    </div>
+</div>
+
+<!-- TODO make the card a component itself ? tricky for the onclick?-->
+June 27th
+<div class="luludayholder">
+    <!-- Card Transaction card -->
+    <a class="lulutransacard p-1 border-bottom mt-1 d-flex flex-row justify-content-evenly align-items-center"
+        data-bs-toggle="offcanvas" data-bs-target="#transaction-details-canvas"
+        aria-controls="transaction-details-canvas">
+        <!-- TODO on click, pass transaction id as a parameter to managereceivers component -->
+        <!-- TODO ngclass border-bottom if there's more than one card per day-->
+        <img class="lulutransacard-logo p-1" src="../../../../../../assets/logotest.png" alt="categorylogo">
+        <!-- add a ONLINE vignette par dessus -->
+        <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
+            <div class="lulutransacard-title">Mom</div> <!-- set a max nb of characters -->
+            <div class="lulutransacard-date-cardnb d-flex flex-row">
+                <!-- set a max width for each (never know) -->
+                <div>Card **** 9915</div> <!-- or subtitle (motif) if SEPA -->
+            </div>
+            <div class="luluw100 d-flex flex-row">
+                <div class="lulutransacard-category">
+                    <!-- 30characters max -->
+                    Category, subcategory
+                </div>
+                <div
+                    class="lulutransacard-price lulugreenoperation luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                    <!-- ngclass if (amount positive) class = lulugreenoperation -->
+                    <div class="lulutransacard-currency mx-1">
+                        &euro;
+                    </div>
+                    <div class="d-flex flex-row mx-1">
+                        <div class="mx-1">+</div> <!-- {{symbole}} (ts: if positive symbole = + else = -) -->
+                        <div class="mx-1">99 999 999.99</div> <!-- {{amount}} TODO format amount-->
+                    </div>
+                </div>
+            </div>
+            <div class="lulutransacard-usernote text-center">
+                <!-- 100characters max -->
+                <!-- ng if (there's a user note) then {{usernote}}-->
+                Had to do this one to get something out of someone but turns out i got reinburesed by someone else 100
+            </div>
+        </div>
+    </a>
+</div>
+<div id="copies">
+    <div>
+        June 26th
+        <!-- COPY TEMPLATE-->
+        <div class="luludayholder">
+            <a class="lulutransacard p-1 border-bottom mt-1 d-flex flex-row justify-content-evenly align-items-center"
+                data-bs-toggle="offcanvas" data-bs-target="#transaction-details-canvas"
+                aria-controls="transaction-details-canvas">
+                <img class="lulutransacard-logo p-1" src="../../../../../../assets/logotest.png" alt="categorylogo">
+                <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
+                    <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                    <div class="lulutransacard-date-cardnb d-flex flex-row">
+                        <div>Card **** 9915</div>
+                    </div>
+                    <div class="luluw100 d-flex flex-row">
+                        <div class="lulutransacard-category">
+                            Category, subcategory
+                        </div>
+                        <div
+                            class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                            <div class="lulutransacard-currency mx-1">
+                                &euro;
+                            </div>
+                            <div class="d-flex flex-row mx-1">
+                                <div class="mx-1">-</div>
+                                <div class="mx-1">12.99</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lulutransacard-usernote border-top text-center">
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- 25 june -->
+    <div>
+        June 25th
+        <!-- COPIES HERE -->
+        <div class="luludayholder">
+            <a class="lulutransacard p-1 border-bottom mt-1 d-flex flex-row justify-content-evenly align-items-center"
+                data-bs-toggle="offcanvas" data-bs-target="#transaction-details-canvas"
+                aria-controls="transaction-details-canvas">
+                <img class="lulutransacard-logo p-1" src="../../../../../../assets/logotest.png" alt="categorylogo">
+                <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
+                    <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                    <div class="lulutransacard-date-cardnb d-flex flex-row">
+                        <div>SEPA Lavie Hammock Ref...</div>
+                    </div>
+                    <div class="luluw100 d-flex flex-row">
+                        <div class="lulutransacard-category">
+                            Category, subcategory
+                        </div>
+                        <div
+                            class="lulutransacard-price lulugreenoperation luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                            <div class="lulutransacard-currency mx-1">
+                                &euro;
+                            </div>
+                            <div class="d-flex flex-row mx-1">
+                                <div class="mx-1">+</div>
+                                <div class="mx-1">12.99</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lulutransacard-usernote border-top text-center">
+                    </div>
+                </div>
+            </a>
+            <a class="lulutransacard p-1 border-bottom mt-1 d-flex flex-row justify-content-evenly align-items-center"
+                data-bs-toggle="offcanvas" data-bs-target="#transaction-details-canvas"
+                aria-controls="transaction-details-canvas">
+                <img class="lulutransacard-logo p-1" src="../../../../../../assets/logotest.png" alt="categorylogo">
+                <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
+                    <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                    <div class="lulutransacard-date-cardnb d-flex flex-row">
+                        <div>Card **** 9915</div>
+                    </div>
+                    <div class="luluw100 d-flex flex-row">
+                        <div class="lulutransacard-category">
+                            Category, subcategory
+                        </div>
+                        <div
+                            class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                            <div class="lulutransacard-currency mx-1">
+                                &euro;
+                            </div>
+                            <div class="d-flex flex-row mx-1">
+                                <div class="mx-1">-</div>
+                                <div class="mx-1">12.99</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lulutransacard-usernote border-top text-center">
+                    </div>
+                </div>
+            </a>
+            <a class="lulutransacard p-1 border-bottom mt-1 d-flex flex-row justify-content-evenly align-items-center"
+                data-bs-toggle="offcanvas" data-bs-target="#transaction-details-canvas"
+                aria-controls="transaction-details-canvas">
+                <img class="lulutransacard-logo p-1" src="../../../../../../assets/logotest.png" alt="categorylogo">
+                <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
+                    <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                    <div class="lulutransacard-date-cardnb d-flex flex-row">
+                        <div>Card **** 9915</div>
+                    </div>
+                    <div class="luluw100 d-flex flex-row">
+                        <div class="lulutransacard-category">
+                            Category, subcategory
+                        </div>
+                        <div
+                            class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                            <div class="lulutransacard-currency mx-1">
+                                &euro;
+                            </div>
+                            <div class="d-flex flex-row mx-1">
+                                <div class="mx-1">-</div>
+                                <div class="mx-1">12.99</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lulutransacard-usernote border-top text-center">
+                    </div>
+                </div>
+            </a>
+            <a class="lulutransacard p-1 border-bottom mt-1 d-flex flex-row justify-content-evenly align-items-center"
+                data-bs-toggle="offcanvas" data-bs-target="#transaction-details-canvas"
+                aria-controls="transaction-details-canvas">
+                <img class="lulutransacard-logo p-1" src="../../../../../../assets/logotest.png" alt="categorylogo">
+                <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
+                    <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                    <div class="lulutransacard-date-cardnb d-flex flex-row">
+                        <div>Card **** 9915</div>
+                    </div>
+                    <div class="luluw100 d-flex flex-row">
+                        <div class="lulutransacard-category">
+                            Category, subcategory
+                        </div>
+                        <div
+                            class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                            <div class="lulutransacard-currency mx-1">
+                                &euro;
+                            </div>
+                            <div class="d-flex flex-row mx-1">
+                                <div class="mx-1">-</div>
+                                <div class="mx-1">12.99</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lulutransacard-usernote border-top text-center">
+                    </div>
+                </div>
+            </a>
+            <a class="lulutransacard p-1 border-bottom mt-1 d-flex flex-row justify-content-evenly align-items-center"
+                data-bs-toggle="offcanvas" data-bs-target="#transaction-details-canvas"
+                aria-controls="transaction-details-canvas">
+                <img class="lulutransacard-logo p-1" src="../../../../../../assets/logotest.png" alt="categorylogo">
+                <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
+                    <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                    <div class="lulutransacard-date-cardnb d-flex flex-row">
+                        <div>Card **** 9915</div>
+                    </div>
+                    <div class="luluw100 d-flex flex-row">
+                        <div class="lulutransacard-category">
+                            Category, subcategory
+                        </div>
+                        <div
+                            class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                            <div class="lulutransacard-currency mx-1">
+                                &euro;
+                            </div>
+                            <div class="d-flex flex-row mx-1">
+                                <div class="mx-1">-</div>
+                                <div class="mx-1">12.99</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lulutransacard-usernote border-top text-center">
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- 24 june -->
+    <div>
+        June 24th
+        <!-- COPIES HERE -->
+        <div class="luludayholder">
+            <a class="lulutransacard p-1 border-bottom mt-1 d-flex flex-row justify-content-evenly align-items-center"
+                data-bs-toggle="offcanvas" data-bs-target="#transaction-details-canvas"
+                aria-controls="transaction-details-canvas">
+                <img class="lulutransacard-logo p-1" src="../../../../../../assets/logotest.png" alt="categorylogo">
+                <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
+                    <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                    <div class="lulutransacard-date-cardnb d-flex flex-row">
+                        <div>Card **** 9915</div>
+                    </div>
+                    <div class="luluw100 d-flex flex-row">
+                        <div class="lulutransacard-category">
+                            Category, subcategory
+                        </div>
+                        <div
+                            class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                            <div class="lulutransacard-currency mx-1">
+                                &euro;
+                            </div>
+                            <div class="d-flex flex-row mx-1">
+                                <div class="mx-1">-</div>
+                                <div class="mx-1">12.99</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lulutransacard-usernote border-top text-center">
+                    </div>
+                </div>
+            </a>
+            <a class="lulutransacard p-1 border-bottom mt-1 d-flex flex-row justify-content-evenly align-items-center"
+                data-bs-toggle="offcanvas" data-bs-target="#transaction-details-canvas"
+                aria-controls="transaction-details-canvas">
+                <img class="lulutransacard-logo p-1" src="../../../../../../assets/logotest.png" alt="categorylogo">
+                <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
+                    <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                    <div class="lulutransacard-date-cardnb d-flex flex-row">
+                        <div>Card **** 9915</div>
+                    </div>
+                    <div class="luluw100 d-flex flex-row">
+                        <div class="lulutransacard-category">
+                            Category, subcategory
+                        </div>
+                        <div
+                            class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                            <div class="lulutransacard-currency mx-1">
+                                &euro;
+                            </div>
+                            <div class="d-flex flex-row mx-1">
+                                <div class="mx-1">-</div>
+                                <div class="mx-1">12.99</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lulutransacard-usernote border-top text-center">
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- 23 june -->
+    <div>
+        June 23rd
+        <!-- COPIES HERE -->
+        <div class="luludayholder">
+            <a class="lulutransacard p-1 border-bottom mt-1 d-flex flex-row justify-content-evenly align-items-center"
+                data-bs-toggle="offcanvas" data-bs-target="#transaction-details-canvas"
+                aria-controls="transaction-details-canvas">
+                <img class="lulutransacard-logo p-1" src="../../../../../../assets/logotest.png" alt="categorylogo">
+                <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
+                    <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                    <div class="lulutransacard-date-cardnb d-flex flex-row">
+                        <div>Card **** 9915</div>
+                    </div>
+                    <div class="luluw100 d-flex flex-row">
+                        <div class="lulutransacard-category">
+                            Category, subcategory
+                        </div>
+                        <div
+                            class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                            <div class="lulutransacard-currency mx-1">
+                                &euro;
+                            </div>
+                            <div class="d-flex flex-row mx-1">
+                                <div class="mx-1">-</div>
+                                <div class="mx-1">12.99</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lulutransacard-usernote border-top text-center">
+                    </div>
+                </div>
+            </a>
+            <a class="lulutransacard p-1 border-bottom mt-1 d-flex flex-row justify-content-evenly align-items-center"
+                data-bs-toggle="offcanvas" data-bs-target="#transaction-details-canvas"
+                aria-controls="transaction-details-canvas">
+                <img class="lulutransacard-logo p-1" src="../../../../../../assets/logotest.png" alt="categorylogo">
+                <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
+                    <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                    <div class="lulutransacard-date-cardnb d-flex flex-row">
+                        <div>Card **** 9915</div>
+                    </div>
+                    <div class="luluw100 d-flex flex-row">
+                        <div class="lulutransacard-category">
+                            Category, subcategory
+                        </div>
+                        <div
+                            class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                            <div class="lulutransacard-currency mx-1">
+                                &euro;
+                            </div>
+                            <div class="d-flex flex-row mx-1">
+                                <div class="mx-1">-</div>
+                                <div class="mx-1">12.99</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lulutransacard-usernote border-top text-center">
+                    </div>
+                </div>
+            </a>
+            <a class="lulutransacard p-1 border-bottom mt-1 d-flex flex-row justify-content-evenly align-items-center"
+                data-bs-toggle="offcanvas" data-bs-target="#transaction-details-canvas"
+                aria-controls="transaction-details-canvas">
+                <img class="lulutransacard-logo p-1" src="../../../../../../assets/logotest.png" alt="categorylogo">
+                <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
+                    <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                    <div class="lulutransacard-date-cardnb d-flex flex-row">
+                        <div>Card **** 9915</div>
+                    </div>
+                    <div class="luluw100 d-flex flex-row">
+                        <div class="lulutransacard-category">
+                            Category, subcategory
+                        </div>
+                        <div
+                            class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                            <div class="lulutransacard-currency mx-1">
+                                &euro;
+                            </div>
+                            <div class="d-flex flex-row mx-1">
+                                <div class="mx-1">-</div>
+                                <div class="mx-1">12.99</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lulutransacard-usernote border-top text-center">
+                    </div>
+                </div>
+            </a>
+            <a class="lulutransacard p-1 border-bottom mt-1 d-flex flex-row justify-content-evenly align-items-center"
+                data-bs-toggle="offcanvas" data-bs-target="#transaction-details-canvas"
+                aria-controls="transaction-details-canvas">
+                <img class="lulutransacard-logo p-1" src="../../../../../../assets/logotest.png" alt="categorylogo">
+                <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
+                    <div class="lulutransacard-title">Amazon Payements Europe S</div>
+                    <div class="lulutransacard-date-cardnb d-flex flex-row">
+                        <div>Card **** 9915</div>
+                    </div>
+                    <div class="luluw100 d-flex flex-row">
+                        <div class="lulutransacard-category">
+                            Category, subcategory
+                        </div>
+                        <div
+                            class="lulutransacard-price luluw40 ms-auto d-flex flex-row align-items-start justify-content-evenly">
+                            <div class="lulutransacard-currency mx-1">
+                                &euro;
+                            </div>
+                            <div class="d-flex flex-row mx-1">
+                                <div class="mx-1">-</div>
+                                <div class="mx-1">12.99</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lulutransacard-usernote border-top text-center">
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

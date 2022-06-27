@@ -6,6 +6,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
+  // TODO understand routing. 
+  // Like, routing to transaction-info (doesnt exist anymore) didn't work unless you're at "localhost:4200" (i.e. can't go to it from localhost:4200/login)
+  // {path: '', component: LoggedComponent}, // LULU made this to land on his space when reloading page
   { path: 'login', component: LoginComponent},
   { path: 'logged', canActivate: [AuthGuardService], component: LoggedComponent},
   // CAREFUL, the following not found ** redirect is a wildcard and should always be put last

@@ -24,6 +24,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --lulubtngrey: #C3C0C0ff;
     --lulubtnred: rgb(212, 30, 30);
 
+    --lulucardtextgrey: #727272;
+    --lulucardusernote: #969696;
+    --lulucardusernoteborder: #f7f3f3;
+    --lulucardtextgreen: #0dd02a;
+
     --lulured: rgb(248, 182, 182);
     --luluyellow: rgb(249, 255, 170);
     --lulugreen: rgb(199, 248, 187);
@@ -39,6 +44,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .luluh90{
     height: 90%;
 }
+.luluh82{
+    height: 82%;
+}
+.luluh60{
+    height: 60%;
+}
+.luluh65{
+    height: 65%;
+}
 .luluh10{
     height: 10%;
 }
@@ -47,4 +61,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .luluw100{
     width: 100%;
+}
+
+.lulugreenoperation{
+    color: var(--lulucardtextgreen);
 }

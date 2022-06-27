@@ -21,6 +21,11 @@ import { CardsComponent } from './components/logged/accounts/cards/cards.compone
 import { StatsComponent } from './components/logged/accounts/stats/stats.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { InterceptorServiceService } from './services/interceptor-service.service';
+import { NewMoveComponent } from './components/logged/transfer/new-move/new-move.component';
+import { ManageReceiversComponent } from './components/logged/transfer/manage-receivers/manage-receivers.component';
+import { ManageComponent } from './components/logged/manage/manage.component';
+import { TransactionDetailsComponent } from './components/logged/accounts/transactions/transaction-details/transaction-details.component';
+
 
 
 @NgModule({
@@ -39,6 +44,10 @@ import { InterceptorServiceService } from './services/interceptor-service.servic
     CardsComponent,
     StatsComponent,
     NotFoundComponent,
+    TransactionDetailsComponent,
+    NewMoveComponent,
+    ManageReceiversComponent,
+    ManageComponent,
   ],
   imports: [
     BrowserModule,
