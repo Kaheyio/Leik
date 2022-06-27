@@ -59,7 +59,7 @@ export class AuthService {
   getLoggedUserData(userData: any, userLeikode: any) {
     this.$userData.next(userData);
     this.$userLeikode.next(userLeikode);
-    this.$isLoggedIn.next(true);
+    // this.$isLoggedIn.next(isLoggedIn);
   }
 
 

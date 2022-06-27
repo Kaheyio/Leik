@@ -27,17 +27,11 @@ export class AuthGuardService {
   };
 
 
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    // TODO: if cookie is in browser return true else redirect
-    // use authorization header/ bearer token ??
+  // canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+  //   // TODO: if cookie is in browser return true else redirect
+  //   // use authorization header/ bearer token ??
     
-    if (this.authService.isLoggedIn) {
-      return true;
-    }
-
-    // NB: you can save redirect url so after authing we can move them back to the page they requested initially
-    this.router.navigate(['/login']);
-    return false;
-  }
+   
+  // }
 
 }

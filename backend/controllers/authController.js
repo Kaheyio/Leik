@@ -149,7 +149,7 @@ module.exports.login_post = async (req, res) => {
 
 /****** PROTECT ROUTE METHOD ******/
 module.exports.loggedRoute_get = async (req, res) => {
-    await res.send({status: 1, route_status: 'Access authorized', userId: req.user._id});
+    await res.send({status: true, route_status: 'Access authorized', userId: req.user._id});
 };
 
 /****** LOG OUT METHOD ******/
