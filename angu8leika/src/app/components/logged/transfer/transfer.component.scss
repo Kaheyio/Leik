@@ -1,4 +1,13 @@
 // ******************TRANSFER COMPONENT *******************************************************************
+.offcanvas{
+    width: 100vw;
+}
+#transfercomponentwrapper button{
+    max-width: 500px;
+}
+#moveshistory{
+    max-width: 1000px;
+}
 #moveshistorycards{
     overflow-y: scroll;
 }
@@ -21,8 +30,7 @@
 }
 
 
+// TODO do a global overflow class
 #luluoverflow{
     overflow-y: scroll;
 }
-
-// TODO do a global overflow class
