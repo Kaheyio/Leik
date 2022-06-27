@@ -27,7 +27,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   getTypeRequest(url: any) {
-    return this.http.get(`${this.baseUrl}${url}`).pipe(map(res => {
+    return this.http.get(`${this.baseUrl}${url}`, { withCredentials : true }).pipe(map(res => {
       return res;
     }));
   };
@@ -42,13 +42,13 @@ export class AuthService {
 
 
   putTypeRequest(url: any, payload: any) {
-    return this.http.put(`${this.baseUrl}${url}`, payload).pipe(map(res => {
+    return this.http.put(`${this.baseUrl}${url}`, payload, { withCredentials : true }).pipe(map(res => {
       return res;
     }));
   };
 
   deleteTypeRequest(url: any) {
-    return this.http.delete(`${this.baseUrl}${url}`).pipe(map(res => {
+    return this.http.delete(`${this.baseUrl}${url}`, { withCredentials : true }).pipe(map(res => {
       return res;
     }));
   };

@@ -20,18 +20,32 @@ export class AuthGuardService {
     private authService: AuthService
   ) { }
 
-  getTypeRequest(url: any) {
-    return this.http.get(`${this.baseUrl}${url}`, { withCredentials : true }).pipe(map(res => {
-      return res;
-    }));
-  };
+ 
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    // TODO: if cookie is in browser return true else redirect
+    // use authorization header/ bearer token ??
+this.authService.getTypeRequest('/logged').subscribe(res => {
 
+  // if status = false, not allowed
+  const accessAuthorized = Object.values(res)[0];
+  console.log('status of authorization: ' + accessAuthorized);
+  if (accessAuthorized !== true) {
+    console.log('You are not allowed to view this page');
+    this.router.navigate(['/login']);
+  }
 
-  // canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-  //   // TODO: if cookie is in browser return true else redirect
-  //   // use authorization header/ bearer token ??
+    return true;
+})
+
+    // if (!this.authService.userData) {
+    //   console.log('You are not allowed to view this page');
+    //   this.router.navigate(['/login']);
+    //   return false;
     
+    // }
+
+    return true;
    
-  // }
+  }
 
 }

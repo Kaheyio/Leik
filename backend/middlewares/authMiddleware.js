@@ -12,7 +12,7 @@ const requireAuth = (req, res, next) => {
     // check if token exists and is valid
     // console.log(token);
     if(!token) {
-        return res.status(401).send({route_status: 'Access denied'});
+        return res.send({status: false, route_status: 'Access denied'});
     }
        
     try {
@@ -22,7 +22,7 @@ const requireAuth = (req, res, next) => {
        /* if successful, continue processing any remaining middleware after this one is done (otherwise no other routes will be processed at all) */
         next();
     } catch (error) {
-        res.status(400).send({route_status: 'Invalid credentials'});
+        res.send({status: false, route_status: 'Invalid credentials'});
     }
   
 }
