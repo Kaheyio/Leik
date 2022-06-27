@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoggedComponent implements OnInit {
 
   // get user data + new leikode after login
-  userData: any
+  userData: any;
   userLeikode: any;
 
 
@@ -20,16 +20,22 @@ export class LoggedComponent implements OnInit {
   ngOnInit(): void {
 
     // user data
-    this.apiService.userData.subscribe(data => {
+    this.apiService.userData.subscribe(data => {      
       this.userData = data;
-      // console.log(this.userData);
+      console.log(this.userData);
     });
 
     // leikode
     this.apiService.userLeikode.subscribe(data => {
       this.userLeikode = data;
-      // console.log(this.userLeikode);
+      console.log(this.userLeikode);
     });
+
+    // TODO: test with data in session storage
+    // log out if this.$isLoggedIn is false
+    // if (!this.apiService.isLoggedIn) {
+    //   this.logout();
+    // }
 
   }
 
@@ -46,5 +52,7 @@ export class LoggedComponent implements OnInit {
       }
     });
   }
+
+
 
 }

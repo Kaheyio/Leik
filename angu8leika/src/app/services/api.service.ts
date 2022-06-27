@@ -31,7 +31,19 @@ export class ApiService {
     // TODO: get rid of log
     console.log('ApiService created');
 
-   }
+    // TODO: test with data in session storage
+    // if user data in session storage (user logged and no tab closed), pass it to all the components
+    const storedUserData = sessionStorage.getItem('leikaUD');
+    const storedUserLeikode = sessionStorage.getItem('leikaULK');
+
+    if (storedUserData && storedUserLeikode) {
+      this.$isLoggedIn.next(true);
+      this.setLoggedUserData(storedUserData, storedUserLeikode);
+    }
+    else {
+      this.$isLoggedIn.next(false);
+    }
+  }
 
   // TODO: FOR DATA CRUD
 

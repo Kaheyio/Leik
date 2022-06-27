@@ -73,13 +73,14 @@ export class LoginComponent implements OnInit {
         this.leikode = Object.values(res)[1];
         console.log(this.leikode);
 
+        // TODO: store user data in session storage
+        const storedUserData = this.user;
+        sessionStorage.setItem('leikaUD', storedUserData);
+        const storedUserLeikode = this.leikode;
+        sessionStorage.setItem('leikaULK', storedUserLeikode);
 
         // TODO: store userData and leikode to retrieve them in the rest of the app
         this.apiService.setLoggedUserData(this.user, this.leikode);
-
-
-        // TODO: if cookie is stored successfully in browser ???
-
 
         // redirect to logged components
         this.router.navigate(['/logged']);
@@ -109,7 +110,7 @@ export class LoginComponent implements OnInit {
     }
   };
 
-  
-    // TODO: change boolean value in app component + log out method in logged component
+
+  // TODO: change boolean value in app component + log out method in logged component
 
 }
