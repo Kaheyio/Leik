@@ -17,7 +17,7 @@ const requireAuth = (req, res, next) => {
        
     try {
         const verified = jwt.verify(token, process.env.TOKEN_SECRET);
-        console.log(verified);
+        // console.log(verified);
         req.user = verified;
        /* if successful, continue processing any remaining middleware after this one is done (otherwise no other routes will be processed at all) */
         next();

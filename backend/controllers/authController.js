@@ -115,7 +115,7 @@ module.exports.login_post = async (req, res) => {
      });
      await userLK.save();
 
-     console.log('new leikode: ' + leikode + ' hashed LK: ' + hashedLeikode);
+    //  console.log('new leikode: ' + leikode + ' hashed LK: ' + hashedLeikode);
 
 
      // CREATE AND ASSIGN TOKEN (token contains user id)

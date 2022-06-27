@@ -37,7 +37,7 @@ export class LoggedComponent implements OnInit {
 
     this.authService.getTypeRequest('/logout').subscribe({
       next: (res) => {
-        console.log(Object.values(res));
+        console.log(Object.values(res)[0]);
         this.router.navigate(['/login']);
       },
       error: (err) => {
