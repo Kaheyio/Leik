@@ -20,6 +20,9 @@ export class AuthService {
   private $userLeikode = new BehaviorSubject<any>('');
   userLeikode = this.$userLeikode.asObservable();
 
+  private $isLoggedIn = new BehaviorSubject<boolean>(false);
+  isLoggedIn = this.$isLoggedIn.asObservable();
+
 
   constructor(private http: HttpClient) { }
 
@@ -56,6 +59,7 @@ export class AuthService {
   getLoggedUserData(userData: any, userLeikode: any) {
     this.$userData.next(userData);
     this.$userLeikode.next(userLeikode);
+    this.$isLoggedIn.next(true);
   }
 
 

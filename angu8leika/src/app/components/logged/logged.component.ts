@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthGuardService } from 'src/app/services/auth-guard.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -14,7 +13,8 @@ export class LoggedComponent implements OnInit {
   userData: any
   userLeikode: any;
 
-  constructor(private authService: AuthService, private authGuardService: AuthGuardService, private router: Router) { }
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -44,23 +44,7 @@ export class LoggedComponent implements OnInit {
         console.log(err);
       }
     });
-
   }
 
-  goToProtectedPage(){
-    this.authGuardService.getTypeRequest('/').subscribe(res => {
-      console.log(res);
-      
-      
-
-      // if (res.status == 403) {
-      //   // navigate to login page
-      //   this.router.navigate(['/login']);
-      // }
-      
-
-    })
-
-  }
 
 }

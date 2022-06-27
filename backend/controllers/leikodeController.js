@@ -7,7 +7,7 @@ module.exports.leikode_post = async (req, res) => {
     const user = await User.findById({ _id: req.user._id});
 
     const leikode = req.body.leikode;
-
+    // TODO: test validation in client
     if (!leikode) {
         return res.status(400).send('Please enter your Leikode');
     }
@@ -16,7 +16,7 @@ module.exports.leikode_post = async (req, res) => {
     if (!validLeikode) {
         return res.status(400).send('Invalid Leikode');
     }
-    res.send('Your transaction has been validated');
+    await res.send({message: 'Your transaction has been validated'});
 };
 
 

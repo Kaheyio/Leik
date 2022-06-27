@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,6 +20,7 @@ import { AccountpickerComponent } from './components/logged/accounts/accountpick
 import { CardsComponent } from './components/logged/accounts/cards/cards.component';
 import { StatsComponent } from './components/logged/accounts/stats/stats.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { InterceptorServiceService } from './services/interceptor-service.service';
 
 
 @NgModule({
@@ -48,7 +49,12 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     ReactiveFormsModule,
     AuthModule
   ],
-  providers: [],
+  // TODO: TEST ROUTE PROTECTION WITH INTERCEPTOR SERVICE
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorServiceService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

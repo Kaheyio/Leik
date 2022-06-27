@@ -68,7 +68,7 @@ module.exports.register_post = async (req, res) => {
     await user.save();
 
     // TODO: DO NOT DISPLAY ANYTHING
-    res.status(201).send({
+    await res.status(201).send({
         created_user: user.id
     });
 
@@ -139,7 +139,7 @@ module.exports.login_post = async (req, res) => {
     });
 
     // send user data + leikode if credentials are correct
-    res.status(201).send({
+    await res.status(201).send({
         user: user,
         generated_leikode: leikode
     });;
@@ -149,20 +149,11 @@ module.exports.login_post = async (req, res) => {
 
 /****** PROTECT ROUTE METHOD ******/
 module.exports.protectedRoute_get = async (req, res) => {
-    res.json({ user: 'protected'});
-}
+    await res.send({status: 1, route_status: 'Access authorized', userId: req.user._id});
+};
 
 /****** LOG OUT METHOD ******/
 module.exports.logout_get = async (req, res) => {
-    res.clearCookie('authToken').status(200).json({ message: 'User logged out successfully'});
+    await res.clearCookie('authToken').status(200).json({ message: 'User logged out successfully'});
 };
 
-    // token identifier
-    // TOKEN IN HEADER (put it manually in headers to validate posts route)
-    // res.header('auth_token', token).send({
-    //     welcome: user.username,
-    //     user_logged_in: token,
-    //     generated_leikode: leikode
-    // });
-
-    // });

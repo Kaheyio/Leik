@@ -15,7 +15,7 @@ router.get('/', requireAuth, authController.protectedRoute_get);
 
 
 // VALIDATE TRANSACTIONS WITH LEIKODE IN PROTECTED ROUTE
-// router.post('/', requireAuth, leikodeController.leikode_post);
+router.post('/', requireAuth, leikodeController.leikode_post);
 
 
 module.exports = router;
