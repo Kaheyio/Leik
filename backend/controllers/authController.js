@@ -148,7 +148,7 @@ module.exports.login_post = async (req, res) => {
 
 
 /****** PROTECT ROUTE METHOD ******/
-module.exports.protectedRoute_get = async (req, res) => {
+module.exports.loggedRoute_get = async (req, res) => {
     await res.send({status: 1, route_status: 'Access authorized', userId: req.user._id});
 };
 

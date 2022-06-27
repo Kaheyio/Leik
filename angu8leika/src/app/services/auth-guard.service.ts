@@ -11,7 +11,7 @@ import { AuthService } from './auth.service';
 export class AuthGuardService {
 
   // Protected route
-  baseUrl = 'http://localhost:3000/api/protected';
+  baseUrl = 'http://localhost:3000/api/user';
 
 
   constructor(
