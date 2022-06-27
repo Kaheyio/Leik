@@ -10,4 +10,6 @@ export class AppComponent {
 
   login = false;
   logged = false;
+
+  // TODO: GET USER DATA AND NEW LEIKODE AFTER LOGIN
 }

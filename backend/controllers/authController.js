@@ -100,9 +100,35 @@ module.exports.checkUserCredentials_post = async (req, res) => {
         return res.status(400).send('Invalid password');
     };
 
+    // generate new leikode and update user
+     const generateLK = require('../models/User').generateLeikode();
+
+     let generatedCodes = await generateLK;
+     let generatedCodesArr = Object.values(generatedCodes);
+     const leikode = generatedCodesArr[0];
+     const hashedLeikode = generatedCodesArr[1];
+ 
+     const userLK = await User.findOneAndUpdate({
+         email: user.email
+     }, {
+         leikode: hashedLeikode
+     });
+     await userLK.save();
+
+     console.log('new leikode: ' + leikode + ' hashed LK: ' + hashedLeikode);
+
+
+     // generate token and set cookie
+
+
     // send user data if credentials are correct
-    res.send(user);
+    // // TODO: DO NOT SEND ANYTHING BUT LEIKODE (log for test)
+    res.status(201).send({
+        user: user,
+        generated_leikode: leikode
+    });
 };
+
 
 
 // if user found with email and password check, generate token and new leikode + send them to client

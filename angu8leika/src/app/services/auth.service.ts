@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { map } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +9,16 @@ import { map } from 'rxjs';
 export class AuthService {
 
 
-    // User collection
-    baseUrl = 'http://localhost:3000/api/user';
+  // User collection
+  baseUrl = 'http://localhost:3000/api/user';
+
+  // User BehaviorSubject (to share logged user data and new leikode within the app)
+  private $userData = new BehaviorSubject<any>('');
+  userData = this.$userData.asObservable();
+
+  private $userLeikode = new BehaviorSubject<any>('');
+  userLeikode = this.$userLeikode.asObservable();
+
 
   constructor(private http: HttpClient) { }
 
@@ -23,7 +31,7 @@ export class AuthService {
   //   }else{
   //     return null
   //   }
-    
+
   // }
   // setDataInLocalStorage(variableName: any, data: any) {
   //     localStorage.setItem(variableName, data);
@@ -47,7 +55,7 @@ export class AuthService {
       return res;
     }));
   };
-  
+
   putTypeRequest(url: any, payload: any) {
     return this.http.put(`${this.baseUrl}${url}`, payload).pipe(map(res => {
       return res;
@@ -59,5 +67,15 @@ export class AuthService {
       return res;
     }));
   };
- 
+
+
+
+
+  // set BehaviorSubject to get user data and new generated leikode on login
+  getLoggedUserData(userData: any, userLeikode: any) {
+    this.$userData.next(userData);
+    this.$userLeikode.next(userLeikode);
+  }
+
+
 }
