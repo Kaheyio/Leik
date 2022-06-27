@@ -1,42 +1,23 @@
 <!-- Pills holder -->
-<!-- TODO make these btns smaller -->
-<div class="lulucollapsebuttonsholder d-flex align-items-center justify-content-start">
+<div class="lulucollapsebuttonsholder d-flex align-items-center justify-content-center">
     <!-- used to be a p here -->
-        <button class="btn btn-secondary mx-1" type="button" data-bs-toggle="collapse"
-            data-bs-target="#rejectedopscontent" aria-expanded="false" aria-controls="rejectedopscontent">
-            + Rejected
-        </button>
-        <button class="btn btn-secondary mx-1" type="button" data-bs-toggle="collapse"
-            data-bs-target="#pendingopscontent" aria-expanded="false" aria-controls="pendingopscontent">
-            + Pending
-            <!-- Ajouter une vignette compteur -->
-        </button>
+    <button class="btn btn-sm mx-1 ms-4" type="button" data-bs-toggle="collapse"
+        data-bs-target="#pendingopscontent" aria-expanded="false" aria-controls="pendingopscontent">
+        + Pending
+        <!-- Ajouter une vignette compteur -->
+    </button>
+    <button class="btn btn-sm mx-1" type="button" data-bs-toggle="collapse"
+        data-bs-target="#rejectedopscontent" aria-expanded="false" aria-controls="rejectedopscontent">
+        + Rejected
+    </button>
 </div>
 
 <!-- Content holder -->
 <div class="lulucollapsedcontentholder mb-2 d-flex flex-column align-items-center justify-content-center">
-    <!-- Rejected -->
-    <div class="collapse" id="rejectedopscontent">
-        <div class="p-2">
-            Rejected:
-            <div
-                class="lulutransacard p-1 border d-flex flex-row justify-content-evenly align-items-center align-items-stretch">
-                <div class="lulutransacard-description p-1 d-flex flex-column justify-content-center align-items-start">
-                    <div class="lulutransacard-title">Title</div>
-                    <div class="lulutransacard-info d-flex flex-row">
-                        <div class="me-3">Date</div>
-                        <div>Card ****9915</div>
-                    </div>
-                </div>
-                <div class="lulutransacard-price d-flex align-items-center justify-content-center">
-                    12.99 &euro;
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Leikode & Pending-->
     <div class="collapse" id="pendingopscontent">
         <div class="p-2">
+            <!-- PENDING LEIKODE -->
             <div id="pendingops">
                 Leikode requests:
                 <div
@@ -54,7 +35,7 @@
                     </div>
                 </div>
             </div>
-
+            <!-- PENDING ANNOUNCED SEPA -->
             <div id="incomingops">
                 Incoming:
                 <div
@@ -74,8 +55,8 @@
             </div>
         </div>
     </div>
-    <!-- Incoming -->
-    <div class="collapse" id="incomingopscontent">
+    <!-- Rejected -->
+    <div class="collapse" id="rejectedopscontent">
         <div class="p-2">
             Rejected:
             <div
@@ -86,7 +67,6 @@
                         <div class="me-3">Date</div>
                         <div>Card ****9915</div>
                     </div>
-                    <div class="lulutransacard-category">Category, subcategory</div>
                 </div>
                 <div class="lulutransacard-price d-flex align-items-center justify-content-center">
                     12.99 &euro;
