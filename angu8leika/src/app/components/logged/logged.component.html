@@ -1,3 +1,4 @@
+<!-- TODO: TEST IF WE GET DATA WITH ROUTE PROTECTION IN BACKEND -->
 <div class="luluh100 luluw100" id="luluwrapper-whole">
 
     <div id="luluwrapper-top">
@@ -7,6 +8,14 @@
             <li class="luluh100 p-1 nav-item me-auto">
                 <img class="luluh100" src="../assets/logohoriz.png" alt="">
             </li>
+
+            <!-- TODO: TEST SHARE USER DATA WITHIN APP AFTER LOGIN = OK-->
+            <li class="nav-item my-auto">
+                <span class="text-white fw-bold">Welcome {{ userData.username }} !</span>
+                <span class="text-white fw-bold"> Your new leikode : {{ userLeikode }} </span>
+            </li>
+            <!-- END TEST -->
+
             <!-- Chat icon -->
             <li class="nav-item my-auto">
                 <!-- CHAT Offcanvas button -->
@@ -25,9 +34,11 @@
                     </div>
                 </div>
             </li>
+
+            <!-- TODO: TEST LOGOUT  -->
             <!-- Logout icon -->
             <li class="nav-item my-auto">
-                <button class="btn bg-dark" href="#"><i class="fa-solid fa-right-from-bracket"></i></button>
+                <button class="btn bg-dark" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i></button>
             </li>
         </ul>
     </div>

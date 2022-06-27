@@ -1,13 +1,14 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { AuthModule } from './modules/auth/auth.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { LoginComponent } from './components/login/login.component';
+// import { LoginComponent } from './components/login/login.component';
 import { LoggedComponent } from './components/logged/logged.component';
 import { TransferComponent } from './components/logged/transfer/transfer.component';
 import { AccountsComponent } from './components/logged/accounts/accounts.component';
@@ -19,16 +20,19 @@ import { AccountpickerComponent } from './components/logged/accounts/accountpick
 import { CardsComponent } from './components/logged/accounts/cards/cards.component';
 import { StatsComponent } from './components/logged/accounts/stats/stats.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { InterceptorServiceService } from './services/interceptor-service.service';
 import { NewMoveComponent } from './components/logged/transfer/new-move/new-move.component';
 import { ManageReceiversComponent } from './components/logged/transfer/manage-receivers/manage-receivers.component';
 import { ManageComponent } from './components/logged/manage/manage.component';
 import { TransactionDetailsComponent } from './components/logged/accounts/transactions/transaction-details/transaction-details.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    // already declared and exported in auth module
+    // LoginComponent,
     LoggedComponent,
     TransferComponent,
     AccountsComponent,
@@ -51,10 +55,15 @@ import { TransactionDetailsComponent } from './components/logged/accounts/transa
     HttpClientModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    AuthModule
   ],
-  providers: [],
+  // TODO: TEST ROUTE PROTECTION WITH INTERCEPTOR SERVICE ?
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorServiceService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

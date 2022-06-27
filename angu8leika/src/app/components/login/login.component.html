@@ -1,9 +1,9 @@
-<div class="logged-out" *ngIf="!this.isLogin">
+<div class="logged-out">
     <h1>Leika | Log in</h1>
   
     <!-- error message -->
-    <div *ngIf="errorMessage">
-      <p>{{ errorMessage }}</p>
+    <div *ngIf="errorState">
+      <p class="text-danger fw-bold">{{ errorMessage }}</p>
     </div>
     
   
@@ -26,9 +26,12 @@
     </form>
   </div>
   
+
   <!-- TODO: TEST LOGIN AND LOGGED OUT -->
-  <div class="logged-in" *ngIf="this.isLogin">
-    <h1>You are logged in</h1>
+  <!-- <div class="logged-in" *ngIf="this.isLogin">
+    <h1>You are logged in {{ userData.username }} !</h1>
     <button (click)="logout()">Log out</button>
-  </div>
+  </div> -->
   
+
+  <!-- TODO: pass user data in the app/logged, destroy it on log out -->
