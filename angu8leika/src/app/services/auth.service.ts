@@ -12,6 +12,7 @@ export class AuthService {
   // User collection
   baseUrl = 'http://localhost:3000/api/user';
 
+  // TODO: maintain state with page reload
   // User BehaviorSubject (to share logged user data and new leikode within the app)
   private $userData = new BehaviorSubject<any>('');
   userData = this.$userData.asObservable();
@@ -22,39 +23,20 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  // TODO: put auth methods in this service
-
-
-  // getUserDetails() {
-  //   if(localStorage.getItem('userData')){
-  //     return localStorage.getItem('userData')
-  //   }else{
-  //     return null
-  //   }
-
-  // }
-  // setDataInLocalStorage(variableName: any, data: any) {
-  //     localStorage.setItem(variableName, data);
-  // }
-  // getToken() {
-  //     return localStorage.getItem('token');
-  // }
-  // clearStorage() {
-  //     localStorage.clear();
-  // }
-
-
   getTypeRequest(url: any) {
     return this.http.get(`${this.baseUrl}${url}`).pipe(map(res => {
       return res;
     }));
   };
 
+  // for login
   postTypeRequest(url: any, payload: any) {
-    return this.http.post(`${this.baseUrl}${url}`, payload).pipe(map(res => {
+    // add withCredentials : true to get cookie from server in browser storage
+    return this.http.post(`${this.baseUrl}${url}`, payload, { withCredentials : true }).pipe(map(res => {
       return res;
     }));
   };
+
 
   putTypeRequest(url: any, payload: any) {
     return this.http.put(`${this.baseUrl}${url}`, payload).pipe(map(res => {
@@ -69,9 +51,8 @@ export class AuthService {
   };
 
 
-
-
   // set BehaviorSubject to get user data and new generated leikode on login
+    // TODO: maintain state with page reload
   getLoggedUserData(userData: any, userLeikode: any) {
     this.$userData.next(userData);
     this.$userLeikode.next(userLeikode);

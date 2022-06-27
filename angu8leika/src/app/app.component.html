@@ -1,6 +1,5 @@
 
     <!-- ng if either display login or logged -->
-    <!-- TODO: WHY ??? login and logged have routes in app routing, meaning the comps will be called by the router outlet, so shouldn't we activate/protect the routes instead of using booleans here ? -->
     <div *ngIf="login">
         <app-login></app-login>
     </div>

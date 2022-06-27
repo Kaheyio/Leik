@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -39,7 +38,6 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.isUserLogin();
   }
 
   onSubmit() {
@@ -76,15 +74,16 @@ export class LoginComponent implements OnInit {
 
         // TODO: store userData and leikode to retrieve them in the rest of the app
         this.authService.getLoggedUserData(this.user, this.leikode);
-        
 
-        // TODO: TEST : change this to redirect to logged page
-        // this.isLogin = true;
 
-        // TODO: change boolean value in app component
+        // TODO: if cookie is stored successfully in browser ???
+
 
         // redirect to logged components
         this.router.navigate(['/logged']);
+
+        // TODO: change boolean value in app component ?
+
 
         // reset form
         this.loginForm.reset();
@@ -96,65 +95,8 @@ export class LoginComponent implements OnInit {
       }
     });
 
-    // this.authService.getByParamTypeRequest('/', this.loginForm.value.password).subscribe({
-    //   next: (res) => {
-    //     this.user = res;
-    //     console.log(this.user);
-    //   },
-    //   error: (err) => {
-    //     this.errorState = true;
-    //     this.errorMessage = err.error;
-    //   }
-    // });
-
-
-    // log in and generate leikode + token
-
-    // this.authService.postTypeRequest('/login', this.loginForm.value).subscribe((res: any) => {
-
-
-    //   if (res.status == 200) {
-    //     console.log(res);
-
-    //     // this._auth.setDataInLocalStorage('userData', JSON.stringify(res.data));  
-    //     // this._auth.setDataInLocalStorage('token', res.token);  
-
-    //     // TODO: navigate to logged page
-    //     // this.isLogin = true;
-    //     // this.router.navigate(['']);
-
-    //   }
-
-    //   // if(res.status == 400) {
-    //   //   this.errorState = true;
-    //   // this.errorMessage = res;
-    //   // console.log('test' + res);
-
-    //   // }
-
-
-    //   // TODO: handle errors so if !res.status handle errors else log in
-    // });
-
-
-    // this._api.postTypeRequest('user/login', form.value).subscribe((res: any) => {
-
-    //   if (res.status) { 
-
-    //     this._auth.setDataInLocalStorage('userData', JSON.stringify(res.data));  
-    //     this._auth.setDataInLocalStorage('token', res.token);  
-    //     this._router.navigate(['']);
-    //   }
-    // })
-
   };
 
-  // TODO: getuserdetails from cookie in login method and not from token set in localStorage
-  // isUserLogin() {
-  //   if (this.authService.getUserDetails() != null) {
-  //     this.isLogin = true;
-  //   }
-  // }
 
   // toggle password
   togglePW() {
@@ -165,13 +107,7 @@ export class LoginComponent implements OnInit {
     }
   };
 
-  logout() {
-    // TODO: backend method in authservice to destroy cookie
-    // this._auth.clearStorage()
-
+  
     // TODO: change boolean value in app component + log out method in logged component
-    this.isLogin = false;
-    this.router.navigate(['/login']);
-  };
 
 }

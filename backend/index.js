@@ -4,12 +4,11 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 // Import Routes
 const authRoute = require('./routes/auth');
-const postRoute = require('./routes/posts');
-
+const protectedRoute = require('./routes/protected');
 // cookie parser
 const cookieParser = require('cookie-parser');
 
-// to hide database credentials
+// to hide important credentials
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -26,7 +25,7 @@ mongoose.connect(process.env.DB_CONNECT, {
 /* [NB Cross-origin resource sharing (CORS) = browser mechanism that allows a web page to use assets and data from other pages or domains.
 Extends and adds flexibility to the same-origin policy (SOP). However, also provides potential for cross-domain attacks, if a website's CORS policy is poorly configured and implemented.]
 The cors package available in the npm registry is used to tackle CORS errors in a Node.js application. */
-app.use(cors());
+// app.use(cors());
 
 // OR
 app.use(function (req, res, next) {
@@ -47,11 +46,7 @@ app.use(cookieParser());
 
 // Routes
 app.use('/api/user', authRoute);
-app.use('/api/posts', postRoute);
-
-// Cookies Routes
-
-
+app.use('/api/protected', protectedRoute);
 
 
 app.listen(process.env.API_PORT, () => console.log(`Server works: http://localhost:${process.env.API_PORT}/api/user`));

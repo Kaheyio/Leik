@@ -10,20 +10,26 @@ export class InterceptorServiceService {
 
   constructor(private authService: AuthService) { }
 
+
+// TODO: ???
   intercept(request: HttpRequest<any>,
     next: HttpHandler
     ): Observable<HttpEvent<any>> {
       if (!request.headers.has('Content-Type')) {
         request = request.clone({ headers: request.headers.set('Content-Type', 'application/json') });
       }
-      request = request.clone({ headers: request.headers.set('Accept', 'application/json') });
-      // TODO: use cookie method ???
-      // .clone({
-      //   setHeaders: {
-      //     Authorization: `${this.authService.getToken()}`
-      //   }
-      // })
+      // request = request.clone({ headers: request.headers.set('Accept', 'application/json'), withCredentials: true });
+      // // TODO: use cookie method ???
+      // // .clone({
+      // //   setHeaders: {
+      // //     Authorization: `${this.authService.getToken()}`
+      // //   }
+      // // })
 
+      // return next.handle(request);
+
+      request = request.clone({ headers: request.headers.set('Accept', 'application/json'), withCredentials: true });
+      
       return next.handle(request);
     }
 

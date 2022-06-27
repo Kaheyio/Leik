@@ -75,9 +75,9 @@ module.exports.register_post = async (req, res) => {
 };
 
 
-/****** LOG IN METHODS ******/
+/****** LOG IN METHOD ******/
 // check email on login + compare password
-module.exports.checkUserCredentials_post = async (req, res) => {
+module.exports.login_post = async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
@@ -89,7 +89,7 @@ module.exports.checkUserCredentials_post = async (req, res) => {
     // check email
     if (!user) {
         // TODO: change message to Email and/or password incorrect
-        return res.status(400).send('Email is incorrect');
+        return res.status(400).send('This email is not registered');
     };
 
     // check password
@@ -118,84 +118,44 @@ module.exports.checkUserCredentials_post = async (req, res) => {
      console.log('new leikode: ' + leikode + ' hashed LK: ' + hashedLeikode);
 
 
-     // generate token and set cookie
+     // CREATE AND ASSIGN TOKEN (token contains user id)
+    /* token should also have an expiration date, because stored in cookie that expires if session ends
+    token's maxAge = 30 min */
+    const maxAge = 30 * 60;
+    const token = jwt.sign({
+        _id: user._id
+    }, process.env.TOKEN_SECRET, {
+        expiresIn: maxAge
+    });
 
 
-    // send user data if credentials are correct
-    // // TODO: DO NOT SEND ANYTHING BUT LEIKODE (log for test)
+    // TOKEN IN COOKIE 
+    // cookie's maxAge = 1 hour 
+    // TODO: httponly for dev, and add secure for prod with https
+    res.cookie('authToken', token, {
+        httpOnly: true,
+        maxAge: maxAge * 2 * 1000,
+        secure: process.env.NODE_ENV === "production"
+    });
+
+    // send user data + leikode if credentials are correct
     res.status(201).send({
         user: user,
         generated_leikode: leikode
-    });
+    });;
+   
 };
 
 
+/****** PROTECT ROUTE METHOD ******/
+module.exports.protectedRoute_get = async (req, res) => {
+    res.json({ user: 'protected'});
+}
 
-// if user found with email and password check, generate token and new leikode + send them to client
-module.exports.login_post = async (req, res) => {
-    // TODO: transfer form validation to front
-    // const {
-    //     email,
-    //     password
-    // } = req.body;
-
-    // if (!email || !password) {
-    //     return res.status(400).send('Please enter email and password');
-    // }
-
-    // TODO: pass get user method in apiservice
-    // check if user exists in the db
-    // const user = await User.findOne({
-    //     email
-    // });
-
-    // TODO: in login component
-    // if (!user) {
-    //     return res.status(400).send('Email and/or password incorrect');
-    // }
-
-
-    // check if password is correct
-    // TODO: create separate method to check password with user id and password given in front, send boolean and generate error message in front
-    // const validPassword = await bcrypt.compare(password, user.password);
-    // if (!validPassword) {
-    //     return res.status(400).send('Invalid password');
-    // }
-
-    // bcrypt.compare('<plain_password>', '<hashed_password>').then((isCorrect) => {
-    //     console.log(isCorrect); // should be true for correct password, false otherwise
-    //   });
-
-    // GET USER FOUND WITH EMAIL AND PASSWORD CHECK
-
-    // GENERATE LK ON EACH LOGIN AND TODO: DISPLAY IN LEIKODE PAGE
-
-    // to generate leikode
-    const generateLK = require('../models/User').generateLeikode();
-
-    // GENERATE NEW LEIKODE AND UPDATE USER
-    let generatedCodes = await generateLK;
-    let generatedCodesArr = Object.values(generatedCodes);
-    const leikode = generatedCodesArr[0];
-    const hashedLeikode = generatedCodesArr[1];
-
-    // const userLK = await User.findOneAndUpdate({
-    //     email: user.email
-    // }, {
-    //     leikode: hashedLeikode
-    // });
-    // await userLK.save();
-
-
-    // CREATE AND ASSIGN TOKEN (token contains user id)
-    // TODO: should also have an expiration date, because stored in cookie that expires if session ends
-    // expiration date = 30 min
-    // const maxAge = 30 * 60;
-    // const token = jwt.sign({
-    //     _id: user._id
-    // }, process.env.TOKEN_SECRET, {
-    //     expiresIn: maxAge
-    // });
+/****** LOG OUT METHOD ******/
+module.exports.logout_get = async (req, res) => {
+    res.clearCookie('authToken').status(200).json({ message: 'User logged out successfully'});
+};
 
     // token identifier
     // TOKEN IN HEADER (put it manually in headers to validate posts route)
@@ -205,17 +165,4 @@ module.exports.login_post = async (req, res) => {
     //     generated_leikode: leikode
     // });
 
-    // TOKEN IN COOKIE ?
-    // TODO: cookie expires if session ends ? or set maxAge to 1 hour ?
-    // TODO: httponly for dev, and add secure for prod with https
-    // res.cookie('auth_token', token, {
-    //     httpOnly: true,
-    //     maxAge: maxAge * 2 * 1000
     // });
-    // // TODO: DO NOT SEND ANYTHING BUT LEIKODE (log for test)
-    // res.status(201).send({
-    //     welcome: user.username,
-    //     user_logged_in: token,
-    //     generated_leikode: leikode
-    // });
-};

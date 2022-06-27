@@ -1,24 +1,37 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
-import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuardService {
 
+  // Protected route
+  baseUrl = 'http://localhost:3000/api/protected';
+
+
   constructor(
-    private authService: AuthService,
+    private http: HttpClient,
     private router: Router
   ) { }
 
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    // TODO: if cookie is in storage return true
+  getTypeRequest(url: any) {
+    return this.http.get(`${this.baseUrl}${url}`).pipe(map(res => {
+      return res;
+    }));
+  };
 
-    // navigate to login page
-    this.router.navigate(['/login']);
+
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    // TODO: if cookie is in browser return true else redirect
+
+    
+
+
+
 
     // NB: you can save redirect url so after authing we can move them back to the page they requested initially
 
