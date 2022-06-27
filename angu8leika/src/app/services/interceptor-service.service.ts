@@ -11,7 +11,7 @@ export class InterceptorServiceService {
   constructor(private authService: AuthService) { }
 
 
-// TODO: ???
+// TODO: CHECK IF WE REALLY NEED IT???
   intercept(request: HttpRequest<any>,
     next: HttpHandler
     ): Observable<HttpEvent<any>> {
