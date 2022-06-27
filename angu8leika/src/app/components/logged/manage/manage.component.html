@@ -1,16 +1,63 @@
-<div class="luluh100 py-2 px-4 d-flex flex-column align-items-stretch justify-content-evenly">
-    <!-- OPTION 1 -->
+<div class="luluh91 py-2 px-4 d-flex flex-column align-items-stretch justify-content-evenly">
+
+    <!-- My account -->
     <button class="btn bg-dark text-white" type="button" data-bs-toggle="offcanvas"
-        data-bs-target="#manage-receivers-bis-canvas" aria-controls="manage-receivers-bis-canvas">Manage receivers</button>
+        data-bs-target="#account-canvas" aria-controls="account-canvas">My account</button>
     <!-- body -->
-    <div class="luluh100 offcanvas offcanvas-end" tabindex="-1" id="manage-receivers-bis-canvas"
-        aria-labelledby="manage-receivers-bis-canvasLabel">
+    <div class="luluh100 offcanvas offcanvas-end" tabindex="-1" id="account-canvas"
+        aria-labelledby="account-canvasLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="manage-receivers-bis-canvasLabel">Receivers bis</h5>
+            <h5 class="offcanvas-title" id="account-canvasLabel">Account settings</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <app-manage-receivers></app-manage-receivers>
+            insert account component
         </div>
     </div>
+
+    <!-- Preferences -->
+    <button class="btn bg-dark text-white" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#preferences-canvas" aria-controls="preferences-canvas">Preferences</button>
+    <!-- body -->
+    <div class="luluh100 offcanvas offcanvas-end" tabindex="-1" id="preferences-canvas"
+        aria-labelledby="preferences-canvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="preferences-canvasLabel">Preferences</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            insert preferences component
+        </div>
+    </div>
+
+    <!-- Documents -->
+    <button class="btn bg-dark text-white" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#documents-canvas" aria-controls="documents-canvas">Documents</button>
+    <!-- body -->
+    <div class="luluh100 offcanvas offcanvas-end" tabindex="-1" id="documents-canvas"
+        aria-labelledby="documents-canvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="documents-canvasLabel">Documents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            insert documents component
+        </div>
+    </div>
+
+    <!-- OPTION 1 -->
+    <button class="btn bg-dark text-white" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#simulations-canvas" aria-controls="simulations-canvas">Simulations</button>
+    <!-- body -->
+    <div class="luluh100 offcanvas offcanvas-end" tabindex="-1" id="simulations-canvas"
+        aria-labelledby="simulations-canvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="simulations-canvasLabel">Simulations</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            insert simulations component
+        </div>
+    </div>
+
 </div>
