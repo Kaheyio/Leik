@@ -1,11 +1,13 @@
-
     <!-- ng if either display login or logged -->
     <div *ngIf="login">
-        <app-login></app-login>
+      <app-login></app-login>
     </div>
-    
     <div *ngIf="logged">
-        <app-logged></app-logged>
+      <app-logged></app-logged>
     </div>
-    <router-outlet></router-outlet>
 
+
+    <!-- TODO: TEST PROTECTED ROUTE -->
+
+
+    <router-outlet></router-outlet>
