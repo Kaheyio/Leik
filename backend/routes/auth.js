@@ -11,6 +11,9 @@ const { requireAuth } = require('../middlewares/authMiddleware');
 // GET ALL USERS
 router.get('/', userCrudController.getUsers_get);
 
+// GET USER LOGGED BY EMAIL
+router.get('/:email', userCrudController.getUserByEmail_get);
+
 // DELETE ONE USER
 router.delete('/:id', userCrudController.deleteUser_delete);
 

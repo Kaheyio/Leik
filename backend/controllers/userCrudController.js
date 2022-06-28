@@ -8,6 +8,13 @@ module.exports.getUsers_get = async (req, res) => {
     res.send(users);
 };
 
+// GET USER BY EMAIL
+module.exports.getUserByEmail_get = async (req, res) => {
+    email = req.params.email;
+    const loggedUser = await User.findOne({email});
+    res.send(loggedUser);
+}
+
 // DELETE ONE USER (by id)
 module.exports.deleteUser_delete = async (req, res) => {
     const id = req.params.id;

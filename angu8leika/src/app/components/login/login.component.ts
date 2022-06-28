@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   // user data
   user: any;
 
-  // store user data
+  // object array to store user data
   userData: any;
   leikode: any;
 
@@ -53,17 +53,16 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    // TODO: use login method from api when done
-    console.log("Login form data: ", this.loginForm.value);
+    // console.log("Login form data: ", this.loginForm.value);
 
-    // send email and password to backend for check  
+    // send email and password to backend for check, if ok, generate token and put in cookie (for logged state protection) 
     this.authService.postTypeRequest('/login', this.loginForm.value).subscribe({
       next: (res) => {
         // res = user + generated_leikode
         this.user = Object.values(res)[0];
-        console.log(this.user);
+        // console.log(this.user);
 
-        console.log('You are logged in ! : ' + this.user.username);
+        // console.log('You are logged in ! : ' + this.user.username);
         this.errorState = false;
 
         // !!! THIS LOGS THE OLD LEIKODE !!!
@@ -71,21 +70,19 @@ export class LoginComponent implements OnInit {
 
         // get new leikode
         this.leikode = Object.values(res)[1];
-        console.log(this.leikode);
+        // console.log(this.leikode);
 
-        // TODO: store user data in session storage
-        const storedUserData = this.user;
-        sessionStorage.setItem('leikaUD', storedUserData);
+        // TODO: STORE LEIKODE IN SESSION STORAGE
+        
         const storedUserLeikode = this.leikode;
         sessionStorage.setItem('leikaULK', storedUserLeikode);
 
-        // TODO: store userData and leikode to retrieve them in the rest of the app
-        this.apiService.setLoggedUserData(this.user, this.leikode);
+        // TODO: "store" userData with data in session storage => in api service, to retrieve them in the rest of the app
+        this.apiService.setLoggedUserData(storedUserLeikode);
 
         // redirect to logged components
         this.router.navigate(['/logged']);
 
-        // TODO: change boolean value in app component ?
 
 
         // reset form

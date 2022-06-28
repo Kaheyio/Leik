@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +7,6 @@ import { AuthService } from './auth.service';
 export class ApiService {
 
   // SINGLETON SERVICE
-
-  // private getUserData: any;
-  // private getUserLeikode: any;
-
-
 
   // TODO: maintain state with page reload
   // User BehaviorSubject (to share logged user data and new leikode within the app)
@@ -25,40 +19,57 @@ export class ApiService {
   private $isLoggedIn = new BehaviorSubject<boolean>(false);
   isLoggedIn = this.$isLoggedIn.asObservable();
 
-
+  // storedUserData: any;
+  // storedUserLeikode: any;
 
   constructor() {
     // TODO: get rid of log
     console.log('ApiService created');
 
+    // TODO: create array for userdata
     // TODO: test with data in session storage
     // if user data in session storage (user logged and no tab closed), pass it to all the components
-    const storedUserData = sessionStorage.getItem('leikaUD');
-    const storedUserLeikode = sessionStorage.getItem('leikaULK');
+    // const storedUserData = sessionStorage.getItem('leikaUD');
+    // const storedUserLeikode = sessionStorage.getItem('leikaULK');
 
-    if (storedUserData && storedUserLeikode) {
+     
+    // get user data that was put in session storage on login and save it if page is refreshed
+    // to keep data if page is refreshed
+    if(sessionStorage.getItem('leikaUD')) {
+      // this.storedUserData = sessionStorage.getItem('leikaUD');
+      this.$userData.next(sessionStorage.getItem('leikaUD'));
+    }
+
+    if(sessionStorage.getItem('leikaULK')) {
+      // this.storedUserLeikode = sessionStorage.getItem('leikaULK');
+      this.$userLeikode.next(sessionStorage.getItem('leikaULK'));
+    }
+  
+    
+
+    if (this.$userData && this.$userLeikode) {
       this.$isLoggedIn.next(true);
-      this.setLoggedUserData(storedUserData, storedUserLeikode);
+      this.setLoggedUserData(this.userLeikode);
     }
     else {
       this.$isLoggedIn.next(false);
     }
   }
 
-  // TODO: FOR DATA CRUD
+  // FOR PERSISTED DATA 
 
+  // getters and setters for persisted data
 
-  // set BehaviorSubject to get user data and new generated leikode
-  // TODO: maintain state with page reload
-  // getLoggedUserData() {
-  //   this.$userData.next(this.getUserData);
-  //   this.$userLeikode.next(this.getUserLeikode);
-  //   // this.$isLoggedIn.next(isLoggedIn);
-  // }
+  // to get data from this service
+  getLoggedUserData() {
+    this.$userData.next(this.userData);
+    this.$userLeikode.next(this.userLeikode);
+  }
 
-
-  setLoggedUserData(userData: any, userLeikode: any) {
-    this.$userData.next(userData);
+  // TODO: STORE IN A USERDATA ARRAY
+  // to store data in this service !!! change value of data in session storage before sending it to this service 
+  setLoggedUserData(userLeikode: any) {
+    // this.$userData.next(userData);
     this.$userLeikode.next(userLeikode);
   }
 

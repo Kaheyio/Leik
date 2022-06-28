@@ -120,8 +120,8 @@ module.exports.login_post = async (req, res) => {
 
      // CREATE AND ASSIGN TOKEN (token contains user id)
     /* token should also have an expiration date, because stored in cookie that expires if session ends
-    token's maxAge = 30 min */
-    const maxAge = 30 * 60;
+    token's maxAge =  1 hour */
+    const maxAge = 2 * 30 * 60;
     const token = jwt.sign({
         _id: user._id
     }, process.env.TOKEN_SECRET, {
@@ -134,7 +134,7 @@ module.exports.login_post = async (req, res) => {
     // TODO: httponly for dev, and add secure for prod with https
     res.cookie('authToken', token, {
         httpOnly: true,
-        maxAge: maxAge * 2 * 1000,
+        maxAge: maxAge * 1000,
         secure: process.env.NODE_ENV === "production"
     });
 

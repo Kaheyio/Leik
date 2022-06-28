@@ -39,7 +39,7 @@ export class LoggedComponent implements OnInit {
 
   }
 
-
+// TODO: create 3 log out conditions depending on click, session storage and protection cookie's expiration
   logout() {
 
     this.authService.getTypeRequest('/logout').subscribe({
