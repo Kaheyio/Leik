@@ -9,11 +9,11 @@ module.exports.getUsers_get = async (req, res) => {
 };
 
 // GET USER BY EMAIL
-module.exports.getUserByEmail_get = async (req, res) => {
-    email = req.params.email;
-    const loggedUser = await User.findOne({email});
+module.exports.getUserById_get = async (req, res) => {
+    const _id = req.params._id;
+    const loggedUser = await User.findOne({_id});
     res.send(loggedUser);
-}
+};
 
 // DELETE ONE USER (by id)
 module.exports.deleteUser_delete = async (req, res) => {

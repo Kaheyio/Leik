@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
-import { AuthService } from 'src/app/services/auth.service';
+import { CrudService } from 'src/app/services/crud.service';
 
 @Component({
   selector: 'app-logged',
@@ -15,7 +15,7 @@ export class LoggedComponent implements OnInit {
   userLeikode: any;
 
 
-  constructor(private authService: AuthService, private router: Router, public apiService: ApiService) { }
+  constructor(private crudService: CrudService, private router: Router, public apiService: ApiService) { }
 
   ngOnInit(): void {
 
@@ -42,7 +42,7 @@ export class LoggedComponent implements OnInit {
 // TODO: create 3 log out conditions depending on click, session storage and protection cookie's expiration
   logout() {
 
-    this.authService.getTypeRequest('/logout').subscribe({
+    this.crudService.getTypeRequest('/logout').subscribe({
       next: (res) => {
         console.log(Object.values(res)[0]);
         this.router.navigate(['/login']);

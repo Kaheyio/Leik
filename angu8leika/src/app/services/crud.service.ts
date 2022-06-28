@@ -5,7 +5,7 @@ import { map} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class CrudService {
 
 
   // User collection

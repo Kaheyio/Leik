@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
-import { AuthService } from './auth.service';
+import { CrudService } from './crud.service';
 
 
 @Injectable({
@@ -17,14 +17,14 @@ export class AuthGuardService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private authService: AuthService
+    private crudService: CrudService
   ) { }
 
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     // TODO: if cookie is in browser return true else redirect
     // use authorization header/ bearer token ??
-    this.authService.getTypeRequest('/logged').subscribe(res => {
+    this.crudService.getTypeRequest('/logged').subscribe(res => {
 
       // if status = false, not allowed
       const accessAuthorized = Object.values(res)[0];

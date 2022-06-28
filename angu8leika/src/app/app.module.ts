@@ -25,6 +25,7 @@ import { NewMoveComponent } from './components/logged/transfer/new-move/new-move
 import { ManageReceiversComponent } from './components/logged/transfer/manage-receivers/manage-receivers.component';
 import { ManageComponent } from './components/logged/manage/manage.component';
 import { TransactionDetailsComponent } from './components/logged/accounts/transactions/transaction-details/transaction-details.component';
+import { CrudService } from './services/crud.service';
 
 
 
@@ -63,7 +64,9 @@ import { TransactionDetailsComponent } from './components/logged/accounts/transa
     provide: HTTP_INTERCEPTORS,
     useClass: InterceptorServiceService,
     multi: true
-  }],
+  },
+  CrudService
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

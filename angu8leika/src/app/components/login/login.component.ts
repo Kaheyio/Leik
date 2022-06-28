@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
-import { AuthService } from 'src/app/services/auth.service';
+import { CrudService } from 'src/app/services/crud.service';
 
 @Component({
   selector: 'app-login',
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   @ViewChild("togglePassword") togglePassword!: ElementRef;
 
   constructor(
-    private authService: AuthService,
+    private crudService: CrudService,
     private router: Router,
     private apiService: ApiService
   ) { }
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
     // console.log("Login form data: ", this.loginForm.value);
 
     // send email and password to backend for check, if ok, generate token and put in cookie (for logged state protection) 
-    this.authService.postTypeRequest('/login', this.loginForm.value).subscribe({
+    this.crudService.postTypeRequest('/login', this.loginForm.value).subscribe({
       next: (res) => {
         // res = user + generated_leikode
         this.user = Object.values(res)[0];
