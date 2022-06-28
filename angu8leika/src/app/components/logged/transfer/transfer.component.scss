@@ -3,10 +3,11 @@
     width: 100vw;
 }
 #transfercomponentwrapper button{
-    max-width: 500px;
+    // max-width: 500px;
 }
 #moveshistory{
-    max-width: 1000px;
+    margin: 0 auto;
+    
 }
 #moveshistorycards{
     overflow-y: scroll;
@@ -29,8 +30,6 @@
     font-size: 0.9rem;
 }
 
-
-// TODO do a global overflow class
 #luluoverflow{
     overflow-y: scroll;
 }

@@ -1,60 +1,3 @@
-<!-- 
-    TODO SEPA VS CARD data-structure
-
-        EITHER we have two different tables [sepa-transaction] [card-transaction] THREE ACTUALLy [manual transactions]
-            ►we have two types of cards
-                ►you have to merge and sort both tables (in the .ts?)
-
-        OR we don't
-            ►we have one card that accomodates both
-                ►cards already sorted in db
--->
-<!-- 
-    TODO HISTORY table:
-
-        EITHER one big table with all transactions
-            ►history[transactions] 
-                EITHER one card
-                    ►ngFor transactions of history
-                    [sortedcards]
-
-                    ►gotta tidy them into years tables, months tables, days tables
-                     BUT HOW DO WE DIVIDE INTO YEARS MONTHS DAYS IN HTML? 
-
-        OR lots of tables within tables 
-            EITHER one card
-                ►history[years[months[days[transactions]]]]
-
-                    ►ngFor years of history
-                        {{year}}
-                        ngFor months of year
-                            {{month}}
-                            ngfor days of month
-                                {{day}}
-                                    [sortedcards]
-            OR two cards
-                ►history[years[months[days[transactions[sepa][cards]]]]]
-
-                    ►ngFor years of history
-                    {{year}}
-                    ngFor months of year
-                    {{month}}
-                    ngfor days of month
-                    {{day}}
-                -->
-
-<!-- 
-                    ts, you want
-                    
-                    -allhistorysorted[]
-                    -sepahistorysorted[]
-                    -allcardshistorysorted[]
-                    -card1historysorted[]
-                    -card2historysorted[]
-                    something to allow you to have year1>month1>day3>cardtransactions
-                -->
-<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-
 <!-- OFFCANVAS -->
 <div class="luluh100 offcanvas offcanvas-bottom" tabindex="-1" id="transaction-details-canvas"
     aria-labelledby="transaction-details-canvasLabel">
@@ -67,15 +10,15 @@
     </div>
 </div>
 
-<!-- TODO make the card a component itself ? tricky for the onclick?-->
+<!-- TODOLULU make the card a component itself ? tricky for the onclick?-->
 June 27th
 <div class="luludayholder">
     <!-- Card Transaction card -->
     <a class="lulutransacard p-1 border-bottom mt-1 d-flex flex-row justify-content-evenly align-items-center"
         data-bs-toggle="offcanvas" data-bs-target="#transaction-details-canvas"
         aria-controls="transaction-details-canvas">
-        <!-- TODO on click, pass transaction id as a parameter to managereceivers component -->
-        <!-- TODO ngclass border-bottom if there's more than one card per day-->
+        <!-- TODOLULU on click, pass transaction id as a parameter to managereceivers component -->
+        <!-- TODOLULU ngclass border-bottom if there's more than one card per day-->
         <img class="lulutransacard-logo p-1" src="../../../../../../assets/logotest.png" alt="categorylogo">
         <!-- add a ONLINE vignette par dessus -->
         <div class="lulutransacard-text px-2 d-flex flex-column justify-content-center align-items-start">
