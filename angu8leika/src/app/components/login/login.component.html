@@ -1,37 +1,55 @@
-<div class="logged-out">
-    <h1>Leika | Log in</h1>
-  
-    <!-- error message -->
-    <div *ngIf="errorState">
-      <p class="text-danger fw-bold">{{ errorMessage }}</p>
-    </div>
-    
-  
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
-      <!-- email -->
-      <input type="email" placeholder="name@example.com" name="email"
-            formControlName="email">
-          <label>Email address</label>
-  <!-- password -->
-  <input type="password" placeholder="Password" name="password"
-            formControlName="password" #togglePassword>
-          <label>Password</label>
-  
-          <!-- toogle password -->
-          <input type="checkbox" (click)="togglePW()">
-          <label >Show password</label>
-  
-          <button type="submit">Sign in</button>
-  
-    </form>
-  </div>
-  
-
-  <!-- TODO: TEST LOGIN AND LOGGED OUT -->
-  <!-- <div class="logged-in" *ngIf="this.isLogin">
+<!-- TODO: TEST LOGIN AND LOGGED OUT -->
+<!-- <div class="logged-in" *ngIf="this.isLogin">
     <h1>You are logged in {{ userData.username }} !</h1>
     <button (click)="logout()">Log out</button>
   </div> -->
-  
 
-  <!-- TODO: pass user data in the app/logged, destroy it on log out -->
+
+<!-- TODO: pass user data in the app/logged, destroy it on log out -->
+
+
+<div class="luluw100 luluh100 d-flex flex-column align-items-center justify-content-center">
+
+
+  <h1 class="mb-3">Log in</h1>
+
+  <!-- Error message -->
+  <div class="luluw100 my-1 text-center text-danger fw-bold" *ngIf="errorState">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Inputs -->
+  <div class="p-4 d-flex flex-column align-items-center justify-content-center" id="lululogin-formwrapper">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      <!-- Email -->
+      <div class="form-floating">
+        <input type="email" class="form-control" id="loginmail" placeholder="name@example.com" name="email"
+          formControlName="email" autofocus>
+        <label for="loginmail">Email address</label>
+      </div>
+
+      <!-- password group -->
+
+      <div class="input-group my-1">
+        <div class="form-floating">
+          <input type="password" class="form-control" id="loginpassword" aria-label="Text input with checkbox"
+            placeholder="Password" name="password" formControlName="password" #togglePassword>
+          <label for="loginpasswoard">Password</label>
+        </div>
+        <div class="input-group-text" (click)="togglePW()">
+          <!-- make only one appear depending on boolean -->
+          <i *ngIf="passwordShow" class="fa-solid fa-eye-slash"></i>
+          <i *ngIf="!passwordShow" class="fa-solid fa-eye"></i>
+        </div>
+      </div>
+      <div class="checkbox my-1 text-center">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+
+      <button class="w-100 mt-2 btn btn-lg bg-dark text-white" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-center text-muted">&copy; Leika Corp</p>
+    </form>
+  </div>
+</div>

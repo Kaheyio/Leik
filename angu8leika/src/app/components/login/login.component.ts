@@ -32,6 +32,8 @@ export class LoginComponent implements OnInit {
   // toggle password = get element by id
   @ViewChild("togglePassword") togglePassword!: ElementRef;
 
+  passwordShow:boolean = false;
+
   constructor(
     private authService: AuthService,
     private router: Router
@@ -102,8 +104,10 @@ export class LoginComponent implements OnInit {
   togglePW() {
     if (this.togglePassword?.nativeElement.type === "password") {
       this.togglePassword.nativeElement.type = "text";
+      this.passwordShow = true;
     } else {
       this.togglePassword.nativeElement.type = "password";
+      this.passwordShow = false;
     }
   };
 
