@@ -6,8 +6,9 @@
       <p class="text-danger fw-bold">{{ errorMessage }}</p>
     </div>
     
-  
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    <!-- TODO: autocomplete off -->
+    <!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off"> -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete>
       <!-- email -->
       <input type="email" placeholder="name@example.com" name="email"
             formControlName="email">

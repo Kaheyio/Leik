@@ -11,17 +11,17 @@ import { CrudService } from 'src/app/services/crud.service';
 export class LoggedComponent implements OnInit {
 
   userData: any;
+  userLeikode: any;
 
   constructor(private crudService: CrudService, private router: Router, public dataService: DataService) { }
 
   ngOnInit(): void {
 
-    // get user data from data service 
-    // console.log(this.dataService.getLoggedUserData());
+    this.getUserData();
     
-    this.dataService.getLoggedUserData();
     
-    // TODO: test with data in session storage
+    
+    // TODO: log out if token is invalid or session storage is empty
     // log out if this.$isLoggedIn is false
     // if (!this.dataService.isLoggedIn) {
     //   this.logout();
@@ -29,9 +29,28 @@ export class LoggedComponent implements OnInit {
 
   }
 
-// TODO: create 3 log out conditions depending on click, session storage and protection cookie's expiration
-  logout() {
 
+  getUserData(){
+    // get user data from data service     
+    // console.log(this.dataService.userData);
+    this.dataService.userData.subscribe(data => {
+      this.userData = data;
+      // console.log(this.userData);
+    })
+
+    // get user leikode from data service (from session storage since it's not hashed)
+    this.dataService.userLeikode.subscribe(data => {
+      this.userLeikode = data;
+    })
+  }
+
+
+// TODO: put log out method in auth guard service to call it everywhere in the app 
+// log out on click 
+logout() {
+
+  // clear authToken from cookie storage
+  // + in auth guard service, if authToken is not in browser or invalid, access is denied, redirect to login
     this.crudService.getTypeRequest('/protected/logout').subscribe({
       next: (res) => {
         console.log(Object.values(res)[0]);
@@ -41,6 +60,9 @@ export class LoggedComponent implements OnInit {
         console.log(err);
       }
     });
+
+    // clear session storage
+    this.dataService.clearSessionStorage();
   }
 
 

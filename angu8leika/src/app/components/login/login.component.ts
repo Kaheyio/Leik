@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
       next: (res) => {
         // res from backend = user data + generated_leikode
         this.user = Object.values(res)[0];
-        console.log(this.user);
+        // console.log(this.user);
 
         // remove previous error messages if login is validated
         this.errorState = false;
@@ -69,11 +69,11 @@ export class LoginComponent implements OnInit {
 
         // get new leikode
         this.userLeikode = Object.values(res)[1];
-        console.log(this.userLeikode);
+        // console.log(this.userLeikode);
 
         // get user id
         this.userId = this.user._id;
-        console.log(this.userId);
+        // console.log(this.userId);
         
         
         // STORE USER ID AND NEW LEIKODE IN SESSION STORAGE
