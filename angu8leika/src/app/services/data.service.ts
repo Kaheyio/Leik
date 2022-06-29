@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class DataService {
 
   // SINGLETON SERVICE
 
@@ -24,7 +24,7 @@ export class ApiService {
 
   constructor() {
     // TODO: get rid of log
-    console.log('ApiService created');
+    console.log('DataService created');
 
     // TODO: create array for userdata
     // TODO: test with data in session storage

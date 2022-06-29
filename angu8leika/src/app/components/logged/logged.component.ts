@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiService } from 'src/app/services/api.service';
+import { DataService } from 'src/app/services/data.service';
 import { CrudService } from 'src/app/services/crud.service';
 
 @Component({
@@ -15,25 +15,25 @@ export class LoggedComponent implements OnInit {
   userLeikode: any;
 
 
-  constructor(private crudService: CrudService, private router: Router, public apiService: ApiService) { }
+  constructor(private crudService: CrudService, private router: Router, public dataService: DataService) { }
 
   ngOnInit(): void {
 
     // user data
-    this.apiService.userData.subscribe(data => {      
+    this.dataService.userData.subscribe(data => {      
       this.userData = data;
       console.log(this.userData);
     });
 
     // leikode
-    this.apiService.userLeikode.subscribe(data => {
+    this.dataService.userLeikode.subscribe(data => {
       this.userLeikode = data;
       console.log(this.userLeikode);
     });
 
     // TODO: test with data in session storage
     // log out if this.$isLoggedIn is false
-    // if (!this.apiService.isLoggedIn) {
+    // if (!this.dataService.isLoggedIn) {
     //   this.logout();
     // }
 

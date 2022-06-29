@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApiService } from 'src/app/services/api.service';
+import { DataService } from 'src/app/services/data.service';
 import { CrudService } from 'src/app/services/crud.service';
 
 @Component({
@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
   // user data
   user: any;
 
-  // object array to store user data
-  userData: any;
+  // to store data in session storage and send to service
+  userId: any;
   leikode: any;
 
   // error message
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private crudService: CrudService,
     private router: Router,
-    private apiService: ApiService
+    private dataService: DataService
   ) { }
 
   ngOnInit(): void {
@@ -77,8 +77,8 @@ export class LoginComponent implements OnInit {
         const storedUserLeikode = this.leikode;
         sessionStorage.setItem('leikaULK', storedUserLeikode);
 
-        // TODO: "store" userData with data in session storage => in api service, to retrieve them in the rest of the app
-        this.apiService.setLoggedUserData(storedUserLeikode);
+        // TODO: "store" userData with data in session storage => in data service, to retrieve them in the rest of the app
+        this.dataService.setLoggedUserData(storedUserLeikode);
 
         // redirect to logged components
         this.router.navigate(['/logged']);
@@ -108,6 +108,5 @@ export class LoginComponent implements OnInit {
   };
 
 
-  // TODO: change boolean value in app component + log out method in logged component
 
 }
