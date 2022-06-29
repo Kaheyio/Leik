@@ -22,6 +22,7 @@ const requireAuth = (req, res, next) => {
        /* if successful, continue processing any remaining middleware after this one is done (otherwise no other routes will be processed at all) */
         next();
     } catch (error) {
+        // status will be false if token is not stored or is invalid/expired
         res.send({status: false, route_status: 'Invalid credentials'});
     }
   

@@ -13,12 +13,12 @@ export class LoginComponent implements OnInit {
 
   isLogin: boolean = false;
 
-  // user data
+  // to check user email update user data in database (new leikode)
   user: any;
 
   // to store data in session storage and send to service
   userId: any;
-  leikode: any;
+  userLeikode: any;
 
   // error message
   errorState: boolean = false;
@@ -34,9 +34,8 @@ export class LoginComponent implements OnInit {
   @ViewChild("togglePassword") togglePassword!: ElementRef;
 
   constructor(
-    private crudService: CrudService,
     private router: Router,
-    private dataService: DataService
+    private crudService: CrudService,
   ) { }
 
   ngOnInit(): void {
@@ -58,34 +57,33 @@ export class LoginComponent implements OnInit {
     // send email and password to backend for check, if ok, generate token and put in cookie (for logged state protection) 
     this.crudService.postTypeRequest('/login', this.loginForm.value).subscribe({
       next: (res) => {
-        // res = user + generated_leikode
+        // res from backend = user data + generated_leikode
         this.user = Object.values(res)[0];
-        // console.log(this.user);
+        console.log(this.user);
 
-        // console.log('You are logged in ! : ' + this.user.username);
+        // remove previous error messages if login is validated
         this.errorState = false;
 
         // !!! THIS LOGS THE OLD LEIKODE !!!
         // console.log('new leikode: ' + this.user.leikode);
 
         // get new leikode
-        this.leikode = Object.values(res)[1];
-        // console.log(this.leikode);
+        this.userLeikode = Object.values(res)[1];
+        console.log(this.userLeikode);
 
-        // TODO: STORE LEIKODE IN SESSION STORAGE
+        // get user id
+        this.userId = this.user._id;
+        console.log(this.userId);
         
-        const storedUserLeikode = this.leikode;
-        sessionStorage.setItem('leikaULK', storedUserLeikode);
-
-        // TODO: "store" userData with data in session storage => in data service, to retrieve them in the rest of the app
-        this.dataService.setLoggedUserData(storedUserLeikode);
-
-        // redirect to logged components
+        
+        // STORE USER ID AND NEW LEIKODE IN SESSION STORAGE
+        sessionStorage.setItem('leikaUID', this.userId);
+        sessionStorage.setItem('leikaULK', this.userLeikode);
+        
+        // redirect to logged component and its children components
         this.router.navigate(['/logged']);
 
-
-
-        // reset form
+        // reset login form
         this.loginForm.reset();
 
       },

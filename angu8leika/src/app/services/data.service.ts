@@ -1,78 +1,90 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { CrudService } from './crud.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  // SINGLETON SERVICE
+  // to get data from session storage (that was put there on login)
+  userId: any;
+  userLeikode: any;
 
-  // TODO: maintain state with page reload
-  // User BehaviorSubject (to share logged user data and new leikode within the app)
+  // to check authToken = in cookie storage + valid
+  authTokenValid: any;
+
+  // BehaviorSubject (to share logged user data within the app)
+  // user data
   private $userData = new BehaviorSubject<any>('');
   userData = this.$userData.asObservable();
 
-  private $userLeikode = new BehaviorSubject<any>('');
-  userLeikode = this.$userLeikode.asObservable();
-
+  // isLoggedIn = true if user data in session storage and authtoken in cookie storage
   private $isLoggedIn = new BehaviorSubject<boolean>(false);
   isLoggedIn = this.$isLoggedIn.asObservable();
 
-  // storedUserData: any;
-  // storedUserLeikode: any;
 
-  constructor() {
-    // TODO: get rid of log
+  constructor(private crudService: CrudService) {
+    // TODO: get rid of this log
     console.log('DataService created');
 
-    // TODO: create array for userdata
-    // TODO: test with data in session storage
-    // if user data in session storage (user logged and no tab closed), pass it to all the components
-    // const storedUserData = sessionStorage.getItem('leikaUD');
-    // const storedUserLeikode = sessionStorage.getItem('leikaULK');
 
-     
-    // get user data that was put in session storage on login and save it if page is refreshed
-    // to keep data if page is refreshed
-    if(sessionStorage.getItem('leikaUD')) {
-      // this.storedUserData = sessionStorage.getItem('leikaUD');
-      this.$userData.next(sessionStorage.getItem('leikaUD'));
-    }
+    /* get user id and leikode that were put in session storage on login
+     [NB: to keep data displayed if page is refreshed] */
+    if (sessionStorage.getItem('leikaUID') && sessionStorage.getItem('leikaULK')) {
 
-    if(sessionStorage.getItem('leikaULK')) {
-      // this.storedUserLeikode = sessionStorage.getItem('leikaULK');
-      this.$userLeikode.next(sessionStorage.getItem('leikaULK'));
-    }
-  
-    
+      this.userId = sessionStorage.getItem('leikaUID');
+      this.userLeikode = sessionStorage.getItem('leikaULK');
+      console.log(this.userId);
+      
+      // // get user data from database using its id
+      // this.crudService.getTypeRequest('/' + this.userId).subscribe({
+      //   next: (res) => {
+      //     // user data in userData observable
+      //     console.log(res);
+      //     this.setLoggedUserData(res);
+          
+      //   },
+      //   error: (err) => {
+      //     // TODO: find a way to display error if user data is not fetched from database
+      //     console.log(err);
+      //   }
+      // });
 
-    if (this.$userData && this.$userLeikode) {
-      this.$isLoggedIn.next(true);
-      this.setLoggedUserData(this.userLeikode);
-    }
-    else {
-      this.$isLoggedIn.next(false);
-    }
+      // // check if authToken cookie is stored/valid/expired
+      // this.crudService.getTypeRequest('/logged').subscribe(res => {
+      //   // if status = false, authToken invalid
+      //   this.authTokenValid = Object.values(res)[0];
+      //   console.log(this.authTokenValid);
+        
+      //   if (this.authTokenValid !== true) {
+      //     console.log('Token is invalid');
+      //   }
+      // });
+    };
+
+    /* if we were able to get user data using id from session storage AND authToken cookie is valid, user is logged in (can access logged components and its children) */
+    // if (this.$userData && this.authTokenValid == true) {
+    //   this.$isLoggedIn.next(true);
+    // }
+    // else {
+    //   this.$isLoggedIn.next(false);
+    // }
+
   }
 
-  // FOR PERSISTED DATA 
 
-  // getters and setters for persisted data
+  // GETTER AND SETTER TO SHARE USER DATA WITHIN THE APP
 
-  // to get data from this service
+  // to get user data from this service
   getLoggedUserData() {
     this.$userData.next(this.userData);
-    this.$userLeikode.next(this.userLeikode);
   }
 
-  // TODO: STORE IN A USERDATA ARRAY
-  // to store data in this service !!! change value of data in session storage before sending it to this service 
-  setLoggedUserData(userLeikode: any) {
-    // this.$userData.next(userData);
-    this.$userLeikode.next(userLeikode);
+  // to send user data that was edited from componenens back to this service  
+  setLoggedUserData(setUserData: any) {
+    this.$userData.next(setUserData);
   }
-
 
 
 }

@@ -10,27 +10,17 @@ import { CrudService } from 'src/app/services/crud.service';
 })
 export class LoggedComponent implements OnInit {
 
-  // get user data + new leikode after login
   userData: any;
-  userLeikode: any;
-
 
   constructor(private crudService: CrudService, private router: Router, public dataService: DataService) { }
 
   ngOnInit(): void {
 
-    // user data
-    this.dataService.userData.subscribe(data => {      
-      this.userData = data;
-      console.log(this.userData);
-    });
-
-    // leikode
-    this.dataService.userLeikode.subscribe(data => {
-      this.userLeikode = data;
-      console.log(this.userLeikode);
-    });
-
+    // get user data from data service 
+    // console.log(this.dataService.getLoggedUserData());
+    
+    this.dataService.getLoggedUserData();
+    
     // TODO: test with data in session storage
     // log out if this.$isLoggedIn is false
     // if (!this.dataService.isLoggedIn) {

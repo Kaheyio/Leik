@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { CrudService } from './crud.service';
 
 
@@ -10,25 +9,20 @@ import { CrudService } from './crud.service';
 })
 export class AuthGuardService {
 
-  // Protected route
-  baseUrl = 'http://localhost:3000/api/user';
-
 
   constructor(
-    private http: HttpClient,
     private router: Router,
     private crudService: CrudService
   ) { }
 
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    // TODO: if cookie is in browser return true else redirect
-    // use authorization header/ bearer token ??
+    
     this.crudService.getTypeRequest('/logged').subscribe(res => {
 
       // if status = false, not allowed
       const accessAuthorized = Object.values(res)[0];
-      console.log('status of authorization: ' + accessAuthorized);
+      console.log('Status of authorization: ' + accessAuthorized);
       if (accessAuthorized !== true) {
         console.log('You are not allowed to view this page');
         this.router.navigate(['/login']);

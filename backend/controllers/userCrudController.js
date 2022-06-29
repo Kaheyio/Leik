@@ -10,8 +10,8 @@ module.exports.getUsers_get = async (req, res) => {
 
 // GET USER BY EMAIL
 module.exports.getUserById_get = async (req, res) => {
-    const _id = req.params._id;
-    const loggedUser = await User.findOne({_id});
+    const id = req.params.id;
+    const loggedUser = await User.findById({_id: id});
     res.send(loggedUser);
 };
 
