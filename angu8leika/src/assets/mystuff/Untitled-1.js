@@ -4,11 +4,8 @@
 // 		sepa don: from particulier, from entreprise
 // 		manual transfer : validated, ordonné, 
 
-// [first value = default value]
-
-
-
-
+// user cancels a pending transaction?
+// user cancels a validated transaction?
 
 confirmationprocess(){
     createobjectinpendingDB() = {
@@ -27,9 +24,10 @@ confirmationprocess(){
     }
 
     // user is on a merchant site
-    if (type = "card") {
-        if (affection = "-") {
+    if (affection = "-") {
+        if (type = "card") {
             if (online = true) {
+                // user buys something online
                 await(validateonlinesiteforsending())
                 if (onlinesitevalidated) {
                     if (amount > 100) {
@@ -59,17 +57,19 @@ confirmationprocess(){
                     return ("failed to approve online site")
                 }
             }
+            else if (online = false) {
+                // user buys something irl with credit card
+            }
         }
-        else {      // if (affection = "+")
+        if (type = "sepa") {
+            // sepa prelevement
+            checkorganism()
+            checkmandat()
+        }
+        if (type = "manual") {
+            // user makes a manual virement
         }
     }
-
-    // user buys something with credit card
-    // user makes a manual virement
-    // sepa prelevement
-    // user cancels a pending transaction
-    // user cancels a validated transaction
-
     else {
         deleteobjectfrompendingDB()
         return ("error during confirmation process")
