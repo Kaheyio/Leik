@@ -1,19 +1,21 @@
 <!-- Pills holder -->
 <div class="lulucollapsebuttonsholder d-flex align-items-center justify-content-center">
-    <!-- used to be a p here -->
-    <button class="btn btn-sm mx-1 ms-4" type="button" data-bs-toggle="collapse" data-bs-target="#pendingopscontent"
-        aria-expanded="false" aria-controls="pendingopscontent">
-        <span *ngIf="pendingtransaction" class="badge text-bg-primary">!</span>
-        <span *ngIf="!pendingtransaction">+ </span>
+    <button *ngIf="thereareincomingorpendingtransactions" class="btn btn-sm mx-1 ms-4" type="button"
+        data-bs-toggle="collapse" data-bs-target="#pendingopscontent" aria-expanded="false"
+        aria-controls="pendingopscontent">
+        <span *ngIf="pendingleikodetransactions" class="badge text-bg-primary">!</span>
+        <span *ngIf="!pendingleikodetransactions">+ </span>
         Pending
-        <!-- Ajouter une vignette compteur -->
     </button>
     <button class="btn btn-sm mx-1" type="button" data-bs-toggle="collapse" data-bs-target="#rejectedopscontent"
         aria-expanded="false" aria-controls="rejectedopscontent">
-        <span *ngIf="rejectednotchecked" class="badge text-bg-danger">{{rejectednotchecked}}</span>
-        <span *ngIf="!rejectednotchecked">+ </span>
+        <span *ngIf="uncheckedrejectedtransactionscounter" class="badge text-bg-danger">{{uncheckedrejectedtransactionscounter}}</span>
+        <!-- if none have status unchecked then display + to allow user to view rejected history -->
+        <span *ngIf="!uncheckedrejectedtransactionscounter">+ </span>
         Rejected
     </button>
+
+
 </div>
 
 <!-- Content holder -->
@@ -22,13 +24,11 @@
     <div class="collapse" id="pendingopscontent">
         <div class="p-2">
             <!-- PENDING LEIKODE -->
-            <div id="pendingops">
-                Leikode requests:
+            <div *ngIf="pendingleikodetransactions" id="pendingops">
                 <app-pending-leikode-transactions></app-pending-leikode-transactions>
             </div>
             <!-- PENDING ANNOUNCED SEPA -->
-            <div id="incomingops">
-                Incoming:
+            <div *ngIf="incomingtransaction" id="incomingops">
                 <app-incoming-transactions></app-incoming-transactions>
             </div>
         </div>
@@ -36,7 +36,6 @@
     <!-- Rejected -->
     <div class="collapse" id="rejectedopscontent">
         <div class="p-2">
-            Rejected:
             <app-rejected-transactions></app-rejected-transactions>
         </div>
     </div>

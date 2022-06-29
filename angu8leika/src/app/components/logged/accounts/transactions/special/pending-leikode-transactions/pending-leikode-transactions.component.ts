@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PendingLeikodeTransactionsComponent implements OnInit {
 
+  pendingleikodetransactions = {}; // object that from transactionservice gets all transactions with status pending
+
   constructor() { }
 
   ngOnInit(): void {

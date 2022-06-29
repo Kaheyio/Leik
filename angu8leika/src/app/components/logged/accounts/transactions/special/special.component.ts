@@ -7,11 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpecialComponent implements OnInit {
 
-  pendingtransaction = true;
-  // rejected transactions are highlighted, until user clicks on it → onclick launch transaction detail AND change transaction status: "checked" (how does that fit in the universal transaction model?)
-  rejectednotchecked = 3;
-  // here is the actual rejected transactions history
-  rejectedchecked = {}
+  thereareincomingorpendingtransactions = true;
+
+  // check if there are pending leikode transactions
+  pendingleikodetransactions = true;
+
+  // check if there are incoming transactions
+  incomingtransaction = true;
+
+  // check if there are rejected transactions
+  rejectedtransactions = true;
+
+  // check how many have status unchecked // hope this will actualize if we modifiy the service data through its child
+  uncheckedrejectedtransactionscounter = 3; 
 
   constructor() { }
 

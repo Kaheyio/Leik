@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RejectedTransactionsComponent implements OnInit {
 
+  uncheckedrejectedtransactions = true; // transform into object that from transactionservice gets all transactions with status rejected AND property checked false
+
+  checkedrejectedtransactions = {}; // object that  from transactionservice gets all transactions with status rejected AND property checked true
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  //through databaseCRUDservice, change transaction "checked" property to true
+  checkedrejected(){}
 
 }

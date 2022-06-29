@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IncomingTransactionsComponent implements OnInit {
 
+  incomingtransactions = {}; // object that from transactionservice gets all transactions with status incoming
+
   constructor() { }
 
   ngOnInit(): void {
