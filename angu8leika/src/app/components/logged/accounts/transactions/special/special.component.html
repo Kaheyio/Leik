@@ -7,7 +7,7 @@
         <span *ngIf="!pendingleikodetransactions">+ </span>
         Pending
     </button>
-    <button class="btn btn-sm mx-1" type="button" data-bs-toggle="collapse" data-bs-target="#rejectedopscontent"
+    <button *ngIf="rejectedtransactions" class="btn btn-sm mx-1" type="button" data-bs-toggle="collapse" data-bs-target="#rejectedopscontent"
         aria-expanded="false" aria-controls="rejectedopscontent">
         <span *ngIf="uncheckedrejectedtransactionscounter" class="badge text-bg-danger">{{uncheckedrejectedtransactionscounter}}</span>
         <!-- if none have status unchecked then display + to allow user to view rejected history -->
