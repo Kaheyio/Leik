@@ -32,7 +32,7 @@ export class LoggedComponent implements OnInit {
 // TODO: create 3 log out conditions depending on click, session storage and protection cookie's expiration
   logout() {
 
-    this.crudService.getTypeRequest('/logout').subscribe({
+    this.crudService.getTypeRequest('/protected/logout').subscribe({
       next: (res) => {
         console.log(Object.values(res)[0]);
         this.router.navigate(['/login']);

@@ -7,7 +7,7 @@ const leikodeController = require('../controllers/leikodeController');
 // to protect this route, use middleware
 const { requireAuth } = require('../middlewares/authMiddleware');
 
-// DON'T USE SAME ROUTES = for ex get /logged blocks get /:id
+// DON'T USE SAME ROUTES = for ex get /logged blocks get /:id and get /logout
 
 // NB: full route is localhost:PORT/api/user/
 // GET ALL USERS
@@ -34,7 +34,7 @@ router.get('/protected/logged', requireAuth, authController.loggedRoute_get);
 // router.post('/', requireAuth, leikodeController.leikode_post);
 
 // TODO: LOGOUT IN PROTECTED ROUTES
-router.get('/logout', authController.logout_get);
+router.get('/protected/logout', authController.logout_get);
 
 
 
