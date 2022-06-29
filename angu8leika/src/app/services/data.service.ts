@@ -37,22 +37,22 @@ export class DataService {
       this.userLeikode = sessionStorage.getItem('leikaULK');
       console.log(this.userId);
       
-      // // get user data from database using its id
-      // this.crudService.getTypeRequest('/' + this.userId).subscribe({
-      //   next: (res) => {
-      //     // user data in userData observable
-      //     console.log(res);
-      //     this.setLoggedUserData(res);
+      // get user data from database using its id
+      this.crudService.getTypeRequest(`/${this.userId}`).subscribe({
+        next: (res) => {
+          // user data in userData observable
+          console.log(res);
+          // this.setLoggedUserData(res);
           
-      //   },
-      //   error: (err) => {
-      //     // TODO: find a way to display error if user data is not fetched from database
-      //     console.log(err);
-      //   }
-      // });
+        },
+        error: (err) => {
+          // TODO: find a way to display error if user data is not fetched from database
+          console.log(err);
+        }
+      });
 
       // // check if authToken cookie is stored/valid/expired
-      // this.crudService.getTypeRequest('/logged').subscribe(res => {
+      // this.crudService.getTypeRequest('/protected/logged').subscribe(res => {
       //   // if status = false, authToken invalid
       //   this.authTokenValid = Object.values(res)[0];
       //   console.log(this.authTokenValid);
