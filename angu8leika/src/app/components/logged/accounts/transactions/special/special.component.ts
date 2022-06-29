@@ -7,19 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpecialComponent implements OnInit {
 
-  thereareincomingorpendingtransactions = true;
-
   // check if there are pending leikode transactions
-  pendingleikodetransactions = true;
+  pendingleikodetransactionscounter = 1;
 
   // check if there are incoming transactions
-  incomingtransaction = true;
-
-  // check if there are rejected transactions
-  rejectedtransactions = true;
+  incomingtransactionscounter = 2;
 
   // check how many have status unchecked // hope this will actualize if we modifiy the service data through its child
-  uncheckedrejectedtransactionscounter = 3; 
+  uncheckedrejectedtransactionscounter = 4; 
 
   constructor() { }
 

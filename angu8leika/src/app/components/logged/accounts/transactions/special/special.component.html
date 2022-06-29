@@ -1,17 +1,19 @@
 <!-- Pills holder -->
 <div class="lulucollapsebuttonsholder d-flex align-items-center justify-content-center">
-    <button *ngIf="thereareincomingorpendingtransactions" class="btn btn-sm mx-1 ms-4" type="button"
+    <button *ngIf="pendingleikodetransactionscounter" class="btn btn-sm mx-1 ms-4" type="button"
         data-bs-toggle="collapse" data-bs-target="#pendingopscontent" aria-expanded="false"
         aria-controls="pendingopscontent">
-        <span *ngIf="pendingleikodetransactions" class="badge text-bg-primary">!</span>
-        <span *ngIf="!pendingleikodetransactions">+ </span>
+        <span class="badge text-bg-primary">{{pendingleikodetransactionscounter}}</span>
         Pending
     </button>
-    <button *ngIf="rejectedtransactions" class="btn btn-sm mx-1" type="button" data-bs-toggle="collapse" data-bs-target="#rejectedopscontent"
-        aria-expanded="false" aria-controls="rejectedopscontent">
-        <span *ngIf="uncheckedrejectedtransactionscounter" class="badge text-bg-danger">{{uncheckedrejectedtransactionscounter}}</span>
-        <!-- if none have status unchecked then display + to allow user to view rejected history -->
-        <span *ngIf="!uncheckedrejectedtransactionscounter">+ </span>
+    <button *ngIf="incomingtransactionscounter" class="btn btn-sm mx-1" type="button" data-bs-toggle="collapse"
+        data-bs-target="#incomingopscontent" aria-expanded="false" aria-controls="incomingopscontent">
+        <span class="badge text-bg-success">{{incomingtransactionscounter}}</span>
+        Incoming
+    </button>
+    <button *ngIf="uncheckedrejectedtransactionscounter" class="btn btn-sm mx-1" type="button" data-bs-toggle="collapse"
+        data-bs-target="#rejectedopscontent" aria-expanded="false" aria-controls="rejectedopscontent">
+        <span class="badge text-bg-danger">{{uncheckedrejectedtransactionscounter}}</span>
         Rejected
     </button>
 
@@ -20,23 +22,22 @@
 
 <!-- Content holder -->
 <div class="lulucollapsedcontentholder mb-2 d-flex flex-column align-items-center justify-content-center">
-    <!-- Leikode & Pending-->
-    <div class="collapse" id="pendingopscontent">
+    <!-- PENDING LEIKODE-->
+    <div *ngIf="pendingleikodetransactionscounter" class="collapse" id="pendingopscontent">
         <div class="p-2">
-            <!-- PENDING LEIKODE -->
-            <div *ngIf="pendingleikodetransactions" id="pendingops">
-                <app-pending-leikode-transactions></app-pending-leikode-transactions>
-            </div>
-            <!-- PENDING ANNOUNCED SEPA -->
-            <div *ngIf="incomingtransaction" id="incomingops">
-                <app-incoming-transactions></app-incoming-transactions>
-            </div>
+            <app-pending-leikode-transactions></app-pending-leikode-transactions>
         </div>
     </div>
-    <!-- Rejected -->
-    <div class="collapse" id="rejectedopscontent">
+    <!-- REJECTED UNCHECKED -->
+    <div *ngIf="uncheckedrejectedtransactionscounter" class="collapse" id="rejectedopscontent">
         <div class="p-2">
             <app-rejected-transactions></app-rejected-transactions>
+        </div>
+    </div>
+    <!-- ANNOUNCED SEPA -->
+    <div *ngIf="incomingtransactionscounter" class="collapse" id="incomingopscontent">
+        <div class="p-2">
+            <app-incoming-transactions></app-incoming-transactions>
         </div>
     </div>
 </div>
