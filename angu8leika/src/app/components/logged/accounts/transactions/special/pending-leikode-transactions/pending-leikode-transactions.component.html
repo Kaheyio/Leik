@@ -1,0 +1,26 @@
+<a class="lulutransacard p-1 border d-flex flex-row justify-content-start align-items-center align-items-center"
+    data-bs-toggle="offcanvas" data-bs-target="#leikode-canvas" aria-controls="leikode-canvas"> <!-- onclick pass transaction id to transaction details component-->
+    <div class="badge mx-2 text-bg-primary">Click to validate</div>
+    <div class="lulutransacard-description luluw100 p-1 d-flex justify-content-center align-items-center">
+        <div class="me-auto d-flex flex-column justify-content-center">
+            <div class="lulutransacard-title">Amazon  S</div>
+            <div class="lulutransacard-info d-flex flex-row">
+                <div>Card ****9915</div>
+            </div>
+        </div>
+        <div class="lulutransacard-price">
+            12.99 &euro;
+        </div>
+    </div>
+</a>
+
+<!-- Leikode offcanvas body -->
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="leikode-canvas" aria-labelledby="leikode-canvasLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="leikode-canvasLabel">Leikode validation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <app-leikode-validation></app-leikode-validation>
+    </div>
+</div>
