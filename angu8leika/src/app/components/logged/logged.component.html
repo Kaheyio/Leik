@@ -2,16 +2,15 @@
 
     <div id="luluwrapper-top">
         <!-- Top navbar -->
-        <ul class="luluh100 nav bg-dark justify-content-end" id="lulutopnav">
+        <ul class="luluh100 nav bg-dark justify-content-start d-flex flex-row luluscrollx luluscrolly" id="lulutopnav">
             <!-- Logo -->
-            <li class="luluh100 p-1 nav-item me-auto">
+            <!-- <li class="luluh100 p-1 nav-item me-auto">
                 <img class="luluh100" src="../assets/logohoriz.png" alt="">
-            </li>
+            </li> -->
 
             <li class="nav-item my-auto">
-                <!-- TODO: test userData -->
-                <span class="text-white fw-bold">Welcome {{ userData.username }} !</span>
-                <span class="text-white fw-bold"> Your new leikode : {{ userLeikode}} </span>
+                <span class="text-white fw-bold">Name: {{ userData.username }}</span>
+                <span class="text-white fw-bold">Leikode:{{ userLeikode }}</span>
             </li>
             <!-- END TEST -->
 
@@ -21,7 +20,6 @@
                 <button class="btn bg-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#chat-canvas"
                     aria-controls="chat-canvas"><i class="fa-brands fa-rocketchat"></i></button>
                 <!-- CHAT Offcanvas title/label + content -->
-                <!-- TODO manage all tabindexes -->
                 <div class="offcanvas offcanvas-bottom" tabindex="-1" id="chat-canvas"
                     aria-labelledby="chat-canvasLabel">
                     <div class="offcanvas-header">
@@ -69,7 +67,7 @@
             id="lulubottomnav" role="tablist">
             <!-- Accounts btn -->
             <li class="luluh100 nav-item d-flex flex-column justify-content-center" role="presentation">
-                <button class="luluh100 nav-link d-flex flex-column align-items-center justify-content-evenly"
+                <button class="luluh100 nav-link d-flex flex-column align-items-center justify-content-evenly active"
                     id="accountcomponent-btn" data-bs-toggle="pill" data-bs-target="#accountcomponent-displayer"
                     type="button" role="tab" aria-controls="accountcomponent-displayer" aria-selected="false">
                     <i class="my-1 fa-solid fa-xl fa-receipt"></i>
@@ -77,7 +75,7 @@
             </li>
             <!-- Transfers btn -->
             <li class="luluh100 nav-item d-flex flex-column justify-content-center" role="presentation">
-                <button class="luluh100 nav-link d-flex flex-column align-items-center justify-content-evenly active"
+                <button class="luluh100 nav-link d-flex flex-column align-items-center justify-content-evenly"
                     id="transfercomponent-btn" data-bs-toggle="pill" data-bs-target="#transfercomponent-displayer"
                     type="button" role="tab" aria-controls="transfercomponent-displayer" aria-selected="true">
                     <i class="my-1 fa-solid fa-xl fa-money-bill-transfer"></i>

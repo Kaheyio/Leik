@@ -7,8 +7,6 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 // ******************STYLES REFS*******************************************************************
-
-// TODO clear up colors
 :root{
     --lulublack: #141414ff;
     --lulublack2: #242424ff;
@@ -34,6 +32,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --lulugreen: rgb(199, 248, 187);
 }
 
+a{
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
 // GLOBAL CLASSES
 .luluh100{
     height: 100%;
@@ -53,6 +57,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .luluh65{
     height: 65%;
 }
+.luluh50{
+    height: 50%;
+}
 .luluh10{
     height: 10%;
 }
@@ -62,7 +69,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .luluw100{
     width: 100%;
 }
+.luluw91{
+    width: 91%;
+}
+.luluw9{
+    width: 9%;
+}
 
 .lulugreenoperation{
     color: var(--lulucardtextgreen);
 }
+
+.luluscrollx{
+    overflow-x: scroll;
+}
+.luluscrolly{
+    overflow-y: scroll;
+}
+

@@ -1,0 +1,33 @@
+<div class="d-flex flex-column align-items-center justify-content-start">
+    <div class="p-4 d-flex flex-column align-items-center justify-content-center" id="lululeikode-formwrapper">
+        <form autocomplete="off">
+            <!-- [formGroup]="leikodeform" (ngSubmit)="leikodeSubmit()" -->
+            <div class="input-group justify-content-center">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="leikodeinput"
+                        aria-label="Password input for leikode with checkbox" placeholder="Your Leikode"
+                        name="leikode" formControlName="leikode" #togglePassword>
+                    <label for="leikodeinput" id="leikodeinputlabel">Leikode here</label>
+                </div>
+                <div class="input-group-text">
+                    <!-- TODOLULU make togglePW() universal -->
+                    <i class="fa-solid fa-eye-slash"></i>
+                    <!--*ngIf="passwordShow" (click)="togglePW()"-->
+                    <!-- <i *ngIf="!passwordShow" class="fa-solid fa-eye"></i>  -->
+                </div>
+            </div>
+            <div class="luluw100 my-2 text-center text-danger fw-bold">
+                <!-- *ngIf="errorState"  -->
+                Error, please input valid leikode.
+                <!-- {{ errorMessage }} -->
+            </div>
+            <div class="luluw100 d-flex justify-content-around">
+                <button class="btn btn-lg bg-danger text-white">Refuse</button>
+                <button class="btn btn-lg bg-dark text-white" type="submit">Authorize</button>
+            </div>
+        </form>
+    </div>
+    <div class="mb-3 text-center border">
+        <app-transaction-details></app-transaction-details>
+    </div>
+</div>
