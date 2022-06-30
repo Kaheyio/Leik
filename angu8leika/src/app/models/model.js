@@ -1,6 +1,6 @@
 
 "OPERATION TEMPLATE"
-operationtitle = ""
+transactiontitle = ""
 emissiondate = ""
 type = "card or prelevement or newmove"
 targetaccount = ""
