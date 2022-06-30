@@ -7,13 +7,46 @@
 // user cancels a pending transaction?
 // user cancels a validated transaction?
 
+"OPERATION TEMPLATE"
+operationtitle = ""
+emissiondate = ""
+type = "card or prelevement or newmove"
+targetaccount = ""
+target = "cardnumber or prelevref or newmovenote"
+amount = "+ or -"
+status = "pending or incoming or history or rejected" //luluhistory = validated
+
+"PENDING"
+leikodevalidationstatus = "pending refused confirmed"; //action de l'utilisateur
+bankvalidationstatus = "true or false" //nous on check le montant
+
+"REJECTED"
+rejectionmotif = "leikoderefused bankrefused" //ce qu'on affiche danse
+
+"INCOMING" //seulement prelevref et newmoveid
+estimateddate = "date"
+
+"HISTORY"
+// C'est bon on a tout frate
+
+
+
+
+
+
+
+
+
+
+
 confirmationprocess(){
     createobjectinpendingDB() = {
         // do we add status = pending?
+        // something sends transaction request, il aura set 
         setemissionTimestamp = date,
         settype = "card or sepa or manual",
-        setaffection = "+ or -",
-        setamount,
+        settarget = "card number or acount number",
+        setamount = "+ or -",
     }
 
     //TODO what is checked first? affection or type? 
