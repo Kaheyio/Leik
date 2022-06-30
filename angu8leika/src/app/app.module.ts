@@ -19,7 +19,6 @@ import { HistoryComponent } from './components/logged/accounts/transactions/hist
 import { AccountpickerComponent } from './components/logged/accounts/accountpicker/accountpicker.component';
 import { CardsComponent } from './components/logged/accounts/cards/cards.component';
 import { StatsComponent } from './components/logged/accounts/stats/stats.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
 import { InterceptorServiceService } from './services/interceptor-service.service';
 import { NewMoveComponent } from './components/logged/transfer/new-move/new-move.component';
 import { ManageReceiversComponent } from './components/logged/transfer/manage-receivers/manage-receivers.component';
@@ -30,6 +29,7 @@ import { RejectedTransactionsComponent } from './components/logged/accounts/tran
 import { IncomingTransactionsComponent } from './components/logged/accounts/transactions/special/incoming-transactions/incoming-transactions.component';
 import { LeikodeValidationComponent } from './components/logged/leikode-validation/leikode-validation.component';
 import { CrudService } from './services/crud.service';
+import { MainComponent } from './components/main/main.component';
 
 
 
@@ -48,7 +48,6 @@ import { CrudService } from './services/crud.service';
     AccountpickerComponent,
     CardsComponent,
     StatsComponent,
-    NotFoundComponent,
     TransactionDetailsComponent,
     NewMoveComponent,
     ManageReceiversComponent,
@@ -57,6 +56,7 @@ import { CrudService } from './services/crud.service';
     RejectedTransactionsComponent,
     IncomingTransactionsComponent,
     LeikodeValidationComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,13 +7,17 @@
 // user cancels a pending transaction?
 // user cancels a validated transaction?
 
+// cardissuingnetwork?
+
+
 confirmationprocess(){
     createobjectinpendingDB() = {
         // do we add status = pending?
+        // something sends transaction request, il aura set 
         setemissionTimestamp = date,
         settype = "card or sepa or manual",
-        setaffection = "+ or -",
-        setamount,
+        settarget = "card number or acount number",
+        setamount = "+ or -",
     }
 
     //TODO what is checked first? affection or type? 
