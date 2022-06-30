@@ -1,10 +1,8 @@
-<!-- ng if either display login or logged -->
-<div *ngIf="login">
-    <app-login></app-login>
-</div>
-<div *ngIf="logged">
-    <app-logged></app-logged>
-</div>
+ <!-- ng if either display login or logged -->
+    <app-login *ngIf="loggedInState"></app-login>
+    <app-logged *ngIf="loggedOutState"></app-logged>
 
+    <!-- <app-login *ngIf="loggedState"></app-login>
+    <app-logged *ngIf="loggedState"></app-logged> -->
 
 <!-- TODO: TEST PROTECTED ROUTE -->

@@ -23,9 +23,6 @@ export class DataService {
   private $userLeikode = new BehaviorSubject<any>('');
   userLeikode = this.$userLeikode.asObservable();
 
-  // isLoggedIn = true if user data in session storage and authtoken in cookie storage
-  private $isLoggedIn = new BehaviorSubject<boolean>(false);
-  isLoggedIn = this.$isLoggedIn.asObservable();
 
 
   constructor(private crudService: CrudService) {
@@ -66,15 +63,6 @@ export class DataService {
         }
       });
     };
-
-    // TODO: test isLoggedIn boolean in main = login or logged
-    /* if we were able to get user data using id from session storage AND authToken cookie is valid, user is logged in (can access logged components and its children) */
-    if (this.$userData && this.authTokenValid == true) {
-      this.$isLoggedIn.next(true);
-    }
-    else {
-      this.$isLoggedIn.next(false);
-    }
 
   }
 

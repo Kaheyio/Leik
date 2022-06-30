@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DataService } from 'src/app/services/data.service';
 import { CrudService } from 'src/app/services/crud.service';
+import { AuthGuardService } from 'src/app/services/auth-guard.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,8 @@ import { CrudService } from 'src/app/services/crud.service';
 })
 export class LoginComponent implements OnInit {
 
-  isLogin: boolean = false;
+  // boolean for logged state
+  loggedState: boolean = false;
 
   // to check user email update user data in database (new leikode)
   user: any;
@@ -38,6 +39,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private crudService: CrudService,
+    private authGuardService: AuthGuardService
   ) { }
 
   ngOnInit(): void {
@@ -51,6 +53,8 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       this.errorState = true;
       this.errorMessage = "Please indicate valid email and password";
+      this.loggedState = false;
+      this.authGuardService.setLoggedOutState(this.loggedState);
       return;
     }
 
@@ -83,7 +87,11 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('leikaULK', this.userLeikode);
         
         // redirect to logged component and its children components
-        this.router.navigate(['/logged']);
+        // this.router.navigate(['/logged']);
+
+        // TODO: with boolean state instead of route
+        this.loggedState = true;
+        this.authGuardService.setLoggedInState(this.loggedState);
 
         // reset login form
         this.loginForm.reset();
@@ -92,6 +100,8 @@ export class LoginComponent implements OnInit {
       error: (err) => {
         this.errorState = true;
         this.errorMessage = err.error;
+        this.loggedState = false;
+        this.authGuardService.setLoggedOutState(this.loggedState);  
       }
     });
 
