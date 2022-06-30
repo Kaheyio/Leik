@@ -7,6 +7,8 @@
 // user cancels a pending transaction?
 // user cancels a validated transaction?
 
+// cardissuingnetwork?
+
 
 confirmationprocess(){
     createobjectinpendingDB() = {
