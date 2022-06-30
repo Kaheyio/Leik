@@ -29,6 +29,7 @@ import { PendingLeikodeTransactionsComponent } from './components/logged/account
 import { RejectedTransactionsComponent } from './components/logged/accounts/transactions/special/rejected-transactions/rejected-transactions.component';
 import { IncomingTransactionsComponent } from './components/logged/accounts/transactions/special/incoming-transactions/incoming-transactions.component';
 import { LeikodeValidationComponent } from './components/logged/leikode-validation/leikode-validation.component';
+import { CrudService } from './services/crud.service';
 
 
 
@@ -71,7 +72,9 @@ import { LeikodeValidationComponent } from './components/logged/leikode-validati
     provide: HTTP_INTERCEPTORS,
     useClass: InterceptorServiceService,
     multi: true
-  }],
+  },
+  CrudService
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

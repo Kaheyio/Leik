@@ -8,6 +8,13 @@ module.exports.getUsers_get = async (req, res) => {
     res.send(users);
 };
 
+// GET USER BY ID
+module.exports.getUserById_get = async (req, res) => {
+    const id = req.params.id;
+    const loggedUser = await User.findById({_id : id});
+    res.send(loggedUser);
+};
+
 // DELETE ONE USER (by id)
 module.exports.deleteUser_delete = async (req, res) => {
     const id = req.params.id;
@@ -21,5 +28,3 @@ module.exports.deleteUser_delete = async (req, res) => {
         res.status(400).send('An error occurred, user was not deleted');
     }
 };
-
-// TODO: EDIT APP SETTINGS, EDIT USER PASSWORD + DELETE USER ACCOUNT IN APP

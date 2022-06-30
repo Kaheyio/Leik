@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { map, Observable } from 'rxjs';
-import { AuthService } from './auth.service';
+import { Observable } from 'rxjs';
+import { CrudService } from './crud.service';
+import { DataService } from './data.service';
 
 
 @Injectable({
@@ -10,35 +10,52 @@ import { AuthService } from './auth.service';
 })
 export class AuthGuardService {
 
-  // Protected route
-  baseUrl = 'http://localhost:3000/api/user';
-
 
   constructor(
-    private http: HttpClient,
     private router: Router,
-    private authService: AuthService
+    private crudService: CrudService,
+    private dataService: DataService
   ) { }
 
- 
+
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    // TODO: if cookie is in browser return true else redirect
-    // use authorization header/ bearer token ??
-this.authService.getTypeRequest('/logged').subscribe(res => {
+    
+    this.crudService.getTypeRequest('/protected/logged').subscribe(res => {
 
-  // if status = false, not allowed
-  const accessAuthorized = Object.values(res)[0];
-  console.log('status of authorization: ' + accessAuthorized);
-  if (accessAuthorized !== true) {
-    console.log('You are not allowed to view this page');
-    this.router.navigate(['/login']);
-  }
+      // TODO: PB = you have to reload the page for it to work + if you duplicate tab session storage is ok ?
+      // if status = false, not allowed
+      let accessAuthorized = Object.values(res)[0];
+      // console.log('Status of authorization: ' + accessAuthorized);
+
+      // if session storage is empty make token invalid and logout
+      if (!sessionStorage.getItem('leikaUID') || !sessionStorage.getItem('leikaULK')) {
+        this.crudService.getTypeRequest('/protected/logout').subscribe({
+          next: (res) => {
+            console.log(Object.values(res)[0]);
+            this.router.navigate(['/login']);
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        });
+    
+        // clear session storage just in case
+        this.dataService.clearSessionStorage();
+      }
+
+      if (accessAuthorized !== true) {
+        // clear session storage from userid and leikode
+        this.dataService.clearSessionStorage();
+
+        console.log('You are not allowed to view this page');
+        this.router.navigate(['/login']);
+      }
+
+      return true;
+    })
 
     return true;
-})
 
-    return true;
-   
   }
 
 }
