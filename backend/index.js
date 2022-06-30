@@ -17,13 +17,15 @@ mongoose.connect(process.env.DB_CONNECT, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }, () =>
-    console.log('Connected to database'));
+    console.log('Connected to database')
+);
 
 // Middlewares
 
 /* [NB Cross-origin resource sharing (CORS) = browser mechanism that allows a web page to use assets and data from other pages or domains.
 Extends and adds flexibility to the same-origin policy (SOP). However, also provides potential for cross-domain attacks, if a website's CORS policy is poorly configured and implemented.]
 The cors package available in the npm registry is used to tackle CORS errors in a Node.js application. */
+// TODO: try cors if other method doesn't work on production
 // app.use(cors());
 
 // OR

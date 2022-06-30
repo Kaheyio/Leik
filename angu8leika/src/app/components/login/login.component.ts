@@ -1,7 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { DataService } from 'src/app/services/data.service';
+import { CrudService } from 'src/app/services/crud.service';
 
 @Component({
   selector: 'app-login',
@@ -12,12 +13,12 @@ export class LoginComponent implements OnInit {
 
   isLogin: boolean = false;
 
-  // user data
+  // to check user email update user data in database (new leikode)
   user: any;
 
-  // store user data
-  userData: any;
-  leikode: any;
+  // to store data in session storage and send to service
+  userId: any;
+  userLeikode: any;
 
   // error message
   errorState: boolean = false;
@@ -35,8 +36,8 @@ export class LoginComponent implements OnInit {
   passwordShow:boolean = false;
 
   constructor(
-    private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private crudService: CrudService,
   ) { }
 
   ngOnInit(): void {
@@ -53,41 +54,38 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    // TODO: use login method from api when done
-    console.log("Login form data: ", this.loginForm.value);
+    // console.log("Login form data: ", this.loginForm.value);
 
-    // send email and password to backend for check  
-    this.authService.postTypeRequest('/login', this.loginForm.value).subscribe({
+    // send email and password to backend for check, if ok, generate token and put in cookie (for logged state protection) 
+    this.crudService.postTypeRequest('/login', this.loginForm.value).subscribe({
       next: (res) => {
-        // res = user + generated_leikode
+        // res from backend = user data + generated_leikode
         this.user = Object.values(res)[0];
-        console.log(this.user);
+        // console.log(this.user);
 
-        console.log('You are logged in ! : ' + this.user.username);
+        // remove previous error messages if login is validated
         this.errorState = false;
 
         // !!! THIS LOGS THE OLD LEIKODE !!!
         // console.log('new leikode: ' + this.user.leikode);
 
         // get new leikode
-        this.leikode = Object.values(res)[1];
-        console.log(this.leikode);
+        this.userLeikode = Object.values(res)[1];
+        // console.log(this.userLeikode);
 
-
-        // TODO: store userData and leikode to retrieve them in the rest of the app
-        this.authService.getLoggedUserData(this.user, this.leikode);
-
-
-        // TODO: if cookie is stored successfully in browser ???
-
-
-        // redirect to logged components
+        // get user id
+        this.userId = this.user._id;
+        // console.log(this.userId);
+        
+        
+        // STORE USER ID AND NEW LEIKODE IN SESSION STORAGE
+        sessionStorage.setItem('leikaUID', this.userId);
+        sessionStorage.setItem('leikaULK', this.userLeikode);
+        
+        // redirect to logged component and its children components
         this.router.navigate(['/logged']);
 
-        // TODO: change boolean value in app component ?
-
-
-        // reset form
+        // reset login form
         this.loginForm.reset();
 
       },
@@ -111,7 +109,6 @@ export class LoginComponent implements OnInit {
     }
   };
 
-  
-    // TODO: change boolean value in app component + log out method in logged component
+
 
 }
