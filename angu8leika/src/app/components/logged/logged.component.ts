@@ -13,6 +13,8 @@ export class LoggedComponent implements OnInit {
   userData: any;
   userLeikode: any;
 
+  //TODO: logged state
+
   constructor(private crudService: CrudService, private router: Router, public dataService: DataService) { }
 
   ngOnInit(): void {
@@ -51,10 +53,11 @@ logout() {
 
   // clear authToken from cookie storage
   // + in auth guard service, if authToken is not in browser or invalid, access is denied, redirect to login
-    this.crudService.getTypeRequest('/protected/logout').subscribe({
+    this.crudService.getTypeRequest('/auth/logout').subscribe({
       next: (res) => {
         console.log(Object.values(res)[0]);
-        this.router.navigate(['/login']);
+        //TODO: change logged state instead of redirection
+        // this.router.navigate(['/login']);
       },
       error: (err) => {
         console.log(err);

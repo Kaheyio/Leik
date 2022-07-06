@@ -39,7 +39,7 @@ export class DataService {
       // console.log(this.userId);
 
       // get user data from database using its id
-      this.crudService.getTypeRequest(`/${this.userId}`).subscribe({
+      this.crudService.getTypeRequest(`/users/${this.userId}`).subscribe({
         next: (res) => {
           // user data in userData observable         
           this.setLoggedUserData(res);
@@ -53,7 +53,7 @@ export class DataService {
       });
 
       // check if authToken cookie is stored/valid/expired
-      this.crudService.getTypeRequest('/protected/logged').subscribe(res => {
+      this.crudService.getTypeRequest('/auth/protected/logged').subscribe(res => {
         // if status = false, authToken invalid
         this.authTokenValid = Object.values(res)[0];
         // console.log(this.authTokenValid);

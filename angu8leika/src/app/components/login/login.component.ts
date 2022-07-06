@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
     // console.log("Login form data: ", this.loginForm.value);
 
     // send email and password to backend for check, if ok, generate token and put in cookie (for logged state protection) 
-    this.crudService.postTypeRequest('/login', this.loginForm.value).subscribe({
+    this.crudService.postTypeRequest('/auth/login', this.loginForm.value).subscribe({
       next: (res) => {
         // res from backend = user data + generated_leikode
         this.user = Object.values(res)[0];

@@ -31,7 +31,7 @@ export class AuthGuardService {
 
       console.log(this.isLoggedOut);
 
-      this.crudService.getTypeRequest('/protected/logged').subscribe(res => {
+      this.crudService.getTypeRequest('/auth/protected/logged').subscribe(res => {
 
 
         // TODO: PB = you have to reload the page for it to work + if you duplicate tab session storage is ok ?
@@ -42,7 +42,7 @@ export class AuthGuardService {
 
         // if session storage is empty make token invalid and logout
         if (!sessionStorage.getItem('leikaUID') || !sessionStorage.getItem('leikaULK')) {
-          this.crudService.getTypeRequest('/protected/logout').subscribe({
+          this.crudService.getTypeRequest('/auth/logout').subscribe({
             next: (res) => {
               console.log(Object.values(res)[0]);
 
@@ -96,7 +96,7 @@ export class AuthGuardService {
 
 
 
-    // this.crudService.getTypeRequest('/protected/logged').subscribe(res => {
+    // this.crudService.getTypeRequest('/auth/protected/logged').subscribe(res => {
 
     //   // TODO: PB = you have to reload the page for it to work + if you duplicate tab session storage is ok ?
     //   // if status = false, not allowed
@@ -105,7 +105,7 @@ export class AuthGuardService {
 
     //   // if session storage is empty make token invalid and logout
     //   if (!sessionStorage.getItem('leikaUID') || !sessionStorage.getItem('leikaULK')) {
-    //     this.crudService.getTypeRequest('/protected/logout').subscribe({
+    //     this.crudService.getTypeRequest('/auth/logout').subscribe({
     //       next: (res) => {
     //         console.log(Object.values(res)[0]);
 

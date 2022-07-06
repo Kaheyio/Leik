@@ -8,8 +8,8 @@ import { map} from 'rxjs';
 export class CrudService {
 
 
-  // User collection
-  baseUrl = 'http://localhost:3000/api/user';
+  // backend route prefix (add /users or /auth in components) 
+  baseUrl = 'http://localhost:3000/api';
 
 
   constructor(private http: HttpClient) { }

@@ -1,27 +1,14 @@
 const router = require('express').Router();
 
 const authController = require('../controllers/authController');
-const userCrudController = require('../controllers/userCrudController');
 const leikodeController = require('../controllers/leikodeController');
 
-// to protect this route, use middleware
+// to protect a route, use authMiddleware
 const { requireAuth } = require('../middlewares/authMiddleware');
 
-// DON'T USE SAME ROUTES = for ex get /logged blocks get /:id and get /logout
+// DON'T USE SAME ROUTES FOR SAME METHODS = for example get /logged blocks get /logout
 
-// NB: full route is localhost:PORT/api/user/
-// GET ALL USERS
-router.get('/', userCrudController.getUsers_get);
-
-// GET USER LOGGED BY EMAIL
-router.get('/:id', userCrudController.getUserById_get);
-
-// DELETE ONE USER
-router.delete('/:id', userCrudController.deleteUser_delete);
-
-// NB full route is localhost:PORT/api/user/register
-// REGISTER (for test)
-router.post('/register', authController.register_post);
+// NB: full route is localhost:PORT/api/auth/...
 
 // LOGIN
 // check email + password on login + generate leikode and cookie with token  on login
@@ -31,11 +18,14 @@ router.post('/login', authController.login_post);
 router.get('/protected/logged', requireAuth, authController.loggedRoute_get);
 
 // VALIDATE TRANSACTIONS WITH LEIKODE IN PROTECTED ROUTE
-// router.post('/', requireAuth, leikodeController.leikode_post);
+// router.post('/protected/validation', requireAuth, leikodeController.leikode_post);
 
-// TODO: LOGOUT IN PROTECTED ROUTES
-router.get('/protected/logout', authController.logout_get);
+// TODO: PROTECT THIS ROUTE ???
+/* TODO: there should be a log out method as POST for when user clicks on the button (but what is sent as payload to the server ???)
+ and a log out method as GET when the user is automatically logged out ? */
 
+// LOG OUT 
+router.get('/logout', authController.logout_get);
 
 
 module.exports = router;
