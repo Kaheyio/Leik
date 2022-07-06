@@ -23,12 +23,12 @@ export class MainComponent implements OnInit {
 
     this.authGuardService.isLoggedIn.subscribe(res => {
       this.loggedInState = res;
-      console.log('logged in SERVICE : ' + res + ' COMPONENT : ' + this.loggedInState);
+      // console.log('logged in SERVICE : ' + res + ' COMPONENT : ' + this.loggedInState);
     });
 
     this.authGuardService.isLoggedOut.subscribe(res => {
       this.loggedOutState = res;
-      console.log('logged out SERVICE : ' + res + ' COMPONENT : ' + this.loggedOutState);
+      // console.log('logged out SERVICE : ' + res + ' COMPONENT : ' + this.loggedOutState);
     });
 
   }

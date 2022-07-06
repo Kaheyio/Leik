@@ -32,3 +32,24 @@
 #chat-canvas{
     height: fit-content; //maybe 91%if you prefer
 }
+
+// ************************ //
+// TEST LEILA = animation for page reload after login
+@keyframes slideInTop {
+    0% {
+      transform: translateY(-100%);
+    }
+    25%{
+        transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+#luluwrapper-whole{
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    
+    animation-name: slideInTop;  
+}

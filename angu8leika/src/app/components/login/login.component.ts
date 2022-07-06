@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { CrudService } from 'src/app/services/crud.service';
 import { AuthGuardService } from 'src/app/services/auth-guard.service';
 
@@ -11,8 +10,9 @@ import { AuthGuardService } from 'src/app/services/auth-guard.service';
 })
 export class LoginComponent implements OnInit {
 
-  // boolean for logged state
-  loggedState: boolean = false;
+  // booleans for logged state
+  loggedInState: boolean = false;
+  loggedOutState: boolean = false;
 
   // to check user email update user data in database (new leikode)
   user: any;
@@ -34,27 +34,42 @@ export class LoginComponent implements OnInit {
   // toggle password = get element by id
   @ViewChild("togglePassword") togglePassword!: ElementRef;
 
-  passwordShow:boolean = false;
+  passwordShow: boolean = false;
 
   constructor(
-    private router: Router,
     private crudService: CrudService,
     private authGuardService: AuthGuardService
   ) { }
 
   ngOnInit(): void {
+
+    // TEST receive loggedInState et loggedOutState from auth guard service = OK
+    // this.authGuardService.getLoggedIn().subscribe(res => {
+    //   console.log('logged in: ' + res); 
+    // });
+
+    // this.authGuardService.getLoggedOut().subscribe(res => {
+    //   console.log('logged out: ' + res);  
+    // });
+
   }
 
   onSubmit() {
 
-    // FORM VALDATION
 
     // empty form
     if (this.loginForm.invalid) {
+
       this.errorState = true;
       this.errorMessage = "Please indicate valid email and password";
-      this.loggedState = false;
-      this.authGuardService.setLoggedOutState(this.loggedState);
+
+      this.loggedOutState = true;
+      this.loggedInState = false;
+
+      // send states to auth guard service so that it can send them to main component
+      this.authGuardService.setLoggedOutState(this.loggedOutState);
+      this.authGuardService.setLoggedInState(this.loggedInState);
+
       return;
     }
 
@@ -80,29 +95,40 @@ export class LoginComponent implements OnInit {
         // get user id
         this.userId = this.user._id;
         // console.log(this.userId);
-        
-        
+
+
         // STORE USER ID AND NEW LEIKODE IN SESSION STORAGE
         sessionStorage.setItem('leikaUID', this.userId);
         sessionStorage.setItem('leikaULK', this.userLeikode);
-        
-        // redirect to logged component and its children components
-        // this.router.navigate(['/logged']);
 
-        // TODO: with boolean state instead of route
-        this.loggedState = true;
-        this.authGuardService.setLoggedInState(this.loggedState);
+        this.loggedInState = true;
+        this.loggedOutState = false;
+      
+      // send states to auth guard service so that it can send them to main component
+      this.authGuardService.setLoggedInState(this.loggedInState);
+      this.authGuardService.setLoggedOutState(this.loggedOutState);
 
+      // TODO: get rid of this log
+      console.log('user logged in : ' + this.user.username);
+      
         // reset login form
         this.loginForm.reset();
+
+        // page needs to be reloaded to give time to refresh data state after login (reload with css animation)
+        window.location.reload();
 
       },
       error: (err) => {
         this.errorState = true;
         this.errorMessage = err.error;
-        this.loggedState = false;
-        this.authGuardService.setLoggedOutState(this.loggedState);  
-      }
+
+        this.loggedOutState = true;
+        this.loggedInState = false;
+  
+        // send states to auth guard service so that it can send them to main component
+        this.authGuardService.setLoggedOutState(this.loggedOutState);
+        this.authGuardService.setLoggedInState(this.loggedInState);
+        }
     });
 
   };
@@ -118,7 +144,6 @@ export class LoginComponent implements OnInit {
       this.passwordShow = false;
     }
   };
-
 
 
 }
