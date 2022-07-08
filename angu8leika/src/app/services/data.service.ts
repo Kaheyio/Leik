@@ -26,10 +26,6 @@ export class DataService {
 
 
   constructor(private crudService: CrudService) {
-    // TODO: get rid of this log
-    console.log('DataService created');
-
-
     /* get user id and leikode that were put in session storage on login
      [NB: to keep data displayed if page is refreshed] */
     if (sessionStorage.getItem('leikaUID') && sessionStorage.getItem('leikaULK')) {
@@ -39,11 +35,11 @@ export class DataService {
       // console.log(this.userId);
 
       // get user data from database using its id
-      this.crudService.getTypeRequest(`/${this.userId}`).subscribe({
+      this.crudService.getTypeRequest(`/users/${this.userId}`).subscribe({
         next: (res) => {
           // user data in userData observable         
           this.setLoggedUserData(res);
-          // when put inside the observer, user data is at index 6 of the object
+          // user data is at index 6 of the object
           // console.log(Object.values(this.$userData)[6]); 
         },
         error: (err) => {
@@ -53,7 +49,7 @@ export class DataService {
       });
 
       // check if authToken cookie is stored/valid/expired
-      this.crudService.getTypeRequest('/protected/logged').subscribe(res => {
+      this.crudService.getTypeRequest('/auth/protected/logged').subscribe(res => {
         // if status = false, authToken invalid
         this.authTokenValid = Object.values(res)[0];
         // console.log(this.authTokenValid);
@@ -67,21 +63,31 @@ export class DataService {
   }
 
 
-  // SETTER TO SHARE USER DATA WITHIN THE APP
+  // GETTER AND SETTERS TO SHARE USER DATA WITHIN THE APP
 
-  // NOT WORKING !!! = to get user data from this service 
-  // getLoggedUserData() {
-  //   this.$userData.next(this.userData);
-  // }
+  
+  getLoggedUserData(){
+    return this.userData;
+  }
 
-  // to send user data that was edited from componenens back to this service  
+  getLoggedUserLeikode(){
+    return this.userLeikode;
+  }
+
+  // to send user data that was edited from components back to this service  
   setLoggedUserData(setUserData: any) {
     this.$userData.next(setUserData);
   }
 
-  // TODO: put this method in auth guard service ?
+  // clear user data and leikode from session storage
   clearSessionStorage() {
     sessionStorage.clear();
+  }
+
+  // clear user data on log out
+  clearUserData(){
+    this.$userData.next("");
+    this.$userLeikode.next("");
   }
 
 

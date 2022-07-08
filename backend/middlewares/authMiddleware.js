@@ -1,7 +1,7 @@
 // Middleware function to add to the routes that we want to protect
 const jwt = require('jsonwebtoken');
 
-
+// TODO: send notification before logout
 
 // ROUTE PROTECTION MIDDLEWARE
 const requireAuth = (req, res, next) => {

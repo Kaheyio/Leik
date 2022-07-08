@@ -11,34 +11,25 @@ export class MainComponent implements OnInit {
   loggedInState: boolean = false;
   loggedOutState: boolean = false;
 
-  loggedState: boolean = false;
 
   constructor(private authGuardService: AuthGuardService) { }
 
   ngOnInit(): void {
-    // TODO: for test
-    // this.loggedInState = true;
     this.getLoggedState();
   }
 
-  // TODO: get logged state from login component via auth guard service
+ // get logged state from login and logged components via auth guard service
   getLoggedState() {
 
     this.authGuardService.isLoggedIn.subscribe(res => {
       this.loggedInState = res;
-      console.log('logged in ' + res + this.loggedInState);
+      // console.log('logged in SERVICE : ' + res + ' COMPONENT : ' + this.loggedInState);
     });
 
     this.authGuardService.isLoggedOut.subscribe(res => {
       this.loggedOutState = res;
-      console.log('logged out ' + res + this.loggedOutState);
-    })
-
-    // this.authGuardService.loggedState.subscribe( res => {
-    //   this.loggedState = res;
-    //  console.log(res, this.loggedState);
-
-    // })
+      // console.log('logged out SERVICE : ' + res + ' COMPONENT : ' + this.loggedOutState);
+    });
 
   }
 

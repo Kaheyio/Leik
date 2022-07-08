@@ -1,34 +1,66 @@
 ///////////////////////////// Basic layout
-#luluwrapper-top{
-    height: 9%; //used to be 8%
+#luluwrapper-top {
+  height: 9%; //used to be 8%
 }
-#luluwrapper-center{
-    height: 82%;
+
+#luluwrapper-center {
+  height: 82%;
 }
-#luluwrapper-bottom{
-    height: 9%; // used to be 10%
+
+#luluwrapper-bottom {
+  height: 9%; // used to be 10%
 }
 
 ///////////////////////////// Top nav
-#lulutopnav button{ //overrides bootstrap active states
-    color: var(--lulugold1);
+#lulutopnav button {
+  //overrides bootstrap active states
+  color: var(--lulugold1);
 }
+
 ///////////////////////////// Bottom nav
-#lulubottomnav li{
-    width: 33%;
+#lulubottomnav li {
+  width: 33%;
 }
-#lulubottomnav button{
-    color: var(--lulugold1);
+
+#lulubottomnav button {
+  color: var(--lulugold1);
 }
-#lulubottomnav .nav-link.active { //overrides #lulubottomnavbutton
-    background-color: var(--lulugrey4);
-    color: black;
+
+#lulubottomnav .nav-link.active {
+  //overrides #lulubottomnavbutton
+  background-color: var(--lulugrey4);
+  color: black;
 }
-.nav-link, .nav-link.active{
-    border-radius: 0px;
+
+.nav-link,
+.nav-link.active {
+  border-radius: 0px;
 }
 
 // CHAT OFFCANVAS
-#chat-canvas{
-    height: fit-content; //maybe 91%if you prefer
+#chat-canvas {
+  height: fit-content; //maybe 91%if you prefer
+}
+
+// ************************ //
+// TEST LEILA = animation for page reload after login
+@keyframes slideInTop {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  25% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+#luluwrapper-whole {
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-name: slideInTop;
 }
