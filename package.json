@@ -2,5 +2,9 @@
   "dependencies": {
     "dotenv": "^16.0.1",
     "mongoose": "^6.4.0"
+  },
+  "devDependencies": {
+    "@angular/cli": "^14.0.5",
+    "@angular/compiler-cli": "^14.0.5"
   }
 }
