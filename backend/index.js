@@ -51,4 +51,4 @@ app.use(cookieParser());
 app.use('/api/auth', authRoute);
 app.use('/api/users', usersRoute);
 
-app.listen(process.env.API_PORT, () => console.log(`Server works: http://localhost:${process.env.API_PORT}/api`));
+app.listen(process.env.PORT || process.env.API_PORT, () => console.log(`Server works: http://localhost:${process.env.API_PORT}/api`));

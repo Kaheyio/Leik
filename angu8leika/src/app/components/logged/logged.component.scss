@@ -43,18 +43,17 @@
 }
 
 // ************************ //
-// TEST LEILA = animation for page reload after login
-@keyframes slideInTop {
+// TEST LEILA = Animation for page reload after login
+
+@keyframes fadeIn {
   0% {
-    transform: translateY(-100%);
+    opacity: 0;
   }
-
   25% {
-    transform: translateY(-100%);
+    opacity: 0;
   }
-
   100% {
-    transform: translateY(0);
+    opacity: 1;
   }
 }
 
@@ -62,5 +61,11 @@
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
   animation-delay: 0s;
-  animation-name: slideInTop;
+  animation-name: fadeIn;
 }
+
+
+
+
+
+
